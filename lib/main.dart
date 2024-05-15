@@ -163,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //cover flow horizontal
             SizedBox(
               height: 200,
-              child: ListView.builder(
+              child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: 2,
                 itemBuilder: (context, index) {
@@ -173,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                       Container(
                         width: 200,
-                        margin: const EdgeInsets.only(right: 16.0),
+                        //margin: const EdgeInsets.only(right: 16.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16.0),
                           color: Colors.grey[800],
@@ -181,10 +181,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
 
                       Positioned(
+                        left: 16,
+                        right: 16,
                         bottom: 10,
                         child: Container(
-                          width: 170,
-                          margin: const EdgeInsets.symmetric(horizontal: 16),
                           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(18.0),
@@ -226,6 +226,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ],
                   );
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  return const Gap(15);
                 },
               ),
             ),
