@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        padding: const EdgeInsets.symmetric(vertical: 25.0),
+        padding: const EdgeInsets.only(top: 25),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            const Gap(30),
+            const Gap(20),
 
             //cover flow horizontal
             Padding(
@@ -228,7 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            const Gap(30),
+            const Gap(20),
 
             //playlist section
             const Padding(
@@ -238,9 +238,38 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            //playlist listView expanded
+           const Gap(20),
 
-            const Spacer(),
+            //playlist listView expanded
+            Expanded(
+              child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xff462276).withOpacity(0.7),
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    child: Row(
+                      children: [
+
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16.0)
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  return const Gap(10);
+                },
+                itemCount: 4,
+              ),
+            )
+
           ],
         ),
       )
