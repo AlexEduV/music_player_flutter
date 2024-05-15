@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -160,14 +159,16 @@ class _MyHomePageState extends State<MyHomePage> {
             const Gap(30),
 
             //cover flow horizontal
-            Expanded(
+            SizedBox(
+              height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 1,
+                itemCount: 2,
                 itemBuilder: (context, index) {
+
                   return Container(
-                    height: 30,
-                    width: 30,
+                    width: 200,
+                    margin: const EdgeInsets.only(right: 16.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       color: Colors.grey,
@@ -177,11 +178,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            Spacer(),
-
             //playlist section
 
             //playlist listView expanded
+
+            const Spacer(),
           ],
         ),
       )
