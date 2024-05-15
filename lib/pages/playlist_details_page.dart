@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 class PlaylistDetailsPage extends StatefulWidget {
@@ -54,8 +55,44 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
             ],
           ),
         ),
-        child: const SingleChildScrollView(
+        child: SingleChildScrollView(
 
+          child: Column(
+            children: [
+
+              //big cover picture centered
+              Center(
+                child: Container(
+                  margin: const EdgeInsets.only(top: 80),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24.0),
+                    color: Colors.grey,
+                  ),
+                  height: 280,
+                  width: 280,
+                ),
+              ),
+
+              const Gap(25.0),
+
+              //playlist title
+              const Text(
+                'Hip-hop R&B Mix',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+
+              const Gap(30.0),
+
+              //shuffling bar
+
+              //playlist listView
+
+            ],
+          )
         ),
       ),
     );
