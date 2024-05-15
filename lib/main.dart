@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(25.0),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -121,10 +121,36 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: MaterialStatePropertyAll(
                 EdgeInsets.symmetric(horizontal: 20),
               ),
+              shadowColor: MaterialStatePropertyAll(Colors.transparent),
 
             ),
 
+            Gap(30),
+
             //trending music section
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                Text(
+                  'Trending Music',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+
+                Text(
+                  'View More',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                  ),
+                )
+
+              ],
+            )
 
             //cover flow horizontal
 
