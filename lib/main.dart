@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -141,16 +143,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
 
-                Text(
-                  'View More',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
+                TextButton(
+                  onPressed: null,
+                  child: Text(
+                    'View More',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14,
+                    ),
                   ),
                 )
 
               ],
-            )
+            ),
+
+            Gap(30),
 
             //cover flow horizontal
 
