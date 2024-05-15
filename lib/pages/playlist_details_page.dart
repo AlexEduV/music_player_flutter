@@ -174,28 +174,100 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                 ),
               ),
 
+              const Gap(30),
+
               //playlist listView
               Flexible(
-                child: ListView.separated(
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return Row(
-                      children: [
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: ListView.separated(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
 
-                        Text(
-                          '${index + 1}',
-                          style: const TextStyle(
-                            color: Colors.white,
+                          //counter text
+                          Text(
+                            '${index + 1}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
-                        )
 
-                      ],
-                    );
-                  },
-                  separatorBuilder: (BuildContext context, int index) {
-                    return const Gap(20);
-                  },
+                          const Gap(20.0),
+
+                          //song details column
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+
+                                //name text
+                                Text(
+                                  'Song Name',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+
+                                  ),
+                                ),
+
+                                // album & time
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Album',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+
+                                    Gap(6.0),
+
+                                    //a dot
+                                    Text('\u2022', style: TextStyle(color: Colors.white),),
+
+                                    Gap(6.0),
+
+                                    //song duration
+                                    Text(
+                                      '4:01',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+
+
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+
+                          const Gap(20.0),
+
+                          //more button
+                          const IconButton(
+                            icon: Icon(
+                              Icons.more_vert,
+                              color: Colors.white,
+                            ),
+                            onPressed: null,
+                          )
+
+
+                        ],
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const Gap(20);
+                    },
+                  ),
                 ),
               )
 
