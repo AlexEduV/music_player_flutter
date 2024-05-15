@@ -183,12 +183,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               borderRadius: BorderRadius.circular(18.0),
                               color: Colors.white70,
                             ),
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
 
                                 //song details
-                                Column(
+                                const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
@@ -211,7 +211,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
 
                                 //play/pause button
-                                PlayButton(),
+                                PlayButton(
+                                  tintColor: Colors.grey[200]!,
+                                  backgroundColor: const Color(0xff462276),
+                                  size: 20,
+                                ),
 
 
                               ],
@@ -263,7 +267,44 @@ class _MyHomePageState extends State<MyHomePage> {
                               borderRadius: BorderRadius.circular(16.0),
                               color: Colors.grey,
                             ),
-                          )
+                          ),
+
+                          const Gap(16.0),
+
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+
+                                Text(
+                                  'Hip-Hop R&B Mix',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+                                Text(
+                                  '30 Songs',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+
+                          const Gap(16.0),
+
+                          //play/pause button
+                          PlayButton(
+                            tintColor: const Color(0xff462276),
+                            backgroundColor: Colors.grey[200]!,
+                            size: 22,
+                          ),
+
                         ],
                       ),
                     );
