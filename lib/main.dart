@@ -167,11 +167,54 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemBuilder: (context, index) {
 
                   return Container(
-                    width: 200,
+                    width: 180,
                     margin: const EdgeInsets.only(right: 16.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
-                      color: Colors.grey,
+                      color: Colors.grey[800],
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16.0),
+                        color: Colors.white60,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+
+                          //song details
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Runaway'),
+
+                              Text('Aurora'),
+                            ],
+                          ),
+
+                          //play/pause button
+                          Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color:  const Color(0xff462276),
+                              borderRadius: BorderRadius.circular(64.0),
+                            ),
+                            child: const IconButton(
+                              onPressed: null,
+                              icon: Icon(
+                                Icons.play_arrow,
+                                color: Colors.white,
+                                size: 12,
+                              ),
+                            ),
+                          ),
+
+
+                        ],
+                      ),
                     ),
                   );
                 },
