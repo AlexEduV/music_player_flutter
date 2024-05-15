@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -58,6 +59,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
         child: SingleChildScrollView(
 
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
 
               //big cover picture centered
@@ -87,7 +89,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
 
               const Gap(30.0),
 
-              //shuffling bar
+              //shuffle bar
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32.0),
@@ -98,6 +100,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
 
+                    //play button
                     Padding(
                       padding: const EdgeInsets.only(left: 56.0),
                       child: Row(
@@ -133,7 +136,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                       ),
                     ),
 
-                    //shuffle
+                    //shuffle button
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(32.0),
@@ -172,6 +175,29 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
               ),
 
               //playlist listView
+              Flexible(
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return Row(
+                      children: [
+
+                        Text(
+                          '${index + 1}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        )
+
+                      ],
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const Gap(20);
+                  },
+                ),
+              )
 
             ],
           )
