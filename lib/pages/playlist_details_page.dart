@@ -134,22 +134,56 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                           ],
                         ),
 
-                        //shuffle button
-                        Positioned.fill(
-                          right: 0,
+                        Container(),
 
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16.0),
-                              color: const Color(0xff462276).withOpacity(0.7),
+                      ]
+                    ),
+                  ),
+
+                  Positioned(
+                    right: 0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: const Color(0xff7A558C),
+                      ),
+                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+
+                          //shuffle text
+                          const Text(
+                            'Shuffle',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
 
-                        )
+                          const Gap(15.0),
 
-                      ],
+                          //shuffle icon
+                          Container(
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                              color: const Color(0xff7A558C),
+                              borderRadius: BorderRadius.circular(64.0),
+                            ),
+                            child: const Icon(
+                              Icons.shuffle_outlined,
+                              color: Colors.white,
+                              size: 14,
+                            ),
+                          ),
+
+                        ],
+                      ),
                     ),
-                  )
+                  ),
 
                 ],
               )
