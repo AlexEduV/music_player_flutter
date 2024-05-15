@@ -53,10 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
             Gap(30),
 
+            //icons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -74,7 +76,39 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
 
               ],
-            )
+            ),
+
+            Gap(40),
+
+            //texts
+            Text(
+              'Welcome',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+
+            Gap(5),
+
+            Text(
+              'Enjoy Your Favorite Music',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+
+            //search bar
+
+            //trending music section
+
+            //cover flow horizontal
+
+            //playlist section
+
+            //playlist listView expanded
           ],
         ),
       )
