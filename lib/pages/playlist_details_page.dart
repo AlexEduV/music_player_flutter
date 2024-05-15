@@ -179,7 +179,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
               //playlist listView
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  padding: const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 25.0),
                   child: ListView.separated(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
