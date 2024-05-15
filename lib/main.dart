@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:music_player_flutter/widgets/bottom_nav_bar_icon.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
 import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
 import 'package:music_player_flutter/widgets/section_row.dart';
@@ -282,42 +283,26 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const [
           BottomNavigationBarItem(
             label: 'Home',
-            icon: Padding(
-              padding: EdgeInsets.only(top: 5),
-              child: Icon(
-                Icons.home_outlined,
-                size: 30,
-              ),
+            icon: BottomNavigationBarIcon(
+              icon: Icons.home_outlined,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Bookmarks',
-            icon: Padding(
-              padding: EdgeInsets.only(top: 5),
-              child: Icon(
-                Icons.bookmark_outline,
-                size: 30,
-              ),
+            icon: BottomNavigationBarIcon(
+              icon: Icons.bookmark_outline,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Play',
-            icon: Padding(
-              padding: EdgeInsets.only(top: 5),
-              child: Icon(
-                Icons.play_circle_outline,
-                size: 30,
-              ),
+            icon: BottomNavigationBarIcon(
+              icon: Icons.play_circle_outline,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Profile',
-            icon: Padding(
-              padding: EdgeInsets.only(top: 5),
-              child: Icon(
-                Icons.people_outline,
-                size: 30,
-              ),
+            icon: BottomNavigationBarIcon(
+              icon: Icons.people_outline,
             ),
           ),
         ],
