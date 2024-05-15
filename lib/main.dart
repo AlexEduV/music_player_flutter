@@ -254,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     return Container(
                       decoration: BoxDecoration(
                         color: const Color(0xff462276).withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(16.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                       child: Row(
@@ -281,6 +281,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
+                                    fontSize: 13,
                                   ),
                                 ),
 
@@ -310,7 +311,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return const Gap(10);
+                    return const Gap(20);
                   },
                   itemCount: 4,
                 ),
