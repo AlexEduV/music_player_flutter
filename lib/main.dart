@@ -247,12 +247,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
 
-             const Gap(20),
-
               //playlist listView expanded
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Expanded(
+              Flexible(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
                   child: ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
