@@ -282,30 +282,42 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const [
           BottomNavigationBarItem(
             label: 'Home',
-            icon: Icon(
-              Icons.home_outlined,
-              size: 30,
+            icon: Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Icon(
+                Icons.home_outlined,
+                size: 30,
+              ),
             ),
           ),
           BottomNavigationBarItem(
             label: 'Bookmarks',
-            icon: Icon(
-              Icons.bookmark_outline,
-              size: 30,
+            icon: Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Icon(
+                Icons.bookmark_outline,
+                size: 30,
+              ),
             ),
           ),
           BottomNavigationBarItem(
             label: 'Play',
-            icon: Icon(
-              Icons.play_circle_outline,
-              size: 30,
+            icon: Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Icon(
+                Icons.play_circle_outline,
+                size: 30,
+              ),
             ),
           ),
           BottomNavigationBarItem(
             label: 'Profile',
-            icon: Icon(
-              Icons.people_outline,
-              size: 30,
+            icon: Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Icon(
+                Icons.people_outline,
+                size: 30,
+              ),
             ),
           ),
         ],
