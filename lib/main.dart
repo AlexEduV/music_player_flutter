@@ -242,31 +242,37 @@ class _MyHomePageState extends State<MyHomePage> {
 
             //playlist listView expanded
             Expanded(
-              child: ListView.separated(
-                itemBuilder: (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xff462276).withOpacity(0.7),
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    child: Row(
-                      children: [
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: ListView.separated(
+                  padding: EdgeInsets.zero,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xff462276).withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                      child: Row(
+                        children: [
 
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.0)
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const Gap(10);
-                },
-                itemCount: 4,
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16.0),
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const Gap(10);
+                  },
+                  itemCount: 4,
+                ),
               ),
             )
 
