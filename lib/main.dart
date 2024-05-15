@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
 import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
@@ -37,6 +36,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  int _selectedBottomNavigationIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -269,7 +270,47 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-      )
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedBottomNavigationIndex,
+        backgroundColor: const Color(0xff462276),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white54,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: Icon(
+              Icons.home_outlined,
+              size: 30,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Bookmarks',
+            icon: Icon(
+              Icons.bookmark_outline,
+              size: 30,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Play',
+            icon: Icon(
+              Icons.play_circle_outline,
+              size: 30,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Profile',
+            icon: Icon(
+              Icons.people_outline,
+              size: 30,
+            ),
+          ),
+        ],
+      ),
+
     );
   }
 }
