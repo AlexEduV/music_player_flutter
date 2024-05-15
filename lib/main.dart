@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:music_player_flutter/widgets/play_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -166,56 +168,63 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: 2,
                 itemBuilder: (context, index) {
 
-                  return Container(
-                    width: 180,
-                    margin: const EdgeInsets.only(right: 16.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
-                      color: Colors.grey[800],
-                    ),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      padding: const EdgeInsets.all(16.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16.0),
-                        color: Colors.white60,
+                  return Stack(
+                    children: [
+
+                      Container(
+                        width: 200,
+                        margin: const EdgeInsets.only(right: 16.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16.0),
+                          color: Colors.grey[800],
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
 
-                          //song details
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                      Positioned(
+                        bottom: 10,
+                        child: Container(
+                          width: 170,
+                          margin: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18.0),
+                            color: Colors.white60,
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('Runaway'),
 
-                              Text('Aurora'),
+                              //song details
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Runaway',
+                                    style: TextStyle(
+                                      color: Color(0xff462276),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+
+                                  Text(
+                                    'Aurora',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              //play/pause button
+                              PlayButton(),
+
+
                             ],
                           ),
-
-                          //play/pause button
-                          Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color:  const Color(0xff462276),
-                              borderRadius: BorderRadius.circular(64.0),
-                            ),
-                            child: const IconButton(
-                              onPressed: null,
-                              icon: Icon(
-                                Icons.play_arrow,
-                                color: Colors.white,
-                                size: 12,
-                              ),
-                            ),
-                          ),
-
-
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   );
                 },
               ),
