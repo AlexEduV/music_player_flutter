@@ -8,7 +8,7 @@ import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
 import 'package:music_player_flutter/widgets/section_row.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
 
-import '../model/model.dart';
+import 'package:music_player_flutter/model/model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key,});
@@ -56,15 +56,17 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
 
+                    //browse button
                     IconButton(
                       onPressed: null,
                       icon: Icon(
-                        Icons.grid_view,
+                        Icons.grid_view_rounded,
                         size: 30,
                         color: Colors.white,
                       ),
                     ),
 
+                    //profile button
                     IconButton(
                       onPressed: null,
                       icon: Icon(
@@ -202,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
-                      return const Gap(25);
+                      return const Gap(15);
                     },
                   ),
                 ),
