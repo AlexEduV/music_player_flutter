@@ -12,10 +12,10 @@ class PlayButton extends StatelessWidget {
         color:  const Color(0xff462276),
         borderRadius: BorderRadius.circular(64.0),
       ),
-      child: const Icon(
+      child: Icon(
         Icons.play_arrow,
-        color: Colors.white60,
-        size: 14,
+        color: Colors.grey[300],
+        size: 18,
       ),
     );
   }
