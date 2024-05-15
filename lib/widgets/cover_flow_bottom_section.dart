@@ -23,12 +23,12 @@ class CoverFlowBottomSection extends StatelessWidget {
           vertical: 12.0,
           horizontal: 20.0,
         ),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(18.0),
             bottomRight: Radius.circular(18.0),
           ),
-          color: Colors.white.withOpacity(0.95),
+          color: Colors.white,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
