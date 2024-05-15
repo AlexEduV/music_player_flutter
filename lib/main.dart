@@ -179,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.only(left: 25),
               child: SizedBox(
-                height: 200,
+                height: 250,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: 2,
@@ -201,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           right: 16,
                           bottom: 10,
                           child: Container(
-                            padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+                            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(18.0),
                               color: Colors.white70,
@@ -219,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       style: TextStyle(
                                         color: Color(0xff462276),
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16,
+                                        fontSize: 14,
                                       ),
                                     ),
 
@@ -227,6 +227,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       'Aurora',
                                       style: TextStyle(
                                         color: Colors.white,
+                                        fontSize: 12,
                                       ),
                                     ),
                                   ],
