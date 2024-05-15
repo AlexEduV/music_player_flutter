@@ -147,63 +147,63 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.only(left: 25),
                 child: SizedBox(
                   height: 240,
-                  child: ListView.separated(
+                  child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: trendingMusic.length,
                     itemBuilder: (context, index) {
 
-                      return Stack(
-                        children: [
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: Stack(
+                          children: [
 
-                          Container(
-                            width: 220,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  trendingMusic.values.elementAt(index)[1],
-                                ),
-                                fit: BoxFit.cover,
-                              )
-                            ),
-                          ),
-
-                          Positioned(
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
+                            Container(
+                              width: 220,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(18.0),
-                                color: Colors.white.withOpacity(0.9),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-
-                                  //song details
-                                  SongInfoColumn(
-                                    songTitle: trendingMusic.keys.elementAt(index),
-                                    artistName: trendingMusic.values.elementAt(index)[0],
+                                borderRadius: BorderRadius.circular(16.0),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    trendingMusic.values.elementAt(index)[1],
                                   ),
-
-                                  //play/pause button
-                                  PlayButton(
-                                    color: const Color(0xff462276),
-                                    size: 20,
-                                  ),
-
-
-                                ],
+                                  fit: BoxFit.cover,
+                                )
                               ),
                             ),
-                          ),
-                        ],
+
+                            Positioned(
+                              left: 0,
+                              right: 0,
+                              bottom: 0,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  color: Colors.white.withOpacity(0.9),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+
+                                    //song details
+                                    SongInfoColumn(
+                                      songTitle: trendingMusic.keys.elementAt(index),
+                                      artistName: trendingMusic.values.elementAt(index)[0],
+                                    ),
+
+                                    //play/pause button
+                                    const PlayButton(
+                                      color: Color(0xff462276),
+                                      size: 20,
+                                    ),
+
+
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       );
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const Gap(15);
                     },
                   ),
                 ),
