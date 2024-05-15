@@ -90,7 +90,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
               //shuffling bar
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.circular(32.0),
                   color: Colors.white,
                 ),
                 margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -136,7 +136,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                     //shuffle
                     Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(32.0),
                         color: const Color(0xff73489D),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
@@ -150,7 +150,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
 
