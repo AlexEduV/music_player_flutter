@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -54,14 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        child: const Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            Gap(30),
+            const Gap(30),
 
             //icons
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
@@ -86,10 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
 
-            Gap(40),
+            const Gap(40),
 
             //texts
-            Text(
+            const Text(
               'Welcome',
               style: TextStyle(
                 color: Colors.white,
@@ -97,9 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            Gap(5),
+            const Gap(5),
 
-            Text(
+            const Text(
               'Enjoy Your Favorite Music',
               style: TextStyle(
                 color: Colors.white,
@@ -108,10 +107,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            Gap(30),
+            const Gap(30),
 
             //search bar
-            SearchBar(
+            const SearchBar(
               leading: Icon(
                 Icons.search,
                 color: Colors.grey,
@@ -127,10 +126,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
             ),
 
-            Gap(30),
+            const Gap(30),
 
             //trending music section
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
@@ -150,17 +149,35 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.normal,
-                      fontSize: 14,
+                      fontSize: 12,
                     ),
                   ),
-                )
+                ),
 
               ],
             ),
 
-            Gap(30),
+            const Gap(30),
 
             //cover flow horizontal
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 1,
+                itemBuilder: (context, index) {
+                  return Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: Colors.grey,
+                    ),
+                  );
+                },
+              ),
+            ),
+
+            Spacer(),
 
             //playlist section
 
