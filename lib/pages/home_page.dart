@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     IconButton(
                       onPressed: null,
                       icon: Icon(
-                        Icons.supervised_user_circle_outlined,
+                        Icons.person,
                         size: 30,
                         color: Colors.white,
                       ),
