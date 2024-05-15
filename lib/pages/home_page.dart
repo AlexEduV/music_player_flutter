@@ -220,11 +220,10 @@ class _HomePageState extends State<HomePage> {
               const Gap(20),
 
               //playlist section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.0),
                 child: SectionRow(
                   sectionTitle: 'Playlists',
-                  onSectionButtonPressed: openPlaylistDetails,
                 ),
               ),
 
@@ -237,7 +236,9 @@ class _HomePageState extends State<HomePage> {
                     shrinkWrap: true,
                     padding: EdgeInsets.zero,
                     itemBuilder: (context, index) {
-                      return const PlaylistListTile();
+                      return PlaylistListTile(
+                        onItemTap: openPlaylistDetails,
+                      );
                     },
                     separatorBuilder: (BuildContext context, int index) {
                       return const Gap(20);
