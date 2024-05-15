@@ -22,7 +22,7 @@ class SectionRow extends StatelessWidget {
         Text(
           sectionTitle,
           style: const TextStyle(
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w500,
             fontSize: 16,
             color: Colors.white,
           ),

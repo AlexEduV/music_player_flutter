@@ -228,7 +228,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
+            const Gap(30),
+
             //playlist section
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
+              child: SectionRow(
+                sectionTitle: 'Playlists',
+              ),
+            ),
 
             //playlist listView expanded
 
