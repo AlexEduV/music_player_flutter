@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                                   //play/pause button
                                   PlayButton(
                                     tintColor: Colors.grey[200]!,
-                                    backgroundColor: const Color(0xff462276),
+                                    color: const Color(0xff462276),
                                     size: 20,
                                   ),
 
@@ -250,32 +250,30 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color(0xff462276),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white54,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
             label: 'Home',
             icon: BottomNavigationBarIcon(
-              icon: Icons.home_outlined,
+              icon: Icons.home,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Bookmarks',
             icon: BottomNavigationBarIcon(
-              icon: Icons.bookmark_outline,
+              icon: Icons.bookmark,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Play',
             icon: BottomNavigationBarIcon(
-              icon: Icons.play_circle_outline,
+              icon: Icons.play_circle,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Profile',
             icon: BottomNavigationBarIcon(
-              icon: Icons.people_outline,
+              icon: Icons.people,
             ),
           ),
         ],
