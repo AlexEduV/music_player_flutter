@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
+import 'package:music_player_flutter/widgets/section_row.dart';
 
 void main() {
   runApp(const MyApp());
@@ -144,32 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
             //trending music section
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-
-                  Text(
-                    'Trending Music',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-
-                  TextButton(
-                    onPressed: null,
-                    child: Text(
-                      'View More',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
-
-                ],
+              child: SectionRow(
+                sectionTitle: 'Trending Music',
               ),
             ),
 
