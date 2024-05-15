@@ -183,6 +183,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                   child: ListView.separated(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return Row(
