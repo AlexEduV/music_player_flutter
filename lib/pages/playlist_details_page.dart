@@ -140,7 +140,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(32.0),
-                        color: const Color(0xff73489D),
+                        color: const Color(0xff6D4A98),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
                       child: const Row(
