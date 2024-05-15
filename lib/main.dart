@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        padding: const EdgeInsets.all(25.0),
+        padding: const EdgeInsets.symmetric(vertical: 25.0),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -61,174 +61,192 @@ class _MyHomePageState extends State<MyHomePage> {
             const Gap(30),
 
             //icons
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
 
-                IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.grid_view,
-                    size: 30,
-                    color: Colors.white,
+                  IconButton(
+                    onPressed: null,
+                    icon: Icon(
+                      Icons.grid_view,
+                      size: 30,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
 
-                IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.supervised_user_circle_outlined,
-                    size: 30,
-                    color: Colors.white,
+                  IconButton(
+                    onPressed: null,
+                    icon: Icon(
+                      Icons.supervised_user_circle_outlined,
+                      size: 30,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
 
-              ],
+                ],
+              ),
             ),
 
             const Gap(40),
 
             //texts
-            const Text(
-              'Welcome',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
+              child: Text(
+                'Welcome',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
               ),
             ),
 
             const Gap(5),
 
-            const Text(
-              'Enjoy Your Favorite Music',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
+              child: Text(
+                'Enjoy Your Favorite Music',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
             ),
 
             const Gap(30),
 
             //search bar
-            const SearchBar(
-              leading: Icon(
-                Icons.search,
-                color: Colors.grey,
-              ),
-              hintText: 'Search',
-              hintStyle: MaterialStatePropertyAll(
-                TextStyle(color: Colors.grey),
-              ),
-              padding: MaterialStatePropertyAll(
-                EdgeInsets.symmetric(horizontal: 20),
-              ),
-              shadowColor: MaterialStatePropertyAll(Colors.transparent),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: SearchBar(
+                leading: Icon(
+                  Icons.search,
+                  color: Colors.grey,
+                ),
+                hintText: 'Search',
+                hintStyle: MaterialStatePropertyAll(
+                  TextStyle(color: Colors.grey),
+                ),
+                padding: MaterialStatePropertyAll(
+                  EdgeInsets.symmetric(horizontal: 20),
+                ),
+                shadowColor: MaterialStatePropertyAll(Colors.transparent),
 
+              ),
             ),
 
             const Gap(30),
 
             //trending music section
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
 
-                Text(
-                  'Trending Music',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                    color: Colors.white,
-                  ),
-                ),
-
-                TextButton(
-                  onPressed: null,
-                  child: Text(
-                    'View More',
+                  Text(
+                    'Trending Music',
                     style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
                       color: Colors.white,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 12,
                     ),
                   ),
-                ),
 
-              ],
+                  TextButton(
+                    onPressed: null,
+                    child: Text(
+                      'View More',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
             ),
 
             const Gap(30),
 
             //cover flow horizontal
-            SizedBox(
-              height: 200,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemCount: 2,
-                itemBuilder: (context, index) {
+            Padding(
+              padding: const EdgeInsets.only(left: 25),
+              child: SizedBox(
+                height: 200,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 2,
+                  itemBuilder: (context, index) {
 
-                  return Stack(
-                    children: [
+                    return Stack(
+                      children: [
 
-                      Container(
-                        width: 200,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.0),
-                          color: Colors.grey[800],
-                        ),
-                      ),
-
-                      Positioned(
-                        left: 16,
-                        right: 16,
-                        bottom: 10,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+                        Container(
+                          width: 200,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(18.0),
-                            color: Colors.white70,
-                          ),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-
-                              //song details
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Runaway',
-                                    style: TextStyle(
-                                      color: Color(0xff462276),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-
-                                  Text(
-                                    'Aurora',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                              //play/pause button
-                              PlayButton(),
-
-
-                            ],
+                            borderRadius: BorderRadius.circular(16.0),
+                            color: Colors.grey[800],
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const Gap(15);
-                },
+
+                        Positioned(
+                          left: 16,
+                          right: 16,
+                          bottom: 10,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(18.0),
+                              color: Colors.white70,
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+
+                                //song details
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Runaway',
+                                      style: TextStyle(
+                                        color: Color(0xff462276),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+
+                                    Text(
+                                      'Aurora',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                //play/pause button
+                                PlayButton(),
+
+
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const Gap(15);
+                  },
+                ),
               ),
             ),
 
