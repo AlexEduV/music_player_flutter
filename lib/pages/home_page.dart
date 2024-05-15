@@ -190,7 +190,6 @@ class _HomePageState extends State<HomePage> {
 
                                   //play/pause button
                                   PlayButton(
-                                    tintColor: Colors.grey[200]!,
                                     color: const Color(0xff462276),
                                     size: 20,
                                   ),

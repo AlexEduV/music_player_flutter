@@ -4,13 +4,11 @@ class PlayButton extends StatelessWidget {
 
   final Function()? onTap;
   final Color color;
-  final Color? tintColor;
   final double size;
 
   const PlayButton({
     super.key,
     this.onTap,
-    required this.tintColor,
     required this.color,
     required this.size,
   });

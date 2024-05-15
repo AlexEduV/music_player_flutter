@@ -64,7 +64,6 @@ class PlaylistListTile extends StatelessWidget {
 
             //play/pause button
             PlayButton(
-              tintColor: const Color(0xff462276),
               color: Colors.grey[200]!,
               size: 22,
             ),
