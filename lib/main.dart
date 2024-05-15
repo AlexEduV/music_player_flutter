@@ -100,7 +100,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
+            Gap(30),
+
             //search bar
+            SearchBar(
+              leading: Icon(
+                Icons.search,
+                color: Colors.grey,
+              ),
+              hintText: 'Search',
+              hintStyle: MaterialStatePropertyAll(
+                TextStyle(color: Colors.grey),
+              ),
+              padding: MaterialStatePropertyAll(
+                EdgeInsets.symmetric(horizontal: 20),
+              ),
+
+            ),
 
             //trending music section
 
