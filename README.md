@@ -1,2 +1,2 @@
 # music_player_flutter
-A music player mobile app with the deisgn from dribbble
+A music player mobile app based on the design from dribbble
