@@ -15,7 +15,24 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: SafeArea(
-        child: Container(),
+        child: Container(
+          width: double.maxFinite,
+          height: double.maxFinite,
+          padding: const EdgeInsets.only(top: 25),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xff462276),
+                Color(0xff7A558C),
+              ],
+            ),
+          ),
+          child: const SingleChildScrollView(
+            
+          ),
+        ),
       ),
     );
   }
