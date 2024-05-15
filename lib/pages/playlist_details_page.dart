@@ -12,7 +12,12 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
   @override
   Widget build(BuildContext context) {
 
-    return const Placeholder();
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      body: SafeArea(
+        child: Container(),
+      ),
+    );
   }
 
 

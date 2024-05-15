@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:music_player_flutter/widgets/bottom_nav_bar_icon.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
 import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
 import 'package:music_player_flutter/widgets/section_row.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class HomePage extends StatefulWidget {
+  const HomePage({super.key,});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
 
   int _selectedBottomNavigationIndex = 0;
 
@@ -221,10 +220,11 @@ class _MyHomePageState extends State<MyHomePage> {
               const Gap(20),
 
               //playlist section
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: SectionRow(
                   sectionTitle: 'Playlists',
+                  onSectionButtonPressed: openPlaylistDetails,
                 ),
               ),
 
@@ -288,5 +288,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
     );
+  }
+
+  void openPlaylistDetails() {
+    context.go('/playlistDetails');
   }
 }
