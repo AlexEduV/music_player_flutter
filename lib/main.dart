@@ -173,7 +173,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
                       Container(
                         width: 200,
-                        //margin: const EdgeInsets.only(right: 16.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16.0),
                           color: Colors.grey[800],
@@ -188,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(18.0),
-                            color: Colors.white60,
+                            color: Colors.white70,
                           ),
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
