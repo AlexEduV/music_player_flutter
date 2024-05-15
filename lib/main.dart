@@ -63,16 +63,22 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
-                Icon(
-                  Icons.grid_view,
-                  size: 30,
-                  color: Colors.white,
+                IconButton(
+                  onPressed: null,
+                  icon: Icon(
+                    Icons.grid_view,
+                    size: 30,
+                    color: Colors.white,
+                  ),
                 ),
 
-                Icon(
-                  Icons.supervised_user_circle_outlined,
-                  size: 30,
-                  color: Colors.white,
+                IconButton(
+                  onPressed: null,
+                  icon: Icon(
+                    Icons.supervised_user_circle_outlined,
+                    size: 30,
+                    color: Colors.white,
+                  ),
                 ),
 
               ],
