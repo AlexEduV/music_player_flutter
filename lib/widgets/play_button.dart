@@ -6,8 +6,8 @@ class PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 25,
-      height: 25,
+      width: 20,
+      height: 20,
       decoration: BoxDecoration(
         color:  const Color(0xff462276),
         borderRadius: BorderRadius.circular(64.0),
@@ -15,7 +15,7 @@ class PlayButton extends StatelessWidget {
       child: Icon(
         Icons.play_arrow,
         color: Colors.grey[300],
-        size: 18,
+        size: 14,
       ),
     );
   }
