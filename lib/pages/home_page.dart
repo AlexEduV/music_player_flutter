@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(16.0),
                               image: DecorationImage(
                                 image: AssetImage(
-                                  trendingMusicAssetNames[index],
+                                  trendingMusic.values.elementAt(index)[1],
                                 ),
                                 fit: BoxFit.cover,
                               )
@@ -169,9 +169,9 @@ class _HomePageState extends State<HomePage> {
                           ),
 
                           Positioned(
-                            left: 16,
-                            right: 16,
-                            bottom: 10,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
                             child: Container(
                               padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
                               decoration: BoxDecoration(
@@ -185,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                                   //song details
                                   SongInfoColumn(
                                     songTitle: trendingMusic.keys.elementAt(index),
-                                    artistName: trendingMusic.values.elementAt(index),
+                                    artistName: trendingMusic.values.elementAt(index)[0],
                                   ),
 
                                   //play/pause button
