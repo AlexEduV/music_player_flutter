@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const Gap(20),
+              const Gap(15),
 
               //cover flow horizontal
               Padding(
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
               //playlist listView expanded
               Flexible(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
                   child: ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
