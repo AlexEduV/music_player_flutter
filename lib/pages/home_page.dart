@@ -6,6 +6,7 @@ import 'package:music_player_flutter/widgets/bottom_nav_bar_icon.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
 import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
 import 'package:music_player_flutter/widgets/section_row.dart';
+import 'package:music_player_flutter/widgets/song_info_column.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key,});
@@ -17,6 +18,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   int _selectedBottomNavigationIndex = 0;
+
+  //static values (ideally to be loaded via async)
+  final Map<String, String> trendingMusic = {
+    'Taylor Swift': '22',
+    'Queen': 'Bohemian Rhapsody',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -144,14 +151,14 @@ class _HomePageState extends State<HomePage> {
                   height: 240,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 2,
+                    itemCount: trendingMusic.length,
                     itemBuilder: (context, index) {
 
                       return Stack(
                         children: [
 
                           Container(
-                            width: 200,
+                            width: 220,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16.0),
                               color: Colors.grey[800],
@@ -173,26 +180,9 @@ class _HomePageState extends State<HomePage> {
                                 children: [
 
                                   //song details
-                                  const Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Runaway',
-                                        style: TextStyle(
-                                          color: Color(0xff462276),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-
-                                      Text(
-                                        'Aurora',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
+                                  SongInfoColumn(
+                                    songTitle: trendingMusic.keys.elementAt(index),
+                                    artistName: trendingMusic.values.elementAt(index),
                                   ),
 
                                   //play/pause button
