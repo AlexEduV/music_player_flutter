@@ -151,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(
                     'Trending Music',
                     style: TextStyle(
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       fontSize: 16,
                       color: Colors.white,
                     ),
@@ -179,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.only(left: 25),
               child: SizedBox(
-                height: 250,
+                height: 240,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: 2,
@@ -245,7 +245,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return const Gap(15);
+                    return const Gap(25);
                   },
                 ),
               ),
