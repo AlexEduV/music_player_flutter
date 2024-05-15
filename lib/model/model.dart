@@ -4,4 +4,6 @@ final Map<String, List<String>> trendingMusic = {
   'Bohemian Rhapsody' : ['Queen', 'assets/images/bohemian_rhapsody_album_cover.jpeg'],
 };
 
-//final
+final Map<String, List<String>> playLists = {
+  'Hip-Hop R&B Mix' : ['Caroline'],
+};
