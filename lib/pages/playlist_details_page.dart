@@ -88,69 +88,60 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
               const Gap(30.0),
 
               //shuffling bar
-              Stack(
-                children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.white,
+                ),
+                margin: const EdgeInsets.symmetric(horizontal: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
 
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.white,
-                    ),
-                    margin: const EdgeInsets.symmetric(horizontal: 25),
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 56.0),
+                      child: Row(
+                        children: [
 
-                        Row(
-                          children: [
-
-                            //text play
-                            const Text(
-                              'Play',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                              ),
+                          //text play
+                          const Text(
+                            'Play',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
                             ),
+                          ),
 
-                            const Gap(10.0),
+                          const Gap(10.0),
 
-                            //play icon circular
-                            Container(
-                              width: 20,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                color: const Color(0xff7A558C),
-                                borderRadius: BorderRadius.circular(64.0),
-                              ),
-                              child: const Icon(
-                                Icons.play_arrow,
-                                color: Colors.white,
-                                size: 14,
-                              ),
+                          //play icon circular
+                          Container(
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                              color: const Color(0xff7A558C),
+                              borderRadius: BorderRadius.circular(64.0),
                             ),
+                            child: const Icon(
+                              Icons.play_arrow,
+                              color: Colors.white,
+                              size: 14,
+                            ),
+                          ),
 
-                          ],
-                        ),
-
-                        Container(),
-
-                      ]
+                        ],
+                      ),
                     ),
-                  ),
 
-                  Positioned(
-                    right: 0,
-                    child: Container(
+                    //shuffle
+                    Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
                         color: const Color(0xff7A558C),
                       ),
-                      margin: const EdgeInsets.symmetric(horizontal: 25),
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
                       child: Row(
-                        mainAxisSize: MainAxisSize.min,
+                        mainAxisSize: MainAxisSize.max,
                         children: [
 
                           //shuffle text
@@ -183,10 +174,10 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                         ],
                       ),
                     ),
-                  ),
 
-                ],
-              )
+                  ]
+                ),
+              ),
 
               //playlist listView
 
