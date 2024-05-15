@@ -137,15 +137,15 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: const Color(0xff7A558C),
+                        color: const Color(0xff73489D),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
-                      child: Row(
+                      child: const Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
 
                           //shuffle text
-                          const Text(
+                          Text(
                             'Shuffle',
                             style: TextStyle(
                               color: Colors.white,
@@ -154,21 +154,13 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                             ),
                           ),
 
-                          const Gap(15.0),
+                          Gap(15.0),
 
                           //shuffle icon
-                          Container(
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              color: const Color(0xff7A558C),
-                              borderRadius: BorderRadius.circular(64.0),
-                            ),
-                            child: const Icon(
-                              Icons.shuffle_outlined,
-                              color: Colors.white,
-                              size: 14,
-                            ),
+                          Icon(
+                            Icons.shuffle_outlined,
+                            color: Colors.white,
+                            size: 20,
                           ),
 
                         ],
