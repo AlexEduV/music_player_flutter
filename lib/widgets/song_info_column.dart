@@ -28,7 +28,7 @@ class SongInfoColumn extends StatelessWidget {
         Text(
           artistName,
           style: const TextStyle(
-            color: Colors.white,
+            color: Color(0xff462276),
             fontSize: 12,
           ),
         ),

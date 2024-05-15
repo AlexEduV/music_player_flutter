@@ -8,6 +8,8 @@ import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
 import 'package:music_player_flutter/widgets/section_row.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
 
+import '../model/model.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key,});
 
@@ -18,12 +20,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   int _selectedBottomNavigationIndex = 0;
-
-  //static values (ideally to be loaded via async)
-  final Map<String, String> trendingMusic = {
-    'Taylor Swift': '22',
-    'Queen': 'Bohemian Rhapsody',
-  };
 
   @override
   Widget build(BuildContext context) {
@@ -161,7 +157,12 @@ class _HomePageState extends State<HomePage> {
                             width: 220,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16.0),
-                              color: Colors.grey[800],
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  trendingMusicAssetNames[index],
+                                ),
+                                fit: BoxFit.cover,
+                              )
                             ),
                           ),
 
@@ -173,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18.0),
-                                color: Colors.white70,
+                                color: Colors.white.withOpacity(0.9),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
