@@ -3,10 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:music_player_flutter/widgets/bottom_nav_bar_icon.dart';
-import 'package:music_player_flutter/widgets/play_button.dart';
+import 'package:music_player_flutter/widgets/cover_flow_bottom_section.dart';
 import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
 import 'package:music_player_flutter/widgets/section_row.dart';
-import 'package:music_player_flutter/widgets/song_info_column.dart';
 
 import 'package:music_player_flutter/model/model.dart';
 
@@ -166,41 +165,14 @@ class _HomePageState extends State<HomePage> {
                                     trendingMusic.values.elementAt(index)[1],
                                   ),
                                   fit: BoxFit.cover,
-                                )
-                              ),
-                            ),
-
-                            Positioned(
-                              left: 0,
-                              right: 0,
-                              bottom: 0,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                  color: Colors.white.withOpacity(0.9),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-
-                                    //song details
-                                    SongInfoColumn(
-                                      songTitle: trendingMusic.keys.elementAt(index),
-                                      artistName: trendingMusic.values.elementAt(index)[0],
-                                    ),
-
-                                    //play/pause button
-                                    const PlayButton(
-                                      color: Color(0xff462276),
-                                      size: 20,
-                                    ),
-
-
-                                  ],
                                 ),
                               ),
                             ),
+
+                            CoverFlowBottomSection(
+                              index: index,
+                            ),
+
                           ],
                         ),
                       );
