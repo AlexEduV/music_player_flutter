@@ -45,7 +45,7 @@ class PlaylistListTile extends StatelessWidget {
                   '30 Songs',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: 11,
                   ),
                 ),
 
