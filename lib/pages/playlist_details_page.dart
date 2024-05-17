@@ -97,17 +97,6 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                       child: Row(
                         children: [
 
-                          //text play
-                          const Text(
-                            'Play',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-
-                          const Gap(10.0),
-
                           //play icon circular
                           Container(
                             width: 20,
@@ -120,6 +109,17 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                               Icons.play_arrow,
                               color: Colors.white,
                               size: 14,
+                            ),
+                          ),
+
+                          const Gap(10.0),
+
+                          //text play
+                          const Text(
+                            'Play',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
 
@@ -138,6 +138,15 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
 
+                          //shuffle icon
+                          Icon(
+                            Icons.shuffle_outlined,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+
+                          Gap(10.0),
+
                           //shuffle text
                           Text(
                             'Shuffle',
@@ -146,15 +155,6 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
-                          ),
-
-                          Gap(15.0),
-
-                          //shuffle icon
-                          Icon(
-                            Icons.shuffle_outlined,
-                            color: Colors.white,
-                            size: 20,
                           ),
 
                         ],
