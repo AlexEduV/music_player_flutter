@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
                 child: PageSection(
-                  sectionTitle: 'Trending Music',
+                  sectionTitle: 'Trending Now',
                 ),
               ),
 
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: SizedBox(
-                  height: 240,
+                  height: 260,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: DataModel.trendingMusic.length,
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
 
                             Container(
-                              width: 220,
+                              width: 250,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(16.0),
                                 image: DecorationImage(

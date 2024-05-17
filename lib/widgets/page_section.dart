@@ -24,7 +24,7 @@ class PageSection extends StatelessWidget {
           sectionTitle,
           style: const TextStyle(
             fontWeight: FontWeight.w500,
-            fontSize: 16,
+            fontSize: 18,
             color: Colors.white,
           ),
         ),
