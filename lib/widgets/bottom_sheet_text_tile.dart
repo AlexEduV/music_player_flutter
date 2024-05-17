@@ -22,6 +22,7 @@ class BottomSheetTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 label,
@@ -30,6 +31,12 @@ class BottomSheetTile extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
+
+              Icon(
+                icon,
+                size: 25,
+                color: const Color(0xff462276),
+              )
             ],
           ),
         ),

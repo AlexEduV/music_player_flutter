@@ -22,8 +22,46 @@ class PlaylistDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    //initialization
     DataModel model = Provider.of<DataModel>(context);
     PlayList playList = model.getPlaylistById(index);
+
+    //functions
+    void onBackPressed(BuildContext context) {
+      context.go('/');
+    }
+
+    void onMoreButtonPressed(BuildContext context) {
+      showModalBottomSheet<void>(
+          context: context,
+          backgroundColor: Colors.transparent,
+          builder: (context) {
+            return Container(
+              margin: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 12.0,),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0)
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+
+                  BottomSheetTile(
+                    label: 'Delete from Library',
+                    icon: Icons.delete,
+                    onPressed: () {
+                      //close the modal view & close the page
+                      context.go('/');
+
+                      //delete playlist from the base
+                      model.deletePlaylist(index);
+                    },
+                  ),
+
+                ],
+              ),
+            );
+          });
+    }
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -220,36 +258,6 @@ class PlaylistDetailsPage extends StatelessWidget {
       ),
     );
 
-  }
-
-  void onBackPressed(BuildContext context) {
-    context.go('/');
-  }
-
-  void onMoreButtonPressed(BuildContext context) {
-    showModalBottomSheet<void>(
-        context: context,
-        backgroundColor: Colors.transparent,
-        builder: (context) {
-          return Container(
-            margin: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 12.0,),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.0)
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-
-                BottomSheetTile(
-                  label: 'Delete from Library',
-                  icon: Icons.delete,
-                  onPressed: (){},
-                ),
-
-              ],
-            ),
-          );
-        });
   }
 
 }

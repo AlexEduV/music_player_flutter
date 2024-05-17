@@ -71,6 +71,11 @@ class DataModel with ChangeNotifier {
     notifyListeners();
   }
 
+  void deletePlaylist(int id) {
+    playlists.removeAt(id);
+    notifyListeners();
+  }
+
   PlayList getPlaylistById(int id) {
     return playlists[id];
   }
@@ -83,4 +88,6 @@ class DataModel with ChangeNotifier {
   void playPlaylist(int id) {
     //TODO: playing code here:
   }
+
+
 }
