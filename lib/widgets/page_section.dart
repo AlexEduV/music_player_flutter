@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class SectionRow extends StatelessWidget {
+class PageSection extends StatelessWidget {
 
   final String sectionTitle;
   final String sectionButtonTitle;
   final Function()? onSectionButtonPressed;
 
-  const SectionRow({
+  const PageSection({
     required this.sectionTitle,
     this.onSectionButtonPressed,
     this.sectionButtonTitle = 'View More',

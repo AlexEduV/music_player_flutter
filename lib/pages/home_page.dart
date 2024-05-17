@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/widgets/bottom_nav_bar_icon.dart';
 import 'package:music_player_flutter/widgets/cover_flow_bottom_section.dart';
 import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
-import 'package:music_player_flutter/widgets/section_row.dart';
+import 'package:music_player_flutter/widgets/page_section.dart';
 
 import 'package:music_player_flutter/model/model.dart';
 
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
               //trending music section
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
-                child: SectionRow(
+                child: PageSection(
                   sectionTitle: 'Trending Music',
                 ),
               ),
@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
               //playlist section
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
-                child: SectionRow(
+                child: PageSection(
                   sectionTitle: 'Playlists',
                 ),
               ),
