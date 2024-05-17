@@ -196,18 +196,19 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
                   child: ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
+                    itemCount: playlists.length,
                     itemBuilder: (context, index) {
                       return PlaylistListTile(
+                        playList: playlists[index],
                         onItemTap: openPlaylistDetails,
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
                       return const Gap(20);
                     },
-                    itemCount: 4,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
                   ),
                 ),
               ),

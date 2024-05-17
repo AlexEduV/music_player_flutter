@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
 
 class PlaylistListTile extends StatelessWidget {
   final Function() onItemTap;
+  final PlayList playList;
 
   const PlaylistListTile({
     super.key,
     required this.onItemTap,
+    required this.playList,
   });
 
   @override
@@ -28,20 +31,24 @@ class PlaylistListTile extends StatelessWidget {
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16.0),
-                color: Colors.grey,
+                image: DecorationImage(
+                  image: AssetImage(
+                    playList.playListCoverSource,
+                  ),
+                ),
               ),
             ),
 
             const Gap(16.0),
 
-            const Expanded(
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
                   Text(
-                    'Hip-Hop R&B Mix',
-                    style: TextStyle(
+                    playList.name,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 13,
@@ -49,8 +56,8 @@ class PlaylistListTile extends StatelessWidget {
                   ),
 
                   Text(
-                    '30 Songs',
-                    style: TextStyle(
+                    '${playList.length} Songs',
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 11,
                     ),
