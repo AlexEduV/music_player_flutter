@@ -55,13 +55,13 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
 
-                    //browse button
-                    IconButton(
-                      onPressed: null,
-                      icon: Icon(
-                        Icons.grid_view_rounded,
-                        size: 30,
+                    //welcome text
+                    Text(
+                      'Home',
+                      style: TextStyle(
                         color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 26,
                       ),
                     ),
 
@@ -79,57 +79,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const Gap(40),
-
-              //texts
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
-                child: Text(
-                  'Welcome',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-
-              const Gap(5),
-
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
-                child: Text(
-                  'Enjoy Your Favorite Music',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-
-              const Gap(30),
-
-              //search bar
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: SearchBar(
-                  leading: Icon(
-                    Icons.search,
-                    color: Colors.grey,
-                  ),
-                  hintText: 'Search in the Library',
-                  hintStyle: MaterialStatePropertyAll(
-                    TextStyle(color: Colors.grey),
-                  ),
-                  padding: MaterialStatePropertyAll(
-                    EdgeInsets.symmetric(horizontal: 20),
-                  ),
-                  shadowColor: MaterialStatePropertyAll(Colors.transparent),
-
-                ),
-              ),
-
-              const Gap(30),
+              const Gap(20),
 
               //trending music section
               const Padding(
@@ -184,10 +134,11 @@ class _HomePageState extends State<HomePage> {
               const Gap(20),
 
               //playlist section
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: PageSection(
                   sectionTitle: 'Playlists',
+                  onSectionButtonPressed: () {},
                 ),
               ),
 
@@ -243,9 +194,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Profile',
+            label: 'Search',
             icon: BottomNavigationBarIcon(
-              icon: Icons.people,
+              icon: Icons.search,
             ),
           ),
         ],

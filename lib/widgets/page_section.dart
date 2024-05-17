@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class PageSection extends StatelessWidget {
@@ -28,14 +29,17 @@ class PageSection extends StatelessWidget {
           ),
         ),
 
-        TextButton(
-          onPressed: onSectionButtonPressed,
-          child: Text(
-            sectionButtonTitle,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.normal,
-              fontSize: 12,
+        Visibility(
+          visible: onSectionButtonPressed != null,
+          child: TextButton(
+            onPressed: onSectionButtonPressed,
+            child: Text(
+              sectionButtonTitle,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.normal,
+                fontSize: 12,
+              ),
             ),
           ),
         ),
