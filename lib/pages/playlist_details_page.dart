@@ -73,25 +73,9 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
             children: [
 
               //big cover picture centered
-              CoverImageLarge(coverImageSource: playList.playListCoverSource,),
-
-              const Gap(25.0),
-
-              //playlist title
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: Text(
-                      playList.name,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
+              CoverImageLarge(
+                coverImageSource: playList.playListCoverSource,
+                label: playList.name,
               ),
 
               const Gap(30.0),
