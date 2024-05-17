@@ -27,8 +27,8 @@ class SongListTile extends StatelessWidget {
 
         //cover image small
         Container(
-          width: 40,
-          height: 40,
+          width: 50,
+          height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
             image: DecorationImage(

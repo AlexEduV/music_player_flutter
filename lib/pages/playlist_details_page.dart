@@ -38,13 +38,6 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
         foregroundColor: Colors.white,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: const Text(
-            'Playlists',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-        ),
         leading: IconButton(
           onPressed: onBackPressed,
           icon: const Icon(Icons.arrow_back_ios_rounded),
@@ -85,13 +78,20 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
               const Gap(25.0),
 
               //playlist title
-              Text(
-                playList.name,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: Text(
+                      playList.name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
 
               const Gap(30.0),
