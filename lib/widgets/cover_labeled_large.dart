@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CoverImageLarge extends StatelessWidget {
+class CoverLabeledLarge extends StatelessWidget {
   final String coverImageSource;
   final String label;
 
-  const CoverImageLarge({
+  const CoverLabeledLarge({
     required this.coverImageSource,
     required this.label,
     super.key,

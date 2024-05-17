@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/model/play_list.dart';
-import 'package:music_player_flutter/widgets/cover_image_large.dart';
+import 'package:music_player_flutter/widgets/cover_labeled_large.dart';
 import 'package:music_player_flutter/widgets/song_list_tile.dart';
 
 class PlaylistDetailsPage extends StatefulWidget {
@@ -74,7 +74,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
             children: [
 
               //big cover picture centered
-              CoverImageLarge(
+              CoverLabeledLarge(
                 coverImageSource: playList.coverSource,
                 label: playList.name,
               ),
