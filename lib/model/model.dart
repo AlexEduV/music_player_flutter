@@ -79,4 +79,8 @@ class DataModel with ChangeNotifier {
     playlists[id].songs.shuffle();
     notifyListeners();
   }
+
+  void playPlaylist(int id) {
+    //TODO: playing code here:
+  }
 }

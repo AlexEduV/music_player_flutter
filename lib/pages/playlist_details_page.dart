@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -82,99 +83,110 @@ class PlaylistDetailsPage extends StatelessWidget {
               const Gap(30.0),
 
               //shuffle bar
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Material(
                   color: Colors.white,
-                ),
-                margin: const EdgeInsets.symmetric(horizontal: 25),
-                child: Row(
-                  children: [
-
-                    //play button
-                    Expanded(
+                  borderRadius: BorderRadius.circular(32.0),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(32.0),
+                    onTap: () {
+                      model.playPlaylist(index);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
-                          //play icon circular
-                          Container(
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              color: const Color(0xff7A558C),
-                              borderRadius: BorderRadius.circular(64.0),
-                            ),
-                            child: const Icon(
-                              Icons.play_arrow,
-                              color: Colors.white,
-                              size: 14,
-                            ),
-                          ),
-
-                          const Gap(10.0),
-
-                          //text play
-                          const Text(
-                            'Play',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-
-                        ],
-                      ),
-                    ),
-
-                    //shuffle button
-                    Expanded(
-                      child: Material(
-                        borderRadius: BorderRadius.circular(32.0),
-                        color: const Color(0xff6D4A98),
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(32.0),
-                          onTap: () {
-                            model.shufflePlaylist(index);
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(32.0),
-                              color: Colors.transparent,
-                            ),
-                            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
-                            child: const Row(
+                          //play button
+                          Expanded(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.max,
                               children: [
 
-                                //shuffle icon
-                                FaIcon(
-                                  FontAwesomeIcons.shuffle,
-                                  color: Colors.white,
-                                  size: 20,
+                                //play icon circular
+                                Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff7A558C),
+                                    borderRadius: BorderRadius.circular(64.0),
+                                  ),
+                                  child: const Icon(
+                                    Icons.play_arrow,
+                                    color: Colors.white,
+                                    size: 14,
+                                  ),
                                 ),
 
-                                Gap(10.0),
+                                const Gap(10.0),
 
-                                //shuffle text
-                                Text(
-                                  'Shuffle',
+                                //text play
+                                const Text(
+                                  'Play',
                                   style: TextStyle(
-                                    color: Colors.white,
                                     fontSize: 18,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
 
                               ],
                             ),
                           ),
-                        ),
+
+                          //shuffle button
+                          Expanded(
+                            child: Material(
+                              borderRadius: BorderRadius.circular(32.0),
+                              color: const Color(0xff6D4A98),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(32.0),
+                                onTap: () {
+                                  model.shufflePlaylist(index);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(32.0),
+                                    color: Colors.transparent,
+                                  ),
+                                  padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+
+                                      //shuffle icon
+                                      FaIcon(
+                                        FontAwesomeIcons.shuffle,
+                                        color: Colors.white,
+                                        size: 20,
+                                      ),
+
+                                      Gap(10.0),
+
+                                      //shuffle text
+                                      Text(
+                                        'Shuffle',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                        ]
                       ),
                     ),
-
-                  ]
+                  ),
                 ),
               ),
 
