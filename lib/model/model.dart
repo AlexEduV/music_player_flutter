@@ -13,7 +13,7 @@ class DataModel with ChangeNotifier {
       artist: 'Taylor Swift',
       album: 'Red',
       coverSource: '$_assetPath/22_album_cover.jpeg',
-      songTime: '4:02',
+      maxTime: '4:02',
     ),
 
     Song(
@@ -21,7 +21,7 @@ class DataModel with ChangeNotifier {
       artist: 'Queen',
       album: 'A Night At The Opera',
       coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
-      songTime: '6:03',
+      maxTime: '6:03',
     ),
   ];
 
@@ -37,7 +37,7 @@ class DataModel with ChangeNotifier {
           artist: 'Taylor Swift',
           album: 'Fearless',
           coverSource: '$_assetPath/fearless_album_cover.png',
-          songTime: '4:03',
+          maxTime: '4:03',
         ),
 
         Song(
@@ -45,7 +45,7 @@ class DataModel with ChangeNotifier {
           artist: 'Ariana Grande',
           album: 'Sweetener',
           coverSource: '$_assetPath/sweetener_album_cover.png',
-          songTime: '3:26',
+          maxTime: '3:26',
         ),
       ],
     ),
@@ -59,7 +59,7 @@ class DataModel with ChangeNotifier {
           artist: 'Queen',
           album: 'A Night At The Opera',
           coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
-          songTime: '6:03',
+          maxTime: '6:03',
         ),
 
       ],

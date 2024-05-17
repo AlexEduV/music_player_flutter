@@ -182,7 +182,7 @@ class PlaylistDetailsPage extends StatelessWidget {
                         songTitle: playList.songs[index].name,
                         album: playList.songs[index].album,
                         artist: playList.songs[index].artist,
-                        time: playList.songs[index].songTime,
+                        maxTime: playList.songs[index].maxTime,
                         coverSource: playList.songs[index].coverSource,
                       );
                     },
@@ -191,14 +191,13 @@ class PlaylistDetailsPage extends StatelessWidget {
                     },
                   ),
                 ),
-              )
+              ),
 
             ],
-          )
+          ),
         ),
       ),
     );
-
 
   }
 

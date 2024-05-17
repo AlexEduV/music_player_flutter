@@ -5,7 +5,8 @@ class Song {
   final String artist;
   final String album;
   final String coverSource;
-  final String songTime;
+  final String maxTime;
+  late String currentTime;
 
   static const String _assetPath = 'assets/images';
 
@@ -13,8 +14,9 @@ class Song {
     required this.name,
     required this.artist,
     required this.album,
+    required this.maxTime,
+    this.currentTime = '0:00',
     this.coverSource = '$_assetPath/album_cover_placeholder.png',
-    required this.songTime,
   });
 
 }

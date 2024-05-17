@@ -6,15 +6,15 @@ class SongListTile extends StatelessWidget {
   final String songTitle;
   final String album;
   final String artist;
-  final String time;
+  final String maxTime;
   final String coverSource;
 
-  const SongListTile({
+  SongListTile({
     required this.index,
     required this.songTitle,
     required this.album,
     required this.artist,
-    required this.time,
+    required this.maxTime,
     required this.coverSource,
     super.key,
   });
@@ -78,7 +78,7 @@ class SongListTile extends StatelessWidget {
 
         //more button
         Text(
-          time,
+          maxTime,
           style: const TextStyle(
             fontSize: 12,
             color: Colors.white,
