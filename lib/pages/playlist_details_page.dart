@@ -1,7 +1,5 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -132,7 +130,6 @@ class PlaylistDetailsPage extends StatelessWidget {
                     //shuffle button
                     Expanded(
                       child: Material(
-                        elevation: 2.0,
                         borderRadius: BorderRadius.circular(32.0),
                         color: const Color(0xff6D4A98),
                         child: InkWell(
