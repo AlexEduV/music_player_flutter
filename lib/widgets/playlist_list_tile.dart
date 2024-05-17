@@ -33,8 +33,9 @@ class PlaylistListTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16.0),
                 image: DecorationImage(
                   image: AssetImage(
-                    playList.playListCoverSource,
+                    playList.coverSource,
                   ),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

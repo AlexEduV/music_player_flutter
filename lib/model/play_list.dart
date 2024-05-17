@@ -3,7 +3,7 @@ import 'package:music_player_flutter/model/song.dart';
 class PlayList {
 
   final String name;
-  final String playListCoverSource;
+  final String coverSource;
   final List<Song> songs;
 
   static const String _assetPath = 'assets/images';
@@ -12,7 +12,7 @@ class PlayList {
 
   PlayList({
     required this.name,
-    this.playListCoverSource = '$_assetPath/album_cover_placeholder.png',
+    this.coverSource = '$_assetPath/album_cover_placeholder.png',
     required this.songs,
   });
 

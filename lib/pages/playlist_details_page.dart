@@ -74,7 +74,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
 
               //big cover picture centered
               CoverImageLarge(
-                coverImageSource: playList.playListCoverSource,
+                coverImageSource: playList.coverSource,
                 label: playList.name,
               ),
 

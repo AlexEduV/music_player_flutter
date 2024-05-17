@@ -26,6 +26,7 @@ final List<PlayList> playlists = [
 
   PlayList(
     name: 'Best Pop',
+    coverSource: '$assetPath/taylor_swift_cover_large.jpeg',
     songs: [
 
       Song(
