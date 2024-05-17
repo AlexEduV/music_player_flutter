@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -130,41 +131,47 @@ class PlaylistDetailsPage extends StatelessWidget {
 
                     //shuffle button
                     Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          model.shufflePlaylist(index);
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32.0),
-                            color: const Color(0xff6D4A98),
-                          ),
-                          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
+                      child: Material(
+                        elevation: 2.0,
+                        borderRadius: BorderRadius.circular(32.0),
+                        color: const Color(0xff6D4A98),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(32.0),
+                          onTap: () {
+                            model.shufflePlaylist(index);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32.0),
+                              color: Colors.transparent,
+                            ),
+                            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
 
-                              //shuffle icon
-                              FaIcon(
-                                FontAwesomeIcons.shuffle,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-
-                              Gap(10.0),
-
-                              //shuffle text
-                              Text(
-                                'Shuffle',
-                                style: TextStyle(
+                                //shuffle icon
+                                FaIcon(
+                                  FontAwesomeIcons.shuffle,
                                   color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w400,
+                                  size: 20,
                                 ),
-                              ),
 
-                            ],
+                                Gap(10.0),
+
+                                //shuffle text
+                                Text(
+                                  'Shuffle',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+
+                              ],
+                            ),
                           ),
                         ),
                       ),
