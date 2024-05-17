@@ -204,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
-                      return const Gap(20);
+                      return const Gap(10);
                     },
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
