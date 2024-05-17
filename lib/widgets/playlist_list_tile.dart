@@ -16,68 +16,72 @@ class PlaylistListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onItemTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: const Color(0xff462276).withOpacity(0.5),
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-        child: Row(
-          children: [
+    return Material(
+      borderRadius: BorderRadius.circular(12.0),
+      color: const Color(0xff462276).withOpacity(0.5),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12.0),
+        onTap: onItemTap,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          child: Row(
+            children: [
 
-            Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16.0),
-                image: DecorationImage(
-                  image: AssetImage(
-                    playList.songs.first.coverSource,
+              Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      playList.songs.first.coverSource,
+                    ),
+                    fit: BoxFit.cover,
                   ),
-                  fit: BoxFit.cover,
                 ),
               ),
-            ),
 
-            const Gap(16.0),
+              const Gap(16.0),
 
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
 
-                  Text(
-                    playList.name,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 13,
+                    Text(
+                      playList.name,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
                     ),
-                  ),
 
-                  Text(
-                    '${playList.length} Song${getTextPrefixForLength(playList.length)}',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 11,
+                    Text(
+                      '${playList.length} Song${getTextPrefixForLength(playList.length)}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                      ),
                     ),
-                  ),
 
-                ],
+                  ],
+                ),
               ),
-            ),
 
-            const Gap(16.0),
+              const Gap(16.0),
 
-            //play/pause button
-            PlayButton(
-              color: Colors.grey[200]!,
-              size: 22,
-            ),
+              //play/pause button
+              PlayButton(
+                color: Colors.grey[200]!,
+                size: 22,
+              ),
 
-          ],
+            ],
+          ),
         ),
       ),
     );
