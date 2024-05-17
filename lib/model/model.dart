@@ -2,63 +2,66 @@
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/model/song.dart';
 
-const String assetPath = 'assets/images';
+class DataModel {
 
-final List<Song> trendingMusic = [
-  Song(
-    name: '22',
-    artist: 'Taylor Swift',
-    album: 'Red',
-    coverSource: '$assetPath/22_album_cover.jpeg',
-    songTime: '4:02',
-  ),
+  static const String _assetPath = 'assets/images';
 
-  Song(
-    name: 'Bohemian Rhapsody',
-    artist: 'Queen',
-    album: 'A Night At The Opera',
-    coverSource: '$assetPath/bohemian_rhapsody_album_cover.jpeg',
-    songTime: '6:03',
-  ),
-];
+  static final List<Song> trendingMusic = [
+    Song(
+      name: '22',
+      artist: 'Taylor Swift',
+      album: 'Red',
+      coverSource: '$_assetPath/22_album_cover.jpeg',
+      songTime: '4:02',
+    ),
 
-final List<PlayList> playlists = [
+    Song(
+      name: 'Bohemian Rhapsody',
+      artist: 'Queen',
+      album: 'A Night At The Opera',
+      coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
+      songTime: '6:03',
+    ),
+  ];
 
-  PlayList(
-    name: 'Best Pop',
-    coverSource: '$assetPath/taylor_swift_cover_large.jpeg',
-    songs: [
+  static List<PlayList> playlists = [
 
-      Song(
-        name: 'Fearless',
-        artist: 'Taylor Swift',
-        album: 'Fearless',
-        coverSource: '$assetPath/fearless_album_cover.png',
-        songTime: '4:03',
-      ),
+    PlayList(
+      name: 'Best Pop',
+      coverSource: '$_assetPath/taylor_swift_cover_large.jpeg',
+      songs: [
 
-      Song(
-        name: 'No Tears Left To Cry',
-        artist: 'Ariana Grande',
-        album: 'Sweetener',
-        coverSource: '$assetPath/sweetener_album_cover.png',
-        songTime: '3:26',
-      )
-    ],
-  ),
+        Song(
+          name: 'Fearless',
+          artist: 'Taylor Swift',
+          album: 'Fearless',
+          coverSource: '$_assetPath/fearless_album_cover.png',
+          songTime: '4:03',
+        ),
 
-  PlayList(
-    name: 'Rock',
-    songs: [
+        Song(
+          name: 'No Tears Left To Cry',
+          artist: 'Ariana Grande',
+          album: 'Sweetener',
+          coverSource: '$_assetPath/sweetener_album_cover.png',
+          songTime: '3:26',
+        ),
+      ],
+    ),
 
-      Song(
-        name: 'Bohemian Rhapsody',
-        artist: 'Queen',
-        album: 'A Night At The Opera',
-        coverSource: '$assetPath/bohemian_rhapsody_album_cover.jpeg',
-        songTime: '6:03',
-      ),
+    PlayList(
+      name: 'Rock',
+      songs: [
 
-    ],
-  )
-];
+        Song(
+          name: 'Bohemian Rhapsody',
+          artist: 'Queen',
+          album: 'A Night At The Opera',
+          coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
+          songTime: '6:03',
+        ),
+
+      ],
+    )
+  ];
+}

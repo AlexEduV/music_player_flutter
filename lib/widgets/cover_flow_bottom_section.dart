@@ -36,8 +36,8 @@ class CoverFlowBottomSection extends StatelessWidget {
 
             //song details
             SongInfoColumn(
-              songTitle: trendingMusic[index].name,
-              artistName: trendingMusic[index].artist,
+              songTitle: DataModel.trendingMusic[index].name,
+              artistName: DataModel.trendingMusic[index].artist,
             ),
 
             //play/pause button

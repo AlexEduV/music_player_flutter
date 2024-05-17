@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                   height: 240,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: trendingMusic.length,
+                    itemCount: DataModel.trendingMusic.length,
                     itemBuilder: (context, index) {
 
                       return Padding(
@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(16.0),
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    trendingMusic[index].coverSource,
+                                    DataModel.trendingMusic[index].coverSource,
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -197,11 +197,11 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
                   child: ListView.separated(
-                    itemCount: playlists.length,
+                    itemCount: DataModel.playlists.length,
                     itemBuilder: (context, index) {
                       return PlaylistListTile(
-                        playList: playlists[index],
-                        onItemTap: () => openPlaylistDetails(playlists[index]),
+                        playList: DataModel.playlists[index],
+                        onItemTap: () => openPlaylistDetails(DataModel.playlists[index]),
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
