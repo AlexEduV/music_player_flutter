@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/model/play_list.dart';
@@ -139,8 +140,8 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                         children: [
 
                           //shuffle icon
-                          Icon(
-                            Icons.shuffle_outlined,
+                          FaIcon(
+                            FontAwesomeIcons.shuffle,
                             color: Colors.white,
                             size: 20,
                           ),
