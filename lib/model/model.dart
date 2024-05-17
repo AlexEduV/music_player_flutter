@@ -33,6 +33,7 @@ final List<PlayList> playlists = [
         name: 'Fearless',
         artist: 'Taylor Swift',
         album: 'Fearless',
+        coverSource: '$assetPath/fearless_album_cover.png',
         songTime: '4:03',
       ),
 
@@ -40,6 +41,7 @@ final List<PlayList> playlists = [
         name: 'No Tears Left To Cry',
         artist: 'Ariana Grande',
         album: 'Sweetener',
+        coverSource: '$assetPath/sweetener_album_cover.png',
         songTime: '3:26',
       )
     ],
