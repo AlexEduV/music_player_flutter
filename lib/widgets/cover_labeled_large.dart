@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CoverLabeledLarge extends StatelessWidget {
@@ -15,16 +16,27 @@ class CoverLabeledLarge extends StatelessWidget {
     return Stack(
       children: [
 
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                coverImageSource,
+        ShaderMask(
+          shaderCallback: (rect) {
+            return const LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.black, Colors.black54],
+            ).createShader(Rect.fromLTRB(0, rect.height / 2, rect.width, rect.height));
+          },
+          blendMode: BlendMode.dstIn,
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  coverImageSource,
+                ),
+                fit: BoxFit.cover,
               ),
-              fit: BoxFit.cover,
+
             ),
+            height: 320,
           ),
-          height: 320,
         ),
 
         //playlist title
