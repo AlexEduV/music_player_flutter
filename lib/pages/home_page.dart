@@ -232,15 +232,15 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Bookmarks',
+            label: 'Library',
             icon: BottomNavigationBarIcon(
-              icon: Icons.bookmark,
+              icon: Icons.play_circle,
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Play',
+            label: 'Bookmarks',
             icon: BottomNavigationBarIcon(
-              icon: Icons.play_circle,
+              icon: Icons.bookmark,
             ),
           ),
           BottomNavigationBarItem(
