@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(16.0),
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    trendingMusic.values.elementAt(index)[1],
+                                    trendingMusic[index].coverSource,
                                   ),
                                   fit: BoxFit.cover,
                                 ),
