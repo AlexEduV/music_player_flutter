@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/widgets/cover_labeled_large.dart';
+import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
 import 'package:music_player_flutter/widgets/song_list_tile.dart';
 
 class PlaylistDetailsPage extends StatefulWidget {
@@ -46,11 +47,17 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
         actions: const [
           IconButton(
             onPressed: null,
-            icon: Icon(
-              Icons.more_vert_rounded,
-              color: Colors.white,
+            icon: IconRoundedTinted(
+              icon: Icons.bookmark,
             ),
-          )
+          ),
+
+          IconButton(
+            onPressed: null,
+            icon: IconRoundedTinted(
+              icon: Icons.more_horiz,
+            ),
+          ),
         ],
       ),
       body: Container(
