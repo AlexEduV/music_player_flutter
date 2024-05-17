@@ -234,7 +234,7 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             label: 'Library',
             icon: BottomNavigationBarIcon(
-              icon: Icons.play_circle,
+              icon: Icons.library_music,
             ),
           ),
           BottomNavigationBarItem(
