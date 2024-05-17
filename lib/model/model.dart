@@ -1,9 +1,29 @@
 //static values (ideally to be loaded via async)
-final Map<String, List<String>> trendingMusic = {
-  '22' : ['Taylor Swift', 'assets/images/22_album_cover.jpeg',],
-  'Bohemian Rhapsody' : ['Queen', 'assets/images/bohemian_rhapsody_album_cover.jpeg'],
-};
+import 'package:music_player_flutter/model/play_list.dart';
+import 'package:music_player_flutter/model/song.dart';
 
-final Map<String, List<String>> playLists = {
-  'Hip-Hop R&B Mix' : ['Caroline'],
-};
+const String assetPath = 'assets/images';
+
+final List<Song> trendingMusic = [
+  Song(
+    name: '22',
+    artist: 'Taylor Swift',
+    coverSource: '$assetPath/22_album_cover.jpeg',
+    songTime: '4:02',
+  ),
+
+  Song(
+    name: 'Bohemian Rhapsody',
+    artist: 'Queen',
+    coverSource: '$assetPath/bohemian_rhapsody_album_cover.jpeg',
+    songTime: '6:03',
+  ),
+];
+
+final List<PlayList> playlists = [
+  PlayList(
+    songs: songs,
+    name: name,
+    playListCoverSource: playListCoverSource,
+  ),
+];

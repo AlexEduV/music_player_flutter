@@ -10,15 +10,18 @@ void main() {
 
 //go router configuration
 final GoRouter _router = GoRouter(
+  initialLocation: '/',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
+      name: 'root',
       builder: (BuildContext context, GoRouterState state) {
         return const HomePage();
       },
       routes: <RouteBase>[
         GoRoute(
           path: 'playlistDetails',
+          name: 'playlistDetails',
           builder: (BuildContext context, GoRouterState state) {
             return const PlaylistDetailsPage();
           },
