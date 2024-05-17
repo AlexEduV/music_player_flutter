@@ -7,6 +7,7 @@ class SongListTile extends StatelessWidget {
   final String album;
   final String artist;
   final String time;
+  final String coverSource;
 
   const SongListTile({
     required this.index,
@@ -14,6 +15,7 @@ class SongListTile extends StatelessWidget {
     required this.album,
     required this.artist,
     required this.time,
+    required this.coverSource,
     super.key,
   });
 
@@ -23,11 +25,17 @@ class SongListTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
 
-        //counter text
-        Text(
-          '${index + 1}',
-          style: const TextStyle(
-            color: Colors.white,
+        //cover image small
+        Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.0),
+            image: DecorationImage(
+              image: AssetImage(
+                coverSource,
+              ),
+            ),
           ),
         ),
 
@@ -76,7 +84,6 @@ class SongListTile extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-
 
       ],
     );

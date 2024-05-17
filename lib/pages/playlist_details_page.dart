@@ -194,11 +194,12 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                     itemCount: playList.length,
                     itemBuilder: (context, index) {
                       return SongListTile(
-                          index: index,
-                          songTitle: playList.songs[index].name,
-                          album: playList.songs[index].album,
-                          artist: playList.songs[index].artist,
-                          time: playList.songs[index].songTime,
+                        index: index,
+                        songTitle: playList.songs[index].name,
+                        album: playList.songs[index].album,
+                        artist: playList.songs[index].artist,
+                        time: playList.songs[index].songTime,
+                        coverSource: playList.songs[index].coverSource,
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
