@@ -49,11 +49,15 @@ class PlaylistDetailsPage extends StatelessWidget {
                     label: 'Delete from Library',
                     icon: Icons.delete,
                     onPressed: () {
-                      //close the modal view & close the page
-                      context.go('/');
 
                       //delete playlist from the base
                       model.deletePlaylist(index);
+
+                      //close the modal view
+                      context.pop();
+
+                      //close the page
+                      context.replace('/');
                     },
                   ),
 
