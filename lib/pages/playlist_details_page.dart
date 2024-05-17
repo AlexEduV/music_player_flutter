@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -88,13 +90,12 @@ class PlaylistDetailsPage extends StatelessWidget {
                 ),
                 margin: const EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
 
                     //play button
-                    Padding(
-                      padding: const EdgeInsets.only(left: 56.0),
+                    Expanded(
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
                           //play icon circular
@@ -128,36 +129,39 @@ class PlaylistDetailsPage extends StatelessWidget {
                     ),
 
                     //shuffle button
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(32.0),
-                        color: const Color(0xff6D4A98),
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(32.0),
+                          color: const Color(0xff6D4A98),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 36.0),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
 
-                          //shuffle icon
-                          FaIcon(
-                            FontAwesomeIcons.shuffle,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-
-                          Gap(10.0),
-
-                          //shuffle text
-                          Text(
-                            'Shuffle',
-                            style: TextStyle(
+                            //shuffle icon
+                            FaIcon(
+                              FontAwesomeIcons.shuffle,
                               color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
+                              size: 20,
                             ),
-                          ),
 
-                        ],
+                            Gap(10.0),
+
+                            //shuffle text
+                            Text(
+                              'Shuffle',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+
+                          ],
+                        ),
                       ),
                     ),
 
