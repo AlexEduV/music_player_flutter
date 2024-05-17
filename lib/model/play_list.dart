@@ -5,6 +5,7 @@ class PlayList {
   final String name;
   final String coverSource;
   final List<Song> songs;
+  late bool isBookmarked;
 
   static const String _assetPath = 'assets/images';
 
@@ -12,8 +13,9 @@ class PlayList {
 
   PlayList({
     required this.name,
-    this.coverSource = '$_assetPath/album_cover_placeholder.png',
     required this.songs,
+    this.coverSource = '$_assetPath/album_cover_placeholder.png',
+    this.isBookmarked = false,
   });
 
 }

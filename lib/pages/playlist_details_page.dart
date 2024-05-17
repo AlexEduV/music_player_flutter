@@ -44,15 +44,15 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
           onPressed: onBackPressed,
           icon: const Icon(Icons.arrow_back_ios_rounded),
         ),
-        actions: const [
+        actions: [
           IconButton(
             onPressed: null,
             icon: IconRoundedTinted(
-              icon: Icons.bookmark,
+              icon: playList.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
             ),
           ),
 
-          IconButton(
+          const IconButton(
             onPressed: null,
             icon: IconRoundedTinted(
               icon: Icons.more_horiz,
@@ -211,6 +211,8 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
   void onBackPressed() {
     context.go('/');
   }
+
+
 
 
 }
