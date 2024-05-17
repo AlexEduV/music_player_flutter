@@ -54,6 +54,8 @@ class PlaylistDetailsPage extends StatelessWidget {
                       model.deletePlaylist(index);
 
                       //close the modal view
+                      ///TODO: Replace this section with context.go('/'),
+                      ///but only when other pages support provider;
                       context.pop();
 
                       //close the page
