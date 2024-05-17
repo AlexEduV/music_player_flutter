@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                     Icons.search,
                     color: Colors.grey,
                   ),
-                  hintText: 'Search',
+                  hintText: 'Search in the Library',
                   hintStyle: MaterialStatePropertyAll(
                     TextStyle(color: Colors.grey),
                   ),
