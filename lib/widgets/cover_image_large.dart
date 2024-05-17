@@ -10,20 +10,16 @@ class CoverImageLarge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.only(top: 80),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24.0),
-          image: DecorationImage(
-            image: AssetImage(
-              coverImageSource,
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            coverImageSource,
           ),
+          fit: BoxFit.cover,
         ),
-        height: 280,
-        width: 280,
       ),
+      height: 320,
     );
   }
 }
