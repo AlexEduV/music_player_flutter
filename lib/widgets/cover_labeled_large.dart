@@ -29,17 +29,17 @@ class CoverLabeledLarge extends StatelessWidget {
 
         //playlist title
         Positioned(
-          bottom: 20,
+          bottom: 10,
           child: Row(
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Text(
                   label,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
-                    color: Colors.grey[800],
+                    color: Colors.white,
                   ),
                 ),
               ),
