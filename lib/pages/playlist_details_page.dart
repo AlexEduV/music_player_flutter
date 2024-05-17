@@ -21,7 +21,8 @@ class PlaylistDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    PlayList playList = Provider.of<DataModel>(context).getPlaylistById(index);
+    DataModel model = Provider.of<DataModel>(context);
+    PlayList playList = model.getPlaylistById(index);
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -35,7 +36,9 @@ class PlaylistDetailsPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () => onBookmarkButtonPressed(index),
+            onPressed: () {
+              model.bookmarkPlaylist(index);
+            },
             icon: IconRoundedTinted(
               icon: playList.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
             ),
@@ -201,10 +204,6 @@ class PlaylistDetailsPage extends StatelessWidget {
 
   void onBackPressed(BuildContext context) {
     context.go('/');
-  }
-
-  void onBookmarkButtonPressed(int index) {
-    DataModel().bookmarkPlaylist(index);
   }
 
 }
