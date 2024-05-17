@@ -9,7 +9,7 @@ import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
 import 'package:music_player_flutter/widgets/song_list_tile.dart';
 import 'package:provider/provider.dart';
 
-class PlaylistDetailsPage extends StatefulWidget {
+class PlaylistDetailsPage extends StatelessWidget {
 
   final int index;
 
@@ -19,15 +19,9 @@ class PlaylistDetailsPage extends StatefulWidget {
   });
 
   @override
-  State<PlaylistDetailsPage> createState() => _PlaylistDetailsPageState();
-}
-
-class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
-
-  @override
   Widget build(BuildContext context) {
 
-    PlayList playList = Provider.of<DataModel>(context).getPlaylistById(widget.index);
+    PlayList playList = Provider.of<DataModel>(context).getPlaylistById(index);
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -36,12 +30,12 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
         backgroundColor: Colors.transparent,
         centerTitle: true,
         leading: IconButton(
-          onPressed: onBackPressed,
+          onPressed: () => onBackPressed(context),
           icon: const Icon(Icons.arrow_back_ios_rounded),
         ),
         actions: [
           IconButton(
-            onPressed: null,
+            onPressed: () => onBookmarkButtonPressed(index),
             icon: IconRoundedTinted(
               icon: playList.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
             ),
@@ -201,9 +195,11 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
         ),
       ),
     );
+
+
   }
 
-  void onBackPressed() {
+  void onBackPressed(BuildContext context) {
     context.go('/');
   }
 
