@@ -194,8 +194,8 @@ class PlaylistDetailsPage extends StatelessWidget {
               //playlist listView
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 25.0),
-                  child: ListView.separated(
+                  padding: const EdgeInsets.only(bottom: 25.0),
+                  child: ListView.builder(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -209,9 +209,6 @@ class PlaylistDetailsPage extends StatelessWidget {
                         maxTime: playList.songs[index].maxTime,
                         coverSource: playList.songs[index].coverSource,
                       );
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const Gap(20);
                     },
                   ),
                 ),

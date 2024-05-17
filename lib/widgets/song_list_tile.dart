@@ -9,7 +9,7 @@ class SongListTile extends StatelessWidget {
   final String maxTime;
   final String coverSource;
 
-  SongListTile({
+  const SongListTile({
     required this.index,
     required this.songTitle,
     required this.album,
@@ -21,71 +21,82 @@ class SongListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onLongPress: () {
 
-        //cover image small
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.0),
-            image: DecorationImage(
-              image: AssetImage(
-                coverSource,
-              ),
-            ),
-          ),
-        ),
-
-        const Gap(20.0),
-
-        //song details column
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        },
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
 
-              //name text
-              Text(
-                songTitle,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-
+              //cover image small
+              Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.0),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      coverSource,
+                    ),
+                  ),
                 ),
               ),
 
-              // album & time
-              Row(
-                children: [
-                  Text(
-                    artist,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                    ),
-                  ),
+              const Gap(20.0),
 
-                ],
-              )
+              //song details column
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+
+                    //name text
+                    Text(
+                      songTitle,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+
+                      ),
+                    ),
+
+                    // album & time
+                    Row(
+                      children: [
+                        Text(
+                          artist,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                          ),
+                        ),
+
+                      ],
+                    )
+                  ],
+                ),
+              ),
+
+              const Gap(20.0),
+
+              //more button
+              Text(
+                maxTime,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: Colors.white,
+                ),
+              ),
+
             ],
           ),
         ),
-
-        const Gap(20.0),
-
-        //more button
-        Text(
-          maxTime,
-          style: const TextStyle(
-            fontSize: 12,
-            color: Colors.white,
-          ),
-        ),
-
-      ],
+      ),
     );
   }
 }
