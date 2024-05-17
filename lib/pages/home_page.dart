@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:music_player_flutter/model/play_list.dart';
 
 import 'package:music_player_flutter/widgets/bottom_nav_bar_icon.dart';
 import 'package:music_player_flutter/widgets/cover_flow_bottom_section.dart';
@@ -200,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (context, index) {
                       return PlaylistListTile(
                         playList: playlists[index],
-                        onItemTap: openPlaylistDetails,
+                        onItemTap: () => openPlaylistDetails(playlists[index]),
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
@@ -254,7 +255,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void openPlaylistDetails() {
-    context.go('/playlistDetails');
+  void openPlaylistDetails(PlayList playlist) {
+    context.goNamed('playlistDetails', extra: playlist);
   }
 }

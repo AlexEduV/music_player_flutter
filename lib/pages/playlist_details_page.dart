@@ -2,9 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:music_player_flutter/model/play_list.dart';
 
 class PlaylistDetailsPage extends StatefulWidget {
-  const PlaylistDetailsPage({super.key});
+
+  final PlayList playlist;
+
+  const PlaylistDetailsPage({
+    required this.playlist,
+    super.key,
+  });
 
   @override
   State<PlaylistDetailsPage> createState() => _PlaylistDetailsPageState();
