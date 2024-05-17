@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/widgets/cover_image_large.dart';
+import 'package:music_player_flutter/widgets/song_list_tile.dart';
 
 class PlaylistDetailsPage extends StatefulWidget {
 
@@ -192,83 +193,12 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: playList.length,
                     itemBuilder: (context, index) {
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-
-                          //counter text
-                          Text(
-                            '${index + 1}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-
-                          const Gap(20.0),
-
-                          //song details column
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-
-                                //name text
-                                Text(
-                                  playList.songs[index].name,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-
-                                  ),
-                                ),
-
-                                // album & time
-                                Row(
-                                  children: [
-                                    Text(
-                                      playList.songs[index].album,
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-
-                                    const Gap(6.0),
-
-                                    //a dot
-                                    const Text('\u2022', style: TextStyle(color: Colors.white),),
-
-                                    const Gap(6.0),
-
-                                    //song duration
-                                    Text(
-                                      playList.songs[index].songTime,
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-
-
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-
-                          const Gap(20.0),
-
-                          //more button
-                          const IconButton(
-                            icon: Icon(
-                              Icons.more_vert,
-                              color: Colors.white,
-                            ),
-                            onPressed: null,
-                          )
-
-
-                        ],
+                      return SongListTile(
+                          index: index,
+                          songTitle: playList.songs[index].name,
+                          album: playList.songs[index].album,
+                          artist: playList.songs[index].artist,
+                          time: playList.songs[index].songTime,
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
