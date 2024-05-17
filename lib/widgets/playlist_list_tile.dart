@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:music_player_flutter/helpers/text_helper.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
 
@@ -57,7 +58,7 @@ class PlaylistListTile extends StatelessWidget {
                   ),
 
                   Text(
-                    '${playList.length} Songs',
+                    '${playList.length} Song${getTextPrefixForLength(playList.length)}',
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 11,
