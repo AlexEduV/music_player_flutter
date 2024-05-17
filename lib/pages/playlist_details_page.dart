@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +17,15 @@ class PlaylistDetailsPage extends StatefulWidget {
 }
 
 class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
+
+  late PlayList playList;
+
+  @override
+  void initState() {
+    super.initState();
+
+    playList = widget.playlist;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,9 +93,9 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
               const Gap(25.0),
 
               //playlist title
-              const Text(
-                'Hip-hop R&B Mix',
-                style: TextStyle(
+              Text(
+                playList.name,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: Colors.white,
@@ -191,7 +199,7 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 5,
+                    itemCount: playList.length,
                     itemBuilder: (context, index) {
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -208,15 +216,15 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                           const Gap(20.0),
 
                           //song details column
-                          const Expanded(
+                          Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
 
                                 //name text
                                 Text(
-                                  'Song Name',
-                                  style: TextStyle(
+                                  playList.songs[index].name,
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
 
@@ -227,24 +235,24 @@ class _PlaylistDetailsPageState extends State<PlaylistDetailsPage> {
                                 Row(
                                   children: [
                                     Text(
-                                      'Album',
-                                      style: TextStyle(
+                                      playList.songs[index].album,
+                                      style: const TextStyle(
                                         fontSize: 12,
                                         color: Colors.white,
                                       ),
                                     ),
 
-                                    Gap(6.0),
+                                    const Gap(6.0),
 
                                     //a dot
-                                    Text('\u2022', style: TextStyle(color: Colors.white),),
+                                    const Text('\u2022', style: TextStyle(color: Colors.white),),
 
-                                    Gap(6.0),
+                                    const Gap(6.0),
 
                                     //song duration
                                     Text(
-                                      '4:01',
-                                      style: TextStyle(
+                                      playList.songs[index].songTime,
+                                      style: const TextStyle(
                                         fontSize: 12,
                                         color: Colors.white,
                                       ),
