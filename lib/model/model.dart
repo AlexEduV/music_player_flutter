@@ -1,8 +1,9 @@
 //static values (ideally to be loaded via async)
+import 'package:flutter/cupertino.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/model/song.dart';
 
-class DataModel {
+class DataModel with ChangeNotifier {
 
   static const String _assetPath = 'assets/images';
 
@@ -62,6 +63,15 @@ class DataModel {
         ),
 
       ],
-    )
+    ),
   ];
+
+  void bookmarkPlaylist(int id) {
+    playlists[id].isBookmarked = !playlists[id].isBookmarked;
+    notifyListeners();
+  }
+
+  PlayList getPlaylistById(int id) {
+    return playlists[id];
+  }
 }

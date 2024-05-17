@@ -1,12 +1,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/pages/home_page.dart';
 import 'package:music_player_flutter/pages/playlist_details_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => DataModel(),
+      child: const MyApp(),
+    )
+  );
 }
 
 //go router configuration
@@ -24,10 +31,10 @@ final GoRouter _router = GoRouter(
           path: 'playlistDetails',
           name: 'playlistDetails',
           builder: (BuildContext context, GoRouterState state) {
-            PlayList playlist = state.extra as PlayList;
+            int index = state.extra as int;
 
             return PlaylistDetailsPage(
-              playlist: playlist,
+              index: index,
             );
           },
         ),
