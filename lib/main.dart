@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/pages/home_page.dart';
+import 'package:music_player_flutter/pages/player_page.dart';
 import 'package:music_player_flutter/pages/playlist_details_page.dart';
 import 'package:provider/provider.dart';
 
@@ -36,6 +37,16 @@ final GoRouter _router = GoRouter(
             return PlaylistDetailsPage(
               index: index,
             );
+          },
+        ),
+
+        GoRoute(
+          path: 'player',
+          name: 'player',
+          builder: (BuildContext context, GoRouterState state) {
+
+            return const PlayerPage();
+
           },
         ),
       ],
