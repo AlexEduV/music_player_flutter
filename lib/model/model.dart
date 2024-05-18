@@ -6,9 +6,11 @@ import 'package:music_player_flutter/model/song.dart';
 class DataModel with ChangeNotifier {
 
   static const String _assetPath = 'assets/images';
-
-  static final List<Song> trendingMusic = [
+  
+  static final List<Song> songs = [
+    
     Song(
+      id: 1,
       name: '22',
       artist: 'Taylor Swift',
       album: 'Red',
@@ -17,12 +19,42 @@ class DataModel with ChangeNotifier {
     ),
 
     Song(
+      id: 2,
       name: 'Bohemian Rhapsody',
       artist: 'Queen',
       album: 'A Night At The Opera',
       coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
       maxTime: '6:03',
     ),
+
+    Song(
+      id: 3,
+      name: 'Fearless',
+      artist: 'Taylor Swift',
+      album: 'Fearless',
+      coverSource: '$_assetPath/fearless_album_cover.png',
+      maxTime: '4:03',
+    ),
+
+    Song(
+      id: 4,
+      name: 'No Tears Left To Cry',
+      artist: 'Ariana Grande',
+      album: 'Sweetener',
+      coverSource: '$_assetPath/sweetener_album_cover.png',
+      maxTime: '3:26',
+    ),
+    
+  ];
+  
+  static Song getSongById(int id) {
+    
+    return songs.firstWhere((element) => element.id == id);
+  }
+
+  static final List<Song> trendingMusic = [
+    getSongById(1),
+    getSongById(2),
   ];
 
   static List<PlayList> playlists = [
@@ -32,21 +64,8 @@ class DataModel with ChangeNotifier {
       coverSource: '$_assetPath/taylor_swift_cover_large.jpeg',
       songs: [
 
-        Song(
-          name: 'Fearless',
-          artist: 'Taylor Swift',
-          album: 'Fearless',
-          coverSource: '$_assetPath/fearless_album_cover.png',
-          maxTime: '4:03',
-        ),
-
-        Song(
-          name: 'No Tears Left To Cry',
-          artist: 'Ariana Grande',
-          album: 'Sweetener',
-          coverSource: '$_assetPath/sweetener_album_cover.png',
-          maxTime: '3:26',
-        ),
+        getSongById(3),
+        getSongById(4),
       ],
     ),
 
@@ -54,13 +73,7 @@ class DataModel with ChangeNotifier {
       name: 'Rock',
       songs: [
 
-        Song(
-          name: 'Bohemian Rhapsody',
-          artist: 'Queen',
-          album: 'A Night At The Opera',
-          coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
-          maxTime: '6:03',
-        ),
+        getSongById(2),
 
       ],
     ),

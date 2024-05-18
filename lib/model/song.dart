@@ -1,6 +1,7 @@
 
 class Song {
 
+  final int id;
   final String name;
   final String artist;
   final String album;
@@ -11,6 +12,7 @@ class Song {
   static const String _assetPath = 'assets/images';
 
   Song({
+    required this.id,
     required this.name,
     required this.artist,
     required this.album,

@@ -6,10 +6,12 @@ import 'package:music_player_flutter/model/model.dart';
 
 class CoverFlowBottomSection extends StatelessWidget {
   final int index;
+  final Function() onTap;
 
   const CoverFlowBottomSection({
     super.key,
     required this.index,
+    required this.onTap,
   });
 
   @override
@@ -18,35 +20,48 @@ class CoverFlowBottomSection extends StatelessWidget {
       left: 0,
       right: 0,
       bottom: 0,
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          vertical: 12.0,
-          horizontal: 20.0,
+      child: Material(
+        color: Colors.white,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(18.0),
+          bottomRight: Radius.circular(18.0),
         ),
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
+        child: InkWell(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(18.0),
             bottomRight: Radius.circular(18.0),
           ),
-          color: Colors.white,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-
-            //song details
-            SongInfoColumn(
-              songTitle: DataModel.trendingMusic[index].name,
-              artistName: DataModel.trendingMusic[index].artist,
+          onTap: onTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              vertical: 12.0,
+              horizontal: 20.0,
             ),
-
-            //play/pause button
-            const PlayButton(
-              color: Color(0xff462276),
-              size: 20,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(18.0),
+                bottomRight: Radius.circular(18.0),
+              ),
             ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
 
-          ],
+                //song details
+                SongInfoColumn(
+                  songTitle: DataModel.trendingMusic[index].name,
+                  artistName: DataModel.trendingMusic[index].artist,
+                ),
+
+                //play/pause button
+                const PlayButton(
+                  color: Color(0xff462276),
+                  size: 20,
+                ),
+
+              ],
+            ),
+          ),
         ),
       ),
     );

@@ -121,6 +121,7 @@ class _HomePageState extends State<HomePage> {
 
                             CoverFlowBottomSection(
                               index: index,
+                              onTap: () => openPlayer(index),
                             ),
 
                           ],
@@ -207,5 +208,9 @@ class _HomePageState extends State<HomePage> {
 
   void openPlaylistDetails(int index) {
     context.goNamed('playlistDetails', extra: index);
+  }
+
+  void openPlayer(int index) {
+    context.goNamed('player', extra: index);
   }
 }
