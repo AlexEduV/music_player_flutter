@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class IconRoundedTinted extends StatelessWidget {
   final IconData icon;
+  final double? size;
 
   const IconRoundedTinted({
     super.key,
     required this.icon,
+    this.size,
   });
 
   @override
@@ -19,6 +21,7 @@ class IconRoundedTinted extends StatelessWidget {
       child: Icon(
         icon,
         color: Colors.white,
+        size: size,
       ),
     );
   }

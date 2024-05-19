@@ -77,7 +77,10 @@ class PlaylistDetailsPage extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           onPressed: () => onBackPressed(context),
-          icon: const Icon(Icons.arrow_back_ios_rounded),
+          icon: const IconRoundedTinted(
+            icon: Icons.arrow_back_ios_rounded,
+            size: 30,
+          )
         ),
         actions: [
           IconButton(
