@@ -117,5 +117,14 @@ class DataModel with ChangeNotifier {
     notifyListeners();
   }
 
+  void playSong(int id) {
+    //update UI
+    getSongById(id).isPlaying = !getSongById(id).isPlaying;
+    notifyListeners();
+
+    //TODO: start playing the song here:
+
+  }
+
 
 }

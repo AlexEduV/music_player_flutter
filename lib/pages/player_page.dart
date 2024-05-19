@@ -173,9 +173,11 @@ class PlayerPage extends StatelessWidget {
                     ),
 
                     PlayerControlButton(
-                      icon: FontAwesomeIcons.play,
+                      icon: openedSong.isPlaying ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
                       size: 40,
-                      onTap: (){},
+                      onTap: () {
+                        model.playSong(songIndex);
+                      },
                     ),
 
                     const PlayerControlButton(

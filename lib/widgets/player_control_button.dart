@@ -18,9 +18,12 @@ class PlayerControlButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onTap,
-      icon: FaIcon(
-        icon,
-        size: size,
+      icon: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: FaIcon(
+          icon,
+          size: size,
+        ),
       ),
       disabledColor: Colors.grey,
       color: Colors.white,
