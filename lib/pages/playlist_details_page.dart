@@ -5,9 +5,9 @@ import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/widgets/bottom_sheet_text_tile.dart';
-import 'package:music_player_flutter/widgets/cover_labeled_large.dart';
+import 'package:music_player_flutter/widgets/playlist_details_page/cover_labeled_large.dart';
 import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
-import 'package:music_player_flutter/widgets/song_list_tile.dart';
+import 'package:music_player_flutter/widgets/playlist_details_page/song_list_tile.dart';
 import 'package:provider/provider.dart';
 
 class PlaylistDetailsPage extends StatelessWidget {

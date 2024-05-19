@@ -7,7 +7,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
-import 'package:music_player_flutter/widgets/player_control_button.dart';
+import 'package:music_player_flutter/widgets/player_page/player_control_button.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
 import 'package:provider/provider.dart';
 
@@ -65,20 +65,21 @@ class PlayerPage extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             children: [
 
               //half of the screen
-              Container(
-                width: double.maxFinite,
-                height: 500,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      openedSong.coverSource,
+              Expanded(
+                child: Container(
+                  width: double.maxFinite,
+                  height: 500,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        openedSong.coverSource,
+                      ),
+                      fit: BoxFit.fill,
                     ),
-                    fit: BoxFit.fill,
                   ),
                 ),
               ),
@@ -86,6 +87,7 @@ class PlayerPage extends StatelessWidget {
               //bottom of the screen
               Column(
                 children: [
+
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
 

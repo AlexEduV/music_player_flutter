@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:music_player_flutter/widgets/bottom_nav_bar_icon.dart';
-import 'package:music_player_flutter/widgets/cover_flow_bottom_section.dart';
-import 'package:music_player_flutter/widgets/playlist_list_tile.dart';
-import 'package:music_player_flutter/widgets/page_section.dart';
+import 'package:music_player_flutter/widgets/home_page/bottom_nav_bar_icon.dart';
+import 'package:music_player_flutter/widgets/home_page/cover_flow_bottom_section.dart';
+import 'package:music_player_flutter/widgets/home_page/playlist_list_tile.dart';
+import 'package:music_player_flutter/widgets/home_page/page_section.dart';
 
 import 'package:music_player_flutter/model/model.dart';
 
