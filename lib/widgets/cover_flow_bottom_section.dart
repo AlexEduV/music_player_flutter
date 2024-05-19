@@ -49,7 +49,7 @@ class CoverFlowBottomSection extends StatelessWidget {
 
                 //song details
                 SongInfoColumn(
-                  songTitle: DataModel.trendingMusic[index].name,
+                  songTitle: DataModel.trendingMusic[index].title,
                   artistName: DataModel.trendingMusic[index].artist,
                 ),
 

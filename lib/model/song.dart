@@ -2,7 +2,7 @@
 class Song {
 
   final int id;
-  final String name;
+  final String title;
   final String artist;
   final String album;
   final String coverSource;
@@ -15,7 +15,7 @@ class Song {
 
   Song({
     required this.id,
-    required this.name,
+    required this.title,
     required this.artist,
     required this.album,
     required this.maxTime,

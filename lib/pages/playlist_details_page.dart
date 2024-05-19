@@ -79,8 +79,8 @@ class PlaylistDetailsPage extends StatelessWidget {
           onPressed: () => onBackPressed(context),
           icon: const IconRoundedTinted(
             icon: Icons.arrow_back_ios_rounded,
-            size: 30,
-          )
+            size: 25,
+          ),
         ),
         actions: [
           IconButton(
@@ -250,7 +250,7 @@ class PlaylistDetailsPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return SongListTile(
                         index: index,
-                        songTitle: playList.songs[index].name,
+                        songTitle: playList.songs[index].title,
                         album: playList.songs[index].album,
                         artist: playList.songs[index].artist,
                         maxTime: playList.songs[index].maxTime,

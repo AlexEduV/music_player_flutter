@@ -25,7 +25,7 @@ class PlayerPage extends StatelessWidget {
 
     //init model
     DataModel model = Provider.of<DataModel>(context);
-    Song openedSong = model.getSongById(songIndex);
+    Song? openedSong = model.getSongById(songIndex);
 
     //functions
     void onBackPressed(BuildContext context) {
@@ -40,7 +40,10 @@ class PlayerPage extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           onPressed: () => onBackPressed(context),
-          icon: const Icon(Icons.arrow_back_ios_rounded),
+          icon: const IconRoundedTinted(
+            icon: Icons.arrow_back_ios_rounded,
+            size: 25,
+          ),
         ),
       ),
       body: Container(
@@ -70,13 +73,14 @@ class PlayerPage extends StatelessWidget {
                     image: AssetImage(
                       openedSong.coverSource,
                     ),
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
 
               //bottom of the screen
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
 
                 //song info row
                 child: Row(
@@ -84,14 +88,14 @@ class PlayerPage extends StatelessWidget {
                   children: [
 
                     SongInfoColumn(
-                      songTitle: 'Song Title',
-                      artistName: 'Artist',
+                      songTitle: openedSong.title,
+                      artistName: openedSong.artist,
                       color: Colors.white,
                       scale: 1.2,
                     ),
 
                     //action buttons
-                    Row(
+                    const Row(
                       children: [
                         IconButton(
                           onPressed: null,
@@ -127,20 +131,22 @@ class PlayerPage extends StatelessWidget {
                 ),
               ),
 
+              const Gap(5.0),
+
               //time texts
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '--:--',
-                      style: TextStyle(color: Colors.white),
+                      openedSong.currentTime,
+                      style: TextStyle(color: Colors.grey[200]),
                     ),
 
                     Text(
-                      '--:--',
-                      style: TextStyle(color: Colors.white),
+                      openedSong.maxTime,
+                      style: TextStyle(color: Colors.grey[200]),
                     ),
                   ],
                 ),

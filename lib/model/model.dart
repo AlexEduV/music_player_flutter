@@ -11,7 +11,7 @@ class DataModel with ChangeNotifier {
     
     Song(
       id: 1,
-      name: '22',
+      title: '22',
       artist: 'Taylor Swift',
       album: 'Red',
       coverSource: '$_assetPath/22_album_cover.jpeg',
@@ -20,7 +20,7 @@ class DataModel with ChangeNotifier {
 
     Song(
       id: 2,
-      name: 'Bohemian Rhapsody',
+      title: 'Bohemian Rhapsody',
       artist: 'Queen',
       album: 'A Night At The Opera',
       coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
@@ -29,7 +29,7 @@ class DataModel with ChangeNotifier {
 
     Song(
       id: 3,
-      name: 'Fearless',
+      title: 'Fearless',
       artist: 'Taylor Swift',
       album: 'Fearless',
       coverSource: '$_assetPath/fearless_album_cover.png',
@@ -38,7 +38,7 @@ class DataModel with ChangeNotifier {
 
     Song(
       id: 4,
-      name: 'No Tears Left To Cry',
+      title: 'No Tears Left To Cry',
       artist: 'Ariana Grande',
       album: 'Sweetener',
       coverSource: '$_assetPath/sweetener_album_cover.png',
