@@ -1,4 +1,4 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -47,115 +47,131 @@ class PlayerPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        width: double.maxFinite,
-        height: double.maxFinite,
-        padding: const EdgeInsets.only(top: 25),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xff462276),
-              Color(0xff7A558C),
-            ],
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
+      body: Stack(
+        children: [
 
-              //half of the screen
-              Container(
-                width: double.maxFinite,
-                height: 500,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      openedSong.coverSource,
+          Container(
+            width: double.maxFinite,
+            height: double.maxFinite,
+            padding: const EdgeInsets.only(top: 25),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xff462276),
+                  Color(0xff7A558C),
+                ],
+              ),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+
+                  //half of the screen
+                  Container(
+                    width: double.maxFinite,
+                    height: 500,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          openedSong.coverSource,
+                        ),
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                    fit: BoxFit.fill,
+                  ),
+
+                ],
+              ),
+            ),
+          ),
+
+          //bottom of the screen
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Column(
+              children: [
+
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+
+                  //song info row
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+
+                      SongInfoColumn(
+                        songTitle: openedSong.title,
+                        artistName: openedSong.artist,
+                        color: Colors.white,
+                        scale: 1.2,
+                      ),
+
+                      //action buttons
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              model.bookmarkSong(songIndex);
+                            },
+                            icon: IconRoundedTinted(
+                              icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
+                              size: 20,
+                            ),
+                          ),
+
+                          const IconButton(
+                            onPressed: null,
+                            icon: IconRoundedTinted(
+                              icon: Icons.more_horiz,
+                              size: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-              ),
 
-              //bottom of the screen
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                const Gap(20.0),
 
-                //song info row
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-
-                    SongInfoColumn(
-                      songTitle: openedSong.title,
-                      artistName: openedSong.artist,
-                      color: Colors.white,
-                      scale: 1.2,
-                    ),
-
-                    //action buttons
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            model.bookmarkSong(songIndex);
-                          },
-                          icon: IconRoundedTinted(
-                            icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
-                            size: 20,
-                          ),
-                        ),
-
-                        const IconButton(
-                          onPressed: null,
-                          icon: IconRoundedTinted(
-                            icon: Icons.more_horiz,
-                            size: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                //music slider
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Slider(
+                    min: 0,
+                    max: getSecondsFromTimeString(openedSong.maxTime),
+                    divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
+                    value: getSecondsFromTimeString(openedSong.currentTime),
+                    onChanged: (double newValue) {
+                      model.updateCurrentSongTime(songIndex, getTimeStringFromDouble(newValue));
+                    },
+                  ),
                 ),
-              ),
 
-              const Gap(20.0),
+                const Gap(5.0),
 
-              //music slider
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Slider(
-                  min: 0,
-                  max: getSecondsFromTimeString(openedSong.maxTime),
-                  divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
-                  value: getSecondsFromTimeString(openedSong.currentTime),
-                  onChanged: (double newValue) {
-                    model.updateCurrentSongTime(songIndex, getTimeStringFromDouble(newValue));
-                  },
+                TimeRow(
+                  currentTime: openedSong.currentTime,
+                  maxTime: openedSong.maxTime,
                 ),
-              ),
 
-              const Gap(5.0),
+                const Gap(10.0),
 
-              TimeRow(
-                currentTime: openedSong.currentTime,
-                maxTime: openedSong.maxTime,
-              ),
+                PlayerControlsRow(
+                  openedSong: openedSong,
+                  songIndex: songIndex,
+                  model: model,
+                ),
 
-              const Gap(10.0),
-
-              PlayerControlsRow(
-                openedSong: openedSong,
-                songIndex: songIndex,
-                model: model,
-              ),
-
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
