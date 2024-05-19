@@ -1,5 +1,7 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -63,7 +65,6 @@ class PlayerPage extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
               //half of the screen
               Container(
@@ -160,7 +161,7 @@ class PlayerPage extends StatelessWidget {
 
               //song controls
               const Gap(10.0),
-              
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45.0),
                 child: Row(
@@ -187,7 +188,7 @@ class PlayerPage extends StatelessWidget {
 
                   ],
                 ),
-              )
+              ),
 
 
             ],
