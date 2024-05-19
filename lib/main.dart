@@ -70,6 +70,7 @@ class MyApp extends StatelessWidget {
         sliderTheme: SliderThemeData(
           overlayShape: SliderComponentShape.noOverlay,
           activeTrackColor: Colors.white,
+          inactiveTrackColor: Colors.grey[400],
           thumbColor: Colors.white,
           trackHeight: 7,
         ),
