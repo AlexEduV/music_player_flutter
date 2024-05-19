@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
 
                             CoverFlowBottomSection(
                               index: index,
-                              onTap: () => openPlayer(index),
+                              onTap: () => openPlayer(index + 1),
                             ),
 
                           ],

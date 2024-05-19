@@ -47,14 +47,17 @@ class DataModel with ChangeNotifier {
     
   ];
   
-  static Song getSongById(int id) {
-    
+  static Song _getSongById(int id) {
     return songs.firstWhere((element) => element.id == id);
   }
 
+  Song getSongById(int id) {
+    return _getSongById(id);
+  }
+
   static final List<Song> trendingMusic = [
-    getSongById(1),
-    getSongById(2),
+    _getSongById(1),
+    _getSongById(2),
   ];
 
   static List<PlayList> playlists = [
@@ -64,8 +67,8 @@ class DataModel with ChangeNotifier {
       coverSource: '$_assetPath/taylor_swift_cover_large.jpeg',
       songs: [
 
-        getSongById(3),
-        getSongById(4),
+        _getSongById(3),
+        _getSongById(4),
       ],
     ),
 
@@ -73,7 +76,7 @@ class DataModel with ChangeNotifier {
       name: 'Rock',
       songs: [
 
-        getSongById(2),
+        _getSongById(2),
 
       ],
     ),

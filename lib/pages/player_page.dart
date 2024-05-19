@@ -6,6 +6,10 @@ import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
 import 'package:music_player_flutter/widgets/player_control_button.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
+import 'package:provider/provider.dart';
+
+import '../model/model.dart';
+import '../model/song.dart';
 
 class PlayerPage extends StatelessWidget {
 
@@ -18,6 +22,10 @@ class PlayerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //init model
+    DataModel model = Provider.of<DataModel>(context);
+    Song openedSong = model.getSongById(songIndex);
 
     //functions
     void onBackPressed(BuildContext context) {
@@ -54,9 +62,16 @@ class PlayerPage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               //half of the screen
-              const SizedBox(
+              Container(
                 width: double.maxFinite,
                 height: 300,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      openedSong.coverSource,
+                    ),
+                  ),
+                ),
               ),
 
               //bottom of the screen
