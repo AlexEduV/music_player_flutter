@@ -159,10 +159,10 @@ class PlayerPage extends StatelessWidget {
               ),
 
               //song controls
-              const Gap(40.0),
+              const Gap(10.0),
               
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 55.0),
+                padding: const EdgeInsets.symmetric(horizontal: 45.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
