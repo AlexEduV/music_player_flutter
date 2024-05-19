@@ -108,8 +108,12 @@ class DataModel with ChangeNotifier {
 
   //song control code:
   void bookmarkSong(int id) {
-    songs[id - 1].isBookmarked = !songs[id - 1].isBookmarked;
+    getSongById(id).isBookmarked = !getSongById(id).isBookmarked;
     notifyListeners();
+  }
+
+  void updateCurrentSongTime(int id, String newTime) {
+    getSongById(id).currentTime = newTime;
   }
 
 
