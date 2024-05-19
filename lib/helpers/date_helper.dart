@@ -3,33 +3,42 @@ import 'package:flutter/widgets.dart';
 
 double getSecondsFromTimeString(String time) {
 
+  debugPrint('time -> double: init value: $time');
+
+  //convert string to list
   List<String> timeSplit = time.split(':');
 
+  double result = 0;
+
   if (timeSplit.length == 2) {
-    return (double.parse(timeSplit[0]) * 60) + double.parse(timeSplit[1]);
+    result = (double.parse(timeSplit[0]) * 60) + double.parse(timeSplit[1]);
   }
   else if (timeSplit.length == 3) {
-    return (double.parse(timeSplit[0]) * 60 * 60)
+    result = (double.parse(timeSplit[0]) * 60 * 60)
         + (double.parse(timeSplit[1]) * 60)
         + double.parse(timeSplit[2]);
   }
   else {
     throw Exception('Invalid Time: $time');
   }
+
+  debugPrint('time -> double: result: $result');
+
+  return result;
 }
 
 String getTimeStringFromDouble(double timeInSeconds) {
 
-  debugPrint('time -> double: init value: $timeInSeconds');
+  debugPrint('double -> time: init value: $timeInSeconds');
 
   //convert to int
   int secondsInt = timeInSeconds.toInt();
 
   int hours = secondsInt ~/ 3600;
-  secondsInt = secondsInt ~/ 3600;
+  secondsInt = secondsInt % 3600;
 
   int minutes = secondsInt ~/ 60;
-  secondsInt = secondsInt ~/ 60;
+  secondsInt = secondsInt % 60;
 
   int seconds = secondsInt;
 
@@ -42,7 +51,7 @@ String getTimeStringFromDouble(double timeInSeconds) {
 
   result += '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
 
-  debugPrint('time -> double: result: $result');
+  debugPrint('double -> time: result: $result');
 
   return result;
 
