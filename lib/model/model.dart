@@ -82,6 +82,7 @@ class DataModel with ChangeNotifier {
     ),
   ];
 
+  //playlist control code:
   void bookmarkPlaylist(int id) {
     playlists[id].isBookmarked = !playlists[id].isBookmarked;
     notifyListeners();
@@ -103,6 +104,12 @@ class DataModel with ChangeNotifier {
 
   void playPlaylist(int id) {
     //TODO: playing code here:
+  }
+
+  //song control code:
+  void bookmarkSong(int id) {
+    songs[id - 1].isBookmarked = !songs[id - 1].isBookmarked;
+    notifyListeners();
   }
 
 

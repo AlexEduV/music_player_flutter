@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
 import 'package:music_player_flutter/widgets/player_control_button.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
@@ -25,7 +26,7 @@ class PlayerPage extends StatelessWidget {
 
     //init model
     DataModel model = Provider.of<DataModel>(context);
-    Song? openedSong = model.getSongById(songIndex);
+    Song openedSong = model.getSongById(songIndex);
 
     //functions
     void onBackPressed(BuildContext context) {
@@ -95,17 +96,19 @@ class PlayerPage extends StatelessWidget {
                     ),
 
                     //action buttons
-                    const Row(
+                    Row(
                       children: [
                         IconButton(
-                          onPressed: null,
+                          onPressed: () {
+                            model.bookmarkSong(songIndex);
+                          },
                           icon: IconRoundedTinted(
-                            icon: Icons.bookmark_outline,
+                            icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
                             size: 20,
                           ),
                         ),
 
-                        IconButton(
+                        const IconButton(
                           onPressed: null,
                           icon: IconRoundedTinted(
                             icon: Icons.more_horiz,
@@ -121,12 +124,13 @@ class PlayerPage extends StatelessWidget {
               const Gap(20.0),
 
               //music slider
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Slider(
                   min: 0,
-                  max: 100,
-                  value: 10,
+                  max: getSecondsFromTimeString(openedSong.maxTime),
+                  divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
+                  value: getSecondsFromTimeString(openedSong.currentTime),
                   onChanged: null,
                 ),
               ),
