@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -7,26 +6,18 @@ import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
 import 'package:music_player_flutter/widgets/player_page/player_controls_row.dart';
 import 'package:music_player_flutter/widgets/player_page/time_row.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
-import 'package:provider/provider.dart';
-
-import 'package:music_player_flutter/model/model.dart';
-import 'package:music_player_flutter/model/song.dart';
 
 class PlayerPage extends StatelessWidget {
 
-  final int songIndex;
+  final int openedSongIndex;
 
   const PlayerPage({
-    required this.songIndex,
+    required this.openedSongIndex,
     super.key
   });
 
   @override
   Widget build(BuildContext context) {
-
-    //init model
-    DataModel model = Provider.of<DataModel>(context);
-    Song openedSong = model.getSongById(songIndex);
 
     //functions
     void onBackPressed(BuildContext context) {
@@ -110,7 +101,7 @@ class PlayerPage extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () {
-                              model.bookmarkSong(songIndex);
+                              model.bookmarkSong(openedSongIndex);
                             },
                             icon: IconRoundedTinted(
                               icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
@@ -142,7 +133,7 @@ class PlayerPage extends StatelessWidget {
                     divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
                     value: getSecondsFromTimeString(openedSong.currentTime),
                     onChanged: (double newValue) {
-                      model.updateCurrentSongTime(songIndex, getTimeStringFromDouble(newValue));
+                      model.updateCurrentSongTime(openedSongIndex, getTimeStringFromDouble(newValue));
                     },
                   ),
                 ),
@@ -150,16 +141,13 @@ class PlayerPage extends StatelessWidget {
                 const Gap(5.0),
 
                 TimeRow(
-                  currentTime: openedSong.currentTime,
-                  maxTime: openedSong.maxTime,
+                  openedSongIndex: openedSongIndex,
                 ),
 
                 const Gap(10.0),
 
                 PlayerControlsRow(
-                  openedSong: openedSong,
-                  songIndex: songIndex,
-                  model: model,
+                  openedSongIndex: openedSongIndex,
                 ),
 
                 const Gap(25.0),

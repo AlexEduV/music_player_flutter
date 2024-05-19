@@ -4,23 +4,22 @@ import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/widgets/player_page/player_control_button.dart';
 
 import 'package:music_player_flutter/model/song.dart';
+import 'package:provider/provider.dart';
 
 class PlayerControlsRow extends StatelessWidget {
 
-  final Song openedSong;
-  final int songIndex;
-  final DataModel model;
-
+  final int openedSongIndex;
 
   const PlayerControlsRow({
     super.key,
-    required this.openedSong,
-    required this.songIndex,
-    required this.model,
+    required this.openedSongIndex,
   });
 
   @override
   Widget build(BuildContext context) {
+
+    DataModel model = context.watch<DataModel>();
+    Song openedSong = model.getSongById(openedSongIndex);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 45.0),
@@ -37,7 +36,7 @@ class PlayerControlsRow extends StatelessWidget {
             icon: openedSong.isPlaying ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
             size: 40,
             onTap: () {
-              model.playSong(songIndex);
+              model.playSong(openedSongIndex);
             },
           ),
 

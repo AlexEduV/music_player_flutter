@@ -48,7 +48,7 @@ final GoRouter _router = GoRouter(
             int songIndex = state.extra as int;
 
             return PlayerPage(
-              songIndex: songIndex,
+              openedSongIndex: songIndex,
             );
 
           },
