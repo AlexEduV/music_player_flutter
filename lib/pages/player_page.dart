@@ -91,20 +91,42 @@ class PlayerPage extends StatelessWidget {
                 ),
               ),
 
-              Gap(10.0),
+              Gap(20.0),
 
               //music slider
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
+                padding: EdgeInsets.symmetric(horizontal: 15.0),
                 child: Slider(
-                  
-                  value: 0,
+                  min: 0,
+                  max: 100,
+                  value: 10,
                   onChanged: null,
                 ),
               ),
+
               //time texts
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '--:--',
+                      style: TextStyle(color: Colors.white),
+                    ),
+
+                    Text(
+                      '--:--',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
 
               //song controls
+              
+
+
             ],
           ),
         ),

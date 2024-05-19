@@ -67,6 +67,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        sliderTheme: SliderThemeData(
+          overlayShape: SliderComponentShape.noOverlay,
+          activeTrackColor: Colors.white,
+          thumbColor: Colors.white,
+        ),
       ),
       debugShowCheckedModeBanner: false,
     );
