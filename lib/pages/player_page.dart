@@ -64,11 +64,19 @@ class PlayerPage extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+
+          //bottom of the screen
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
             child: Column(
               children: [
+
                 Container(
-                  height: 400,
-                  margin: const EdgeInsets.only(top: 80, left: 40, right: 40),
+                  height: 350,
+                  width: 350,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
@@ -79,17 +87,8 @@ class PlayerPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(24.0),
                   ),
                 ),
-              ],
-            ),
-          ),
 
-          //bottom of the screen
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Column(
-              children: [
+                const Gap(80.0),
 
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
