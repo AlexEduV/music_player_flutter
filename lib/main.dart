@@ -71,6 +71,7 @@ class MyApp extends StatelessWidget {
           overlayShape: SliderComponentShape.noOverlay,
           activeTrackColor: Colors.white,
           thumbColor: Colors.white,
+          trackHeight: 7,
         ),
       ),
       debugShowCheckedModeBanner: false,

@@ -80,12 +80,18 @@ class PlayerPage extends StatelessWidget {
                       children: [
                         IconButton(
                           onPressed: null,
-                          icon: IconRoundedTinted(icon: Icons.bookmark_outline),
+                          icon: IconRoundedTinted(
+                            icon: Icons.bookmark_outline,
+                            size: 20,
+                          ),
                         ),
 
                         IconButton(
                           onPressed: null,
-                          icon: IconRoundedTinted(icon: Icons.more_horiz),
+                          icon: IconRoundedTinted(
+                            icon: Icons.more_horiz,
+                            size: 20,
+                          ),
                         ),
                       ],
                     ),
