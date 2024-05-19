@@ -168,6 +168,8 @@ class PlayerPage extends StatelessWidget {
                   model: model,
                 ),
 
+                const Gap(25.0),
+
               ],
             ),
           ),
