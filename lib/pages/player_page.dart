@@ -1,13 +1,11 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
-import 'package:music_player_flutter/widgets/player_page/player_control_button.dart';
+import 'package:music_player_flutter/widgets/player_page/player_controls_row.dart';
+import 'package:music_player_flutter/widgets/player_page/time_row.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
 import 'package:provider/provider.dart';
 
@@ -69,135 +67,90 @@ class PlayerPage extends StatelessWidget {
             children: [
 
               //half of the screen
-              Expanded(
-                child: Container(
-                  width: double.maxFinite,
-                  height: 500,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        openedSong.coverSource,
-                      ),
-                      fit: BoxFit.fill,
+              Container(
+                width: double.maxFinite,
+                height: 500,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      openedSong.coverSource,
                     ),
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
 
               //bottom of the screen
-              Column(
-                children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
 
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                //song info row
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
 
-                    //song info row
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-
-                        SongInfoColumn(
-                          songTitle: openedSong.title,
-                          artistName: openedSong.artist,
-                          color: Colors.white,
-                          scale: 1.2,
-                        ),
-
-                        //action buttons
-                        Row(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                model.bookmarkSong(songIndex);
-                              },
-                              icon: IconRoundedTinted(
-                                icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
-                                size: 20,
-                              ),
-                            ),
-
-                            const IconButton(
-                              onPressed: null,
-                              icon: IconRoundedTinted(
-                                icon: Icons.more_horiz,
-                                size: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                    SongInfoColumn(
+                      songTitle: openedSong.title,
+                      artistName: openedSong.artist,
+                      color: Colors.white,
+                      scale: 1.2,
                     ),
-                  ),
 
-                  const Gap(20.0),
-
-                  //music slider
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Slider(
-                      min: 0,
-                      max: getSecondsFromTimeString(openedSong.maxTime),
-                      divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
-                      value: getSecondsFromTimeString(openedSong.currentTime),
-                      onChanged: (double newValue) {
-                        model.updateCurrentSongTime(songIndex, getTimeStringFromDouble(newValue));
-                      },
-                    ),
-                  ),
-
-                  const Gap(5.0),
-
-                  //time texts
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //action buttons
+                    Row(
                       children: [
-                        Text(
-                          openedSong.currentTime,
-                          style: TextStyle(color: Colors.grey[200]),
-                        ),
-
-                        Text(
-                          openedSong.maxTime,
-                          style: TextStyle(color: Colors.grey[200]),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  //song controls
-                  const Gap(10.0),
-
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 45.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-
-                        const PlayerControlButton(
-                          icon: FontAwesomeIcons.backward,
-                          onTap: null,
-                        ),
-
-                        PlayerControlButton(
-                          icon: openedSong.isPlaying ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
-                          size: 40,
-                          onTap: () {
-                            model.playSong(songIndex);
+                        IconButton(
+                          onPressed: () {
+                            model.bookmarkSong(songIndex);
                           },
+                          icon: IconRoundedTinted(
+                            icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
+                            size: 20,
+                          ),
                         ),
 
-                        const PlayerControlButton(
-                          icon: FontAwesomeIcons.forward,
-                          onTap: null,
-                        )
-
+                        const IconButton(
+                          onPressed: null,
+                          icon: IconRoundedTinted(
+                            icon: Icons.more_horiz,
+                            size: 20,
+                          ),
+                        ),
                       ],
                     ),
-                  ),
+                  ],
+                ),
+              ),
 
-                ],
+              const Gap(20.0),
+
+              //music slider
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Slider(
+                  min: 0,
+                  max: getSecondsFromTimeString(openedSong.maxTime),
+                  divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
+                  value: getSecondsFromTimeString(openedSong.currentTime),
+                  onChanged: (double newValue) {
+                    model.updateCurrentSongTime(songIndex, getTimeStringFromDouble(newValue));
+                  },
+                ),
+              ),
+
+              const Gap(5.0),
+
+              TimeRow(
+                currentTime: openedSong.currentTime,
+                maxTime: openedSong.maxTime,
+              ),
+
+              const Gap(10.0),
+
+              PlayerControlsRow(
+                openedSong: openedSong,
+                songIndex: songIndex,
+                model: model,
               ),
 
             ],
