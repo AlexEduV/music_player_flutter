@@ -114,6 +114,7 @@ class DataModel with ChangeNotifier {
 
   void updateCurrentSongTime(int id, String newTime) {
     getSongById(id).currentTime = newTime;
+    notifyListeners();
   }
 
 

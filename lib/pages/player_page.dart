@@ -131,7 +131,9 @@ class PlayerPage extends StatelessWidget {
                   max: getSecondsFromTimeString(openedSong.maxTime),
                   divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
                   value: getSecondsFromTimeString(openedSong.currentTime),
-                  onChanged: null,
+                  onChanged: (double newValue) {
+                    model.updateCurrentSongTime(songIndex, getTimeStringFromDouble(newValue));
+                  },
                 ),
               ),
 
