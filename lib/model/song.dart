@@ -9,6 +9,7 @@ class Song {
   final String maxTime;
   late String currentTime;
   late bool isPlaying;
+  late bool isBookmarked;
 
   static const String _assetPath = 'assets/images';
 
@@ -20,6 +21,7 @@ class Song {
     required this.maxTime,
     this.currentTime = '0:00',
     this.isPlaying = false,
+    this.isBookmarked = false,
     this.coverSource = '$_assetPath/album_cover_placeholder.png',
   });
 
