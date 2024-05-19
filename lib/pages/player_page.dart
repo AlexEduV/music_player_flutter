@@ -11,8 +11,8 @@ import 'package:music_player_flutter/widgets/player_control_button.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
 import 'package:provider/provider.dart';
 
-import '../model/model.dart';
-import '../model/song.dart';
+import 'package:music_player_flutter/model/model.dart';
+import 'package:music_player_flutter/model/song.dart';
 
 class PlayerPage extends StatelessWidget {
 
@@ -65,11 +65,14 @@ class PlayerPage extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
             children: [
+
               //half of the screen
               Container(
                 width: double.maxFinite,
-                height: 300,
+                height: 500,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
@@ -81,115 +84,119 @@ class PlayerPage extends StatelessWidget {
               ),
 
               //bottom of the screen
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
 
-                //song info row
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-
-                    SongInfoColumn(
-                      songTitle: openedSong.title,
-                      artistName: openedSong.artist,
-                      color: Colors.white,
-                      scale: 1.2,
-                    ),
-
-                    //action buttons
-                    Row(
+                    //song info row
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        IconButton(
-                          onPressed: () {
-                            model.bookmarkSong(songIndex);
-                          },
-                          icon: IconRoundedTinted(
-                            icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
-                            size: 20,
-                          ),
+
+                        SongInfoColumn(
+                          songTitle: openedSong.title,
+                          artistName: openedSong.artist,
+                          color: Colors.white,
+                          scale: 1.2,
                         ),
 
-                        const IconButton(
-                          onPressed: null,
-                          icon: IconRoundedTinted(
-                            icon: Icons.more_horiz,
-                            size: 20,
-                          ),
+                        //action buttons
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                model.bookmarkSong(songIndex);
+                              },
+                              icon: IconRoundedTinted(
+                                icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
+                                size: 20,
+                              ),
+                            ),
+
+                            const IconButton(
+                              onPressed: null,
+                              icon: IconRoundedTinted(
+                                icon: Icons.more_horiz,
+                                size: 20,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
 
-              const Gap(20.0),
+                  const Gap(20.0),
 
-              //music slider
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Slider(
-                  min: 0,
-                  max: getSecondsFromTimeString(openedSong.maxTime),
-                  divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
-                  value: getSecondsFromTimeString(openedSong.currentTime),
-                  onChanged: (double newValue) {
-                    model.updateCurrentSongTime(songIndex, getTimeStringFromDouble(newValue));
-                  },
-                ),
-              ),
-
-              const Gap(5.0),
-
-              //time texts
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      openedSong.currentTime,
-                      style: TextStyle(color: Colors.grey[200]),
-                    ),
-
-                    Text(
-                      openedSong.maxTime,
-                      style: TextStyle(color: Colors.grey[200]),
-                    ),
-                  ],
-                ),
-              ),
-
-              //song controls
-              const Gap(10.0),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 45.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-
-                    const PlayerControlButton(
-                      icon: FontAwesomeIcons.backward,
-                      onTap: null,
-                    ),
-
-                    PlayerControlButton(
-                      icon: openedSong.isPlaying ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
-                      size: 40,
-                      onTap: () {
-                        model.playSong(songIndex);
+                  //music slider
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Slider(
+                      min: 0,
+                      max: getSecondsFromTimeString(openedSong.maxTime),
+                      divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
+                      value: getSecondsFromTimeString(openedSong.currentTime),
+                      onChanged: (double newValue) {
+                        model.updateCurrentSongTime(songIndex, getTimeStringFromDouble(newValue));
                       },
                     ),
+                  ),
 
-                    const PlayerControlButton(
-                      icon: FontAwesomeIcons.forward,
-                      onTap: null,
-                    )
+                  const Gap(5.0),
 
-                  ],
-                ),
+                  //time texts
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          openedSong.currentTime,
+                          style: TextStyle(color: Colors.grey[200]),
+                        ),
+
+                        Text(
+                          openedSong.maxTime,
+                          style: TextStyle(color: Colors.grey[200]),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  //song controls
+                  const Gap(10.0),
+
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 45.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+
+                        const PlayerControlButton(
+                          icon: FontAwesomeIcons.backward,
+                          onTap: null,
+                        ),
+
+                        PlayerControlButton(
+                          icon: openedSong.isPlaying ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
+                          size: 40,
+                          onTap: () {
+                            model.playSong(songIndex);
+                          },
+                        ),
+
+                        const PlayerControlButton(
+                          icon: FontAwesomeIcons.forward,
+                          onTap: null,
+                        )
+
+                      ],
+                    ),
+                  ),
+
+                ],
               ),
-
 
             ],
           ),
