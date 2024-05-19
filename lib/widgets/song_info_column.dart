@@ -4,11 +4,15 @@ class SongInfoColumn extends StatelessWidget {
 
   final String songTitle;
   final String artistName;
+  final Color color;
+  final double scale;
 
   const SongInfoColumn({
     super.key,
     required this.songTitle,
     required this.artistName,
+    this.color = const Color(0xff462276),
+    this.scale = 1,
   });
 
   @override
@@ -18,18 +22,18 @@ class SongInfoColumn extends StatelessWidget {
       children: [
         Text(
           songTitle,
-          style: const TextStyle(
-            color: Color(0xff462276),
+          style: TextStyle(
+            color: color,
             fontWeight: FontWeight.bold,
-            fontSize: 14,
+            fontSize: 14 * scale,
           ),
         ),
 
         Text(
           artistName,
-          style: const TextStyle(
-            color: Color(0xff462276),
-            fontSize: 12,
+          style: TextStyle(
+            color: color,
+            fontSize: 12 * scale,
           ),
         ),
       ],
