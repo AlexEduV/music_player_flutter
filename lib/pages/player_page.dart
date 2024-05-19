@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
+import 'package:music_player_flutter/widgets/player_control_button_icon.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
 
 class PlayerPage extends StatelessWidget {
@@ -124,7 +126,39 @@ class PlayerPage extends StatelessWidget {
               ),
 
               //song controls
+              Gap(40.0),
               
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 55.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    IconButton(
+                      onPressed: null,
+                      icon: PlayerControlButtonIcon(
+                        icon: FontAwesomeIcons.backward,
+                      ),
+                    ),
+
+                    IconButton(
+                      onPressed: null,
+                      icon: PlayerControlButtonIcon(
+                        icon: Icons.play_arrow_rounded,
+                        size: 60,
+                      ),
+                    ),
+
+                    IconButton(
+                      onPressed: null,
+                      icon: PlayerControlButtonIcon(
+                        icon: FontAwesomeIcons.forward,
+                      ),
+                    ),
+
+                  ],
+                ),
+              )
 
 
             ],
