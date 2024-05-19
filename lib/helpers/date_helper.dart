@@ -49,7 +49,7 @@ String getTimeStringFromDouble(double timeInSeconds) {
     result += '$hours:';
   }
 
-  result += '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+  result += '$minutes:${seconds.toString().padLeft(2, '0')}';
 
   debugPrint('double -> time: result: $result');
 
