@@ -64,27 +64,22 @@ class PlayerPage extends StatelessWidget {
                 ],
               ),
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-
-                  //half of the screen
-                  Container(
-                    width: double.maxFinite,
-                    height: 500,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          openedSong.coverSource,
-                        ),
-                        fit: BoxFit.fill,
+            child: Column(
+              children: [
+                Container(
+                  height: 400,
+                  margin: const EdgeInsets.only(top: 80, left: 40, right: 40),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        openedSong.coverSource,
                       ),
+                      fit: BoxFit.cover,
                     ),
+                    borderRadius: BorderRadius.circular(24.0),
                   ),
-
-                ],
-              ),
+                ),
+              ],
             ),
           ),
 
