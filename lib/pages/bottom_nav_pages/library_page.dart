@@ -16,15 +16,14 @@ class LibraryPage extends StatefulWidget {
 class _LibraryPageState extends State<LibraryPage> {
 
   late List<SongModel> songs = [];
+  final OnAudioQuery audioQuery = OnAudioQuery();
+  late bool _hasPermission = false;
 
   @override
-  void initState() async {
+  void initState() {
     super.initState();
 
-    final OnAudioQuery audioQuery = OnAudioQuery();
-
-    // Query Audios
-    songs = await audioQuery.querySongs();
+    checkAndRequestPermissions();
 
   }
 
@@ -76,6 +75,7 @@ class _LibraryPageState extends State<LibraryPage> {
                   cover: QueryArtworkWidget(
                     id: songs[index].id,
                     type: ArtworkType.AUDIO,
+                    controller: audioQuery,
                   ),
                 );
               },
@@ -85,5 +85,23 @@ class _LibraryPageState extends State<LibraryPage> {
         ],
       ),
     );
+  }
+
+  checkAndRequestPermissions({bool retry = false}) async {
+    // The param 'retryRequest' is false, by default.
+    _hasPermission = await audioQuery.checkAndRequest(
+      retryRequest: retry,
+    );
+
+    // Only call update the UI if application has all required permissions.
+    _hasPermission ? getSongs() : null;
+  }
+
+  void getSongs() async {
+
+    // Query Audios
+    songs = await audioQuery.querySongs();
+
+    setState(() {});
   }
 }
