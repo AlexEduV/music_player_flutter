@@ -33,7 +33,7 @@ class TimeRow extends StatelessWidget {
           Consumer<DataModel>(
             builder: (context, model, child) =>
               Text(
-                model.getSongById(openedSongIndex).currentTime,
+                model.getSongById(openedSongIndex).maxTime,
                 style: timeStyle,
               ),
             ),
