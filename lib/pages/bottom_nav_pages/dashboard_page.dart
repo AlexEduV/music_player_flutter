@@ -1,87 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:music_player_flutter/pages/bottom_nav_pages/library_page.dart';
-
-import 'package:music_player_flutter/widgets/home_page/bottom_nav_bar_icon.dart';
-import 'package:music_player_flutter/widgets/home_page/cover_flow_bottom_section.dart';
-import 'package:music_player_flutter/widgets/home_page/playlist_list_tile.dart';
-import 'package:music_player_flutter/widgets/home_page/page_section.dart';
 
 import 'package:music_player_flutter/model/model.dart';
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key,});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-
-  int _selectedBottomNavigationIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      body: getBottomNavigationPageByIndex(_selectedBottomNavigationIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedBottomNavigationIndex,
-        onTap: (index) {
-          setState(() {
-            _selectedBottomNavigationIndex = index;
-          });
-        },
-        backgroundColor: const Color(0xff462276),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(
-            label: 'Home',
-            icon: BottomNavigationBarIcon(
-              icon: Icons.home,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Library',
-            icon: BottomNavigationBarIcon(
-              icon: Icons.library_music,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Bookmarks',
-            icon: BottomNavigationBarIcon(
-              icon: Icons.bookmark,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Search',
-            icon: BottomNavigationBarIcon(
-              icon: Icons.search,
-            ),
-          ),
-        ],
-      ),
-
-    );
-  }
-
-  Widget? getBottomNavigationPageByIndex(int index) {
-
-    if (index == 0) {
-      return const DashboardPage();
-    }
-    else if (index == 1) {
-      return const LibraryPage();
-    }
-
-    return const SizedBox.shrink();
-
-  }
-}
+import 'package:music_player_flutter/widgets/home_page/cover_flow_bottom_section.dart';
+import 'package:music_player_flutter/widgets/home_page/page_section.dart';
+import 'package:music_player_flutter/widgets/home_page/playlist_list_tile.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -243,4 +167,3 @@ class DashboardPage extends StatelessWidget {
     );
   }
 }
-

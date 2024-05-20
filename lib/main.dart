@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/model/model.dart';
-import 'package:music_player_flutter/pages/bottom_nav_pages/home_page.dart';
+import 'package:music_player_flutter/pages/home_page.dart';
 import 'package:music_player_flutter/pages/player_page.dart';
 import 'package:music_player_flutter/pages/playlist_details_page.dart';
 import 'package:provider/provider.dart';
