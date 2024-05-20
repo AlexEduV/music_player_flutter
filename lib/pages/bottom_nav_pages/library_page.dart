@@ -71,7 +71,7 @@ class _LibraryPageState extends State<LibraryPage> {
                   songTitle: songs[index].title,
                   album: songs[index].album ?? '',
                   artist: songs[index].artist ?? '',
-                  maxTime: getTimeStringFromDouble(songs[index].duration?.toDouble() ?? 0.0),
+                  maxTime: getTimeStringFromDouble(songs[index].duration!.toDouble() / 1000),
                   cover: QueryArtworkWidget(
                     id: songs[index].id,
                     type: ArtworkType.AUDIO,
@@ -100,7 +100,14 @@ class _LibraryPageState extends State<LibraryPage> {
   void getSongs() async {
 
     // Query Audios
-    songs = await audioQuery.querySongs();
+    List<SongModel> all = await audioQuery.querySongs();
+
+    //filter just music
+    for (final audio in all) {
+      if (audio.isMusic ?? false) {
+        songs.add(audio);
+      }
+    }
 
     setState(() {});
   }
