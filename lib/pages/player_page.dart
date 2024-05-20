@@ -67,18 +67,21 @@ class PlayerPage extends StatelessWidget {
             child: Column(
               children: [
 
-                Container(
-                  height: 350,
-                  width: 350,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                        openedSong.coverSource,
+                Consumer<DataModel>(
+                  builder: (context, model, child) =>
+                    Container(
+                      height: 350,
+                      width: 350,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            model.getSongById(openedSongIndex).coverSource,
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(24.0),
                       ),
-                      fit: BoxFit.cover,
                     ),
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
                 ),
 
                 const Gap(80.0),
@@ -91,11 +94,14 @@ class PlayerPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
 
-                      SongInfoColumn(
-                        songTitle: openedSong.title,
-                        artistName: openedSong.artist,
-                        color: Colors.white,
-                        scale: 1.2,
+                      Consumer<DataModel>(
+                        builder: (context, model, child) =>
+                          SongInfoColumn(
+                            songTitle: model.getSongById(openedSongIndex).title,
+                            artistName: model.getSongById(openedSongIndex).artist,
+                            color: Colors.white,
+                            scale: 1.2,
+                          ),
                       ),
 
                       //action buttons
