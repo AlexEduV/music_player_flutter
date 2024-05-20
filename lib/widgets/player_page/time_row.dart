@@ -17,30 +17,27 @@ class TimeRow extends StatelessWidget {
 
     TextStyle timeStyle = TextStyle(color: Colors.grey[200]);
 
-    return Consumer<DataModel>(
-      builder: (context, model, child) =>
-      Container(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Consumer<DataModel>(
-              builder: (context, model, child) =>
-                  Text(
-                    model.getSongById(openedSongIndex).currentTime,
-                    style: timeStyle,
-                  ),
-                ),
-      
-            Consumer<DataModel>(
-              builder: (context, model, child) =>
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Consumer<DataModel>(
+            builder: (context, model, child) =>
                 Text(
                   model.getSongById(openedSongIndex).currentTime,
                   style: timeStyle,
                 ),
               ),
-          ],
-        ),
+
+          Consumer<DataModel>(
+            builder: (context, model, child) =>
+              Text(
+                model.getSongById(openedSongIndex).currentTime,
+                style: timeStyle,
+              ),
+            ),
+        ],
       ),
     );
   }
