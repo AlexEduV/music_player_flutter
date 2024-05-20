@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:gap/gap.dart';
 import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/widgets/playlist_details_page/song_list_tile.dart';
 
@@ -31,19 +34,41 @@ class LibraryPage extends StatelessWidget {
           ],
         ),
       ),
-      child: ListView.builder(
-        itemCount: allSongs.length,
-        itemBuilder: (BuildContext context, int index) {
-          return SongListTile(
-            index: index,
-            songTitle: allSongs[index].title,
-            album: allSongs[index].album,
-            artist: allSongs[index].artist,
-            maxTime: allSongs[index].maxTime,
-            coverSource: allSongs[index].coverSource,
-          );
-        },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
 
+          const Gap(30.0),
+
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            child: Text(
+              'Library',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+              ),
+            ),
+          ),
+
+          Expanded(
+            child: ListView.builder(
+              itemCount: allSongs.length,
+              itemBuilder: (BuildContext context, int index) {
+                return SongListTile(
+                  index: index,
+                  songTitle: allSongs[index].title,
+                  album: allSongs[index].album,
+                  artist: allSongs[index].artist,
+                  maxTime: allSongs[index].maxTime,
+                  coverSource: allSongs[index].coverSource,
+                );
+              },
+
+            ),
+          ),
+        ],
       ),
     );
   }
