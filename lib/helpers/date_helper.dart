@@ -56,3 +56,14 @@ String getTimeStringFromDouble(double timeInSeconds) {
   return result;
 
 }
+
+String getTimeLeftFromCurrentAndMax(String currentTime, String maxTime) {
+
+  String result = '';
+
+  double difference = getSecondsFromTimeString(maxTime) - getSecondsFromTimeString(currentTime);
+  result = '-${getTimeStringFromDouble(difference)}';
+
+  return result;
+
+}

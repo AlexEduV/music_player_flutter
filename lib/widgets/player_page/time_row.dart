@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:provider/provider.dart';
 
 import 'package:music_player_flutter/model/model.dart';
@@ -33,7 +34,10 @@ class TimeRow extends StatelessWidget {
           Consumer<DataModel>(
             builder: (context, model, child) =>
               Text(
-                model.getSongById(openedSongIndex).maxTime,
+                getTimeLeftFromCurrentAndMax(
+                  model.getSongById(openedSongIndex).currentTime,
+                  model.getSongById(openedSongIndex).maxTime,
+                ),
                 style: timeStyle,
               ),
             ),
