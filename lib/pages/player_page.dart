@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:music_player_flutter/helpers/date_helper.dart';
+import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
 import 'package:music_player_flutter/widgets/player_page/player_controls_row.dart';
 import 'package:music_player_flutter/widgets/player_page/time_row.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
+import 'package:provider/provider.dart';
 
 class PlayerPage extends StatelessWidget {
 
@@ -99,14 +101,17 @@ class PlayerPage extends StatelessWidget {
                       //action buttons
                       Row(
                         children: [
-                          IconButton(
-                            onPressed: () {
-                              model.bookmarkSong(openedSongIndex);
-                            },
-                            icon: IconRoundedTinted(
-                              icon: openedSong.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
-                              size: 20,
-                            ),
+                          Consumer<DataModel>(
+                            builder: (context, model, child) =>
+                              IconButton(
+                                onPressed: () {
+                                  model.bookmarkSong(openedSongIndex);
+                                },
+                                icon: IconRoundedTinted(
+                                  icon: model.getSongById(openedSongIndex).isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
+                                  size: 20,
+                                ),
+                              ),
                           ),
 
                           const IconButton(
@@ -127,14 +132,17 @@ class PlayerPage extends StatelessWidget {
                 //music slider
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: Slider(
-                    min: 0,
-                    max: getSecondsFromTimeString(openedSong.maxTime),
-                    divisions: getSecondsFromTimeString(openedSong.maxTime).toInt(),
-                    value: getSecondsFromTimeString(openedSong.currentTime),
-                    onChanged: (double newValue) {
-                      model.updateCurrentSongTime(openedSongIndex, getTimeStringFromDouble(newValue));
-                    },
+                  child: Consumer<DataModel>(
+                    builder: (context, model, child) =>
+                      Slider(
+                        min: 0,
+                        max: getSecondsFromTimeString(model.getSongById(openedSongIndex).maxTime),
+                        divisions: getSecondsFromTimeString(model.getSongById(openedSongIndex).maxTime).toInt(),
+                        value: getSecondsFromTimeString(model.getSongById(openedSongIndex).currentTime),
+                        onChanged: (double newValue) {
+                          model.updateCurrentSongTime(openedSongIndex, getTimeStringFromDouble(newValue));
+                        },
+                      ),
                   ),
                 ),
 

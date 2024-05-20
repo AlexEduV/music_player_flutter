@@ -14,7 +14,7 @@ class TimeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+
     TextStyle timeStyle = TextStyle(color: Colors.grey[200]);
 
     return Consumer<DataModel>(
