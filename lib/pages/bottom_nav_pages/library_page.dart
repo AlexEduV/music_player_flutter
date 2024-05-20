@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:music_player_flutter/widgets/playlist_details_page/song_list_tile.dart';
+import 'package:music_player_flutter/helpers/date_helper.dart';
+import 'package:music_player_flutter/widgets/library_page/library_list_tile.dart';
 
 import 'package:on_audio_query/on_audio_query.dart';
 
@@ -66,13 +67,16 @@ class _LibraryPageState extends State<LibraryPage> {
             child: ListView.builder(
               itemCount: songs.length,
               itemBuilder: (BuildContext context, int index) {
-                return SongListTile(
+                return LibraryListTile(
                   index: index,
                   songTitle: songs[index].title,
                   album: songs[index].album ?? '',
                   artist: songs[index].artist ?? '',
-                  maxTime: '0:00',
-                  coverSource: allSongs[index].coverSource,
+                  maxTime: getTimeStringFromDouble(songs[index].duration?.toDouble() ?? 0.0),
+                  cover: QueryArtworkWidget(
+                    id: songs[index].id,
+                    type: ArtworkType.AUDIO,
+                  ),
                 );
               },
 
