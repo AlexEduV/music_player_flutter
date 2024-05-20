@@ -1,24 +1,34 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
-import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/widgets/playlist_details_page/song_list_tile.dart';
 
-import 'package:music_player_flutter/model/song.dart';
-import 'package:provider/provider.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
-class LibraryPage extends StatelessWidget {
+class LibraryPage extends StatefulWidget {
   const LibraryPage({super.key});
 
   @override
+  State<LibraryPage> createState() => _LibraryPageState();
+}
+
+class _LibraryPageState extends State<LibraryPage> {
+
+  late List<SongModel> songs = [];
+
+  @override
+  void initState() async {
+    super.initState();
+
+    final OnAudioQuery audioQuery = OnAudioQuery();
+
+    // Query Audios
+    songs = await audioQuery.querySongs();
+
+  }
+
+  @override
   Widget build(BuildContext context) {
-
-    final DataModel model = context.read<DataModel>();
-
-    final List<Song> allSongs = [
-      model.getSongById(1)
-    ];
 
     return Container(
       width: double.maxFinite,
@@ -54,14 +64,14 @@ class LibraryPage extends StatelessWidget {
 
           Expanded(
             child: ListView.builder(
-              itemCount: allSongs.length,
+              itemCount: songs.length,
               itemBuilder: (BuildContext context, int index) {
                 return SongListTile(
                   index: index,
-                  songTitle: allSongs[index].title,
-                  album: allSongs[index].album,
-                  artist: allSongs[index].artist,
-                  maxTime: allSongs[index].maxTime,
+                  songTitle: songs[index].title,
+                  album: songs[index].album ?? '',
+                  artist: songs[index].artist ?? '',
+                  maxTime: '0:00',
                   coverSource: allSongs[index].coverSource,
                 );
               },
