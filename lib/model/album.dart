@@ -12,5 +12,5 @@ class Album {
     required this.year,
     required this.cover,
   });
-  
+
 }

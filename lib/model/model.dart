@@ -1,4 +1,5 @@
 //static values (ideally to be loaded via async)
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/model/song.dart';
@@ -6,6 +7,8 @@ import 'package:music_player_flutter/model/song.dart';
 class DataModel with ChangeNotifier {
 
   static const String _assetPath = 'assets/images';
+
+  final player = AudioPlayer();
   
   static final List<Song> songs = [
     
@@ -117,12 +120,13 @@ class DataModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void playSong(int id) {
+  void playSong(int id, {Source? uri = UrlSource('')}) {
     //update UI
     getSongById(id).isPlaying = !getSongById(id).isPlaying;
     notifyListeners();
 
     //TODO: start playing the song here:
+    player.play(uri);
 
   }
 

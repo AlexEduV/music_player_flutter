@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class LibraryListTile extends StatelessWidget {
   final int index;
@@ -27,6 +28,9 @@ class LibraryListTile extends StatelessWidget {
         onLongPress: () {
           //TODO: Show bottom sheet here:
 
+        },
+        onTap: () {
+          context.go('player');
         },
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
