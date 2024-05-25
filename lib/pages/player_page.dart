@@ -154,12 +154,14 @@ class PlayerPage extends StatelessWidget {
 
                 TimeRow(
                   openedSongIndex: song.id,
+                  listToUpdate: listToUpdate,
                 ),
 
                 const Gap(10.0),
 
                 PlayerControlsRow(
                   openedSongIndex: song.id,
+                  listToUpdate: listToUpdate,
                 ),
 
                 const Gap(25.0),

@@ -9,17 +9,21 @@ import 'package:provider/provider.dart';
 class PlayerControlsRow extends StatelessWidget {
 
   final int openedSongIndex;
+  final List<Song> listToUpdate;
 
   const PlayerControlsRow({
     super.key,
     required this.openedSongIndex,
+    required this.listToUpdate,
   });
 
   @override
   Widget build(BuildContext context) {
 
     DataModel model = context.watch<DataModel>();
-    Song openedSong = model.getSongById(openedSongIndex);
+
+
+    Song openedSong = model.getSongById(listToUpdate, openedSongIndex);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 45.0),
@@ -36,7 +40,7 @@ class PlayerControlsRow extends StatelessWidget {
             icon: openedSong.isPlaying ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
             size: 40,
             onTap: () {
-              model.playSong(openedSongIndex, source: '');
+              model.playSong(listToUpdate, openedSongIndex, source: '');
             },
           ),
 

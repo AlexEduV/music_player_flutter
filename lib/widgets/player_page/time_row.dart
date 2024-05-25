@@ -4,13 +4,17 @@ import 'package:provider/provider.dart';
 
 import 'package:music_player_flutter/model/model.dart';
 
+import 'package:music_player_flutter/model/song.dart';
+
 class TimeRow extends StatelessWidget {
 
   final int openedSongIndex;
+  final List<Song> listToUpdate;
 
   const TimeRow({
     super.key,
     required this.openedSongIndex,
+    required this.listToUpdate,
   });
 
   @override
@@ -26,7 +30,7 @@ class TimeRow extends StatelessWidget {
           Consumer<DataModel>(
             builder: (context, model, child) =>
                 Text(
-                  model.getSongById(openedSongIndex).currentTime,
+                  model.getSongById(listToUpdate, openedSongIndex).currentTime,
                   style: timeStyle,
                 ),
               ),
@@ -35,8 +39,8 @@ class TimeRow extends StatelessWidget {
             builder: (context, model, child) =>
               Text(
                 getTimeLeftFromCurrentAndMax(
-                  model.getSongById(openedSongIndex).currentTime,
-                  model.getSongById(openedSongIndex).maxTime,
+                  model.getSongById(listToUpdate, openedSongIndex).currentTime,
+                  model.getSongById(listToUpdate, openedSongIndex).maxTime,
                 ),
                 style: timeStyle,
               ),
