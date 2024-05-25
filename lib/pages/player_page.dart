@@ -10,9 +10,11 @@ import 'package:music_player_flutter/widgets/song_info_column.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
 
+import 'package:music_player_flutter/model/song.dart';
+
 class PlayerPage extends StatelessWidget {
 
-  final SongModel song;
+  final Song song;
 
   const PlayerPage({
     required this.song,

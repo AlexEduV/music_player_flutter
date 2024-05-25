@@ -23,6 +23,7 @@ class DataModel with ChangeNotifier {
       coverSource: '$_assetPath/22_album_cover.jpeg',
       maxTime: '4:02',
       source: '',
+      isStatic: true,
     ),
 
     Song(
@@ -32,7 +33,8 @@ class DataModel with ChangeNotifier {
       album: 'A Night At The Opera',
       coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
       maxTime: '6:03',
-      source: ''
+      source: '',
+      isStatic: true,
     ),
 
     Song(
@@ -43,6 +45,7 @@ class DataModel with ChangeNotifier {
       coverSource: '$_assetPath/fearless_album_cover.png',
       maxTime: '4:03',
       source: '',
+      isStatic: true,
     ),
 
     Song(
@@ -53,6 +56,7 @@ class DataModel with ChangeNotifier {
       coverSource: '$_assetPath/sweetener_album_cover.png',
       maxTime: '3:26',
       source: '',
+      isStatic: true,
     ),
   ];
 
@@ -87,6 +91,7 @@ class DataModel with ChangeNotifier {
             album: audio.album ?? '',
             maxTime: getTimeStringFromDouble((audio.duration ?? 0.0) / 1000),
             source: audio.uri ?? '',
+            isStatic: false,
           )
         );
       }
