@@ -120,13 +120,13 @@ class DataModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void playSong(int id, {Source? uri = UrlSource('')}) {
+  void playSong(int id, {String source = ''}) {
     //update UI
     getSongById(id).isPlaying = !getSongById(id).isPlaying;
     notifyListeners();
 
     //TODO: start playing the song here:
-    player.play(uri);
+    player.play(UrlSource(source));
 
   }
 

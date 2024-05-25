@@ -30,7 +30,7 @@ class LibraryListTile extends StatelessWidget {
 
         },
         onTap: () {
-          context.go('player');
+          context.goNamed('player', extra: index);
         },
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),

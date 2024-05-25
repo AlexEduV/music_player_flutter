@@ -36,7 +36,7 @@ class PlayerControlsRow extends StatelessWidget {
             icon: openedSong.isPlaying ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
             size: 40,
             onTap: () {
-              model.playSong(openedSongIndex);
+              model.playSong(openedSongIndex, source: '');
             },
           ),
 
