@@ -20,7 +20,6 @@ class _LibraryPageState extends State<LibraryPage> {
 
   late List<Song> songs = [];
 
-
   final OnAudioQuery audioQuery = OnAudioQuery();
   late bool _hasPermission = false;
 
@@ -28,13 +27,15 @@ class _LibraryPageState extends State<LibraryPage> {
   void initState() {
     super.initState();
 
-    //checkAndRequestPermissions();
-    songs = DataModel.songs;
+    songs = [];
+    checkAndRequestPermissions();
 
   }
 
   @override
   Widget build(BuildContext context) {
+
+    songs = DataModel.songs;
 
     return Container(
       width: double.maxFinite,
@@ -93,28 +94,42 @@ class _LibraryPageState extends State<LibraryPage> {
     );
   }
 
-  // checkAndRequestPermissions({bool retry = false}) async {
-  //   // The param 'retryRequest' is false, by default.
-  //   _hasPermission = await audioQuery.checkAndRequest(
-  //     retryRequest: retry,
-  //   );
-  //
-  //   // Only call update the UI if application has all required permissions.
-  //   _hasPermission ? getSongs() : null;
-  // }
+  checkAndRequestPermissions({bool retry = false}) async {
+    // The param 'retryRequest' is false, by default.
+    _hasPermission = await audioQuery.checkAndRequest(
+      retryRequest: retry,
+    );
 
-  // void getSongs() async {
-  //
-  //   // Query Audios
-  //   List<SongModel> all = await audioQuery.querySongs();
-  //
-  //   //filter just music
-  //   for (final audio in all) {
-  //     if (audio.isMusic ?? false) {
-  //       songs.add(audio);
-  //     }
-  //   }
-  //
-  //   setState(() {});
-  // }
+    // Only call update the UI if application has all required permissions.
+    _hasPermission ? getSongs() : null;
+  }
+
+  void getSongs() async {
+
+    // Query Audios
+    List<SongModel> all = await audioQuery.querySongs();
+
+    int id = 0;
+
+    //filter just music
+    for (final audio in all) {
+      if (audio.isMusic ?? false) {
+        DataModel.songs.add(
+            Song(
+              id: id,
+              title: audio.title,
+              artist: audio.artist ?? '',
+              album: audio.album ?? '',
+              maxTime: getTimeStringFromDouble((audio.duration ?? 0.0) / 1000),
+              source: audio.uri ?? '',
+              isStatic: false,
+            )
+        );
+
+        id++;
+      }
+    }
+
+    setState(() {});
+  }
 }
