@@ -174,7 +174,7 @@ class DataModel with ChangeNotifier {
     notifyListeners();
 
     //TODO: start playing the song here:
-    player.play(UrlSource(source));
+    player.play(DeviceFileSource(source));
 
   }
 

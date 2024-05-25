@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:music_player_flutter/model/model.dart';
@@ -40,7 +42,9 @@ class PlayerControlsRow extends StatelessWidget {
             icon: openedSong.isPlaying ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
             size: 40,
             onTap: () {
-              model.playSong(listToUpdate, openedSongIndex, source: '');
+              debugPrint('audio source: ${openedSong.source}');
+
+              model.playSong(listToUpdate, openedSongIndex, source: openedSong.source);
             },
           ),
 
