@@ -107,8 +107,8 @@ class DataModel with ChangeNotifier {
   }
 
   static final List<Song> trendingMusic = [
-    _getSongById(staticSongs, 0),
     _getSongById(staticSongs, 1),
+    _getSongById(staticSongs, 2),
   ];
 
   static List<PlayList> playlists = [
