@@ -1,4 +1,6 @@
 
+import 'package:audioplayers/audioplayers.dart';
+
 class Song {
 
   final int id;
@@ -7,6 +9,7 @@ class Song {
   final String album;
   final String coverSource;
   final String maxTime;
+  final String source;
   late String currentTime;
   late bool isPlaying;
   late bool isBookmarked;
@@ -19,6 +22,7 @@ class Song {
     required this.artist,
     required this.album,
     required this.maxTime,
+    required this.source,
     this.currentTime = '0:00',
     this.isPlaying = false,
     this.isBookmarked = false,

@@ -7,14 +7,15 @@ import 'package:music_player_flutter/widgets/icon_rounded_tinted.dart';
 import 'package:music_player_flutter/widgets/player_page/player_controls_row.dart';
 import 'package:music_player_flutter/widgets/player_page/time_row.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
 
 class PlayerPage extends StatelessWidget {
 
-  final int openedSongIndex;
+  final SongModel song;
 
   const PlayerPage({
-    required this.openedSongIndex,
+    required this.song,
     super.key
   });
 
@@ -67,21 +68,14 @@ class PlayerPage extends StatelessWidget {
             child: Column(
               children: [
 
-                Consumer<DataModel>(
-                  builder: (context, model, child) =>
-                    Container(
-                      height: 350,
-                      width: 350,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            model.getSongById(openedSongIndex).coverSource,
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.circular(24.0),
-                      ),
-                    ),
+                SizedBox(
+                  height: 350,
+                  width: 350,
+                  child: QueryArtworkWidget(
+                    id: song.id,
+                    type: ArtworkType.AUDIO,
+                    //controller: audioQuery,
+                  ),
                 ),
 
                 const Gap(80.0),
@@ -97,8 +91,8 @@ class PlayerPage extends StatelessWidget {
                       Consumer<DataModel>(
                         builder: (context, model, child) =>
                           SongInfoColumn(
-                            songTitle: model.getSongById(openedSongIndex).title,
-                            artistName: model.getSongById(openedSongIndex).artist,
+                            songTitle: song.title,
+                            artistName: song.artist ?? '',
                             color: Colors.white,
                             scale: 1.2,
                           ),
@@ -114,7 +108,7 @@ class PlayerPage extends StatelessWidget {
                                   model.bookmarkSong(openedSongIndex);
                                 },
                                 icon: IconRoundedTinted(
-                                  icon: model.getSongById(openedSongIndex).isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
+                                  icon: song. ? Icons.bookmark_added : Icons.bookmark_outline,
                                   size: 20,
                                 ),
                               ),

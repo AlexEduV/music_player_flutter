@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
 class LibraryListTile extends StatelessWidget {
-  final int index;
+  final SongModel songModel;
   final String songTitle;
   final String album;
   final String artist;
@@ -11,7 +12,7 @@ class LibraryListTile extends StatelessWidget {
   final Widget cover;
 
   const LibraryListTile({
-    required this.index,
+    required this.songModel,
     required this.songTitle,
     required this.album,
     required this.artist,
@@ -30,7 +31,7 @@ class LibraryListTile extends StatelessWidget {
 
         },
         onTap: () {
-          context.goNamed('player', extra: index);
+          context.goNamed('player', extra: songModel);
         },
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),

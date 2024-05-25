@@ -67,7 +67,7 @@ class _LibraryPageState extends State<LibraryPage> {
               itemCount: songs.length,
               itemBuilder: (BuildContext context, int index) {
                 return LibraryListTile(
-                  index: index,
+                  songModel: songs[index],
                   songTitle: songs[index].title,
                   album: songs[index].album ?? '',
                   artist: songs[index].artist ?? '',

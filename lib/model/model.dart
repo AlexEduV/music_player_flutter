@@ -1,17 +1,20 @@
 //static values (ideally to be loaded via async)
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/model/song.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 
 class DataModel with ChangeNotifier {
 
   static const String _assetPath = 'assets/images';
 
   final player = AudioPlayer();
-  
-  static final List<Song> songs = [
-    
+
+  static List<Song> songs = [];
+  static List<Song> staticSongs = [
+
     Song(
       id: 1,
       title: '22',
@@ -19,6 +22,7 @@ class DataModel with ChangeNotifier {
       album: 'Red',
       coverSource: '$_assetPath/22_album_cover.jpeg',
       maxTime: '4:02',
+      source: '',
     ),
 
     Song(
@@ -28,6 +32,7 @@ class DataModel with ChangeNotifier {
       album: 'A Night At The Opera',
       coverSource: '$_assetPath/bohemian_rhapsody_album_cover.jpeg',
       maxTime: '6:03',
+      source: ''
     ),
 
     Song(
@@ -37,6 +42,7 @@ class DataModel with ChangeNotifier {
       album: 'Fearless',
       coverSource: '$_assetPath/fearless_album_cover.png',
       maxTime: '4:03',
+      source: '',
     ),
 
     Song(
@@ -46,21 +52,58 @@ class DataModel with ChangeNotifier {
       album: 'Sweetener',
       coverSource: '$_assetPath/sweetener_album_cover.png',
       maxTime: '3:26',
+      source: '',
     ),
-    
   ];
+
+  final OnAudioQuery audioQuery = OnAudioQuery();
+  late bool _hasPermission = false;
+
+  checkAndRequestPermissions({bool retry = false}) async {
+    // The param 'retryRequest' is false, by default.
+    _hasPermission = await audioQuery.checkAndRequest(
+      retryRequest: retry,
+    );
+
+    // Only call update the UI if application has all required permissions.
+    _hasPermission ? getSongs() : null;
+  }
+
+  void getSongs() async {
+
+    // Query Audios
+    List<SongModel> all = await audioQuery.querySongs();
+    int id = 0;
+
+    //filter just music
+    for (final audio in all) {
+      if (audio.isMusic ?? false) {
+
+        songs.add(
+          Song(
+            id: id,
+            title: audio.title,
+            artist: audio.artist ?? '',
+            album: audio.album ?? '',
+            maxTime: getTimeStringFromDouble((audio.duration ?? 0.0) / 1000),
+            source: audio.uri ?? '',
+          )
+        );
+      }
+    }
+  }
   
-  static Song _getSongById(int id) {
+  static Song _getSongById(List<Song> songs, int id) {
     return songs.firstWhere((element) => element.id == id);
   }
 
-  Song getSongById(int id) {
-    return _getSongById(id);
+  Song getSongById( List<Song> songs, int id) {
+    return _getSongById(songs, id);
   }
 
   static final List<Song> trendingMusic = [
-    _getSongById(1),
-    _getSongById(2),
+    _getSongById(staticSongs, 0),
+    _getSongById(staticSongs, 1),
   ];
 
   static List<PlayList> playlists = [
@@ -70,8 +113,8 @@ class DataModel with ChangeNotifier {
       coverSource: '$_assetPath/taylor_swift_cover_large.jpeg',
       songs: [
 
-        _getSongById(3),
-        _getSongById(4),
+        _getSongById(staticSongs, 3),
+        _getSongById(staticSongs, 4),
       ],
     ),
 
@@ -79,7 +122,7 @@ class DataModel with ChangeNotifier {
       name: 'Rock',
       songs: [
 
-        _getSongById(2),
+        _getSongById(staticSongs, 2),
 
       ],
     ),
@@ -110,19 +153,19 @@ class DataModel with ChangeNotifier {
   }
 
   //song control code:
-  void bookmarkSong(int id) {
-    getSongById(id).isBookmarked = !getSongById(id).isBookmarked;
+  void bookmarkSong(List<Song> songs, int id) {
+    getSongById(songs, id).isBookmarked = !getSongById(songs, id).isBookmarked;
     notifyListeners();
   }
 
-  void updateCurrentSongTime(int id, String newTime) {
-    getSongById(id).currentTime = newTime;
+  void updateCurrentSongTime(List<Song> songs, int id, String newTime) {
+    getSongById(songs, id).currentTime = newTime;
     notifyListeners();
   }
 
-  void playSong(int id, {String source = ''}) {
+  void playSong(List<Song> songs, int id, {String source = ''}) {
     //update UI
-    getSongById(id).isPlaying = !getSongById(id).isPlaying;
+    getSongById(songs, id).isPlaying = !getSongById(songs, id).isPlaying;
     notifyListeners();
 
     //TODO: start playing the song here:

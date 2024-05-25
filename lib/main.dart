@@ -5,6 +5,7 @@ import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/pages/home_page.dart';
 import 'package:music_player_flutter/pages/player_page.dart';
 import 'package:music_player_flutter/pages/playlist_details_page.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -43,10 +44,10 @@ final GoRouter _router = GoRouter(
           path: 'player',
           name: 'player',
           builder: (BuildContext context, GoRouterState state) {
-            int songIndex = state.extra as int;
+            SongModel song = state.extra as SongModel;
 
             return PlayerPage(
-              openedSongIndex: songIndex,
+              song: song,
             );
 
           },
