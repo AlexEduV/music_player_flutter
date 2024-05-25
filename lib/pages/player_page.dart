@@ -29,6 +29,8 @@ class PlayerPage extends StatelessWidget {
       context.go('/');
     }
 
+    List<Song> listToUpdate = song.isStatic ? DataModel.staticSongs : DataModel.songs;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -94,7 +96,7 @@ class PlayerPage extends StatelessWidget {
                         builder: (context, model, child) =>
                           SongInfoColumn(
                             songTitle: song.title,
-                            artistName: song.artist ?? '',
+                            artistName: song.artist,
                             color: Colors.white,
                             scale: 1.2,
                           ),
@@ -107,10 +109,10 @@ class PlayerPage extends StatelessWidget {
                             builder: (context, model, child) =>
                               IconButton(
                                 onPressed: () {
-                                  model.bookmarkSong(openedSongIndex);
+                                  model.bookmarkSong(listToUpdate, song.id);
                                 },
                                 icon: IconRoundedTinted(
-                                  icon: song. ? Icons.bookmark_added : Icons.bookmark_outline,
+                                  icon: song.isBookmarked ? Icons.bookmark_added : Icons.bookmark_outline,
                                   size: 20,
                                 ),
                               ),
@@ -138,11 +140,11 @@ class PlayerPage extends StatelessWidget {
                     builder: (context, model, child) =>
                       Slider(
                         min: 0,
-                        max: getSecondsFromTimeString(model.getSongById(openedSongIndex).maxTime),
-                        divisions: getSecondsFromTimeString(model.getSongById(openedSongIndex).maxTime).toInt(),
-                        value: getSecondsFromTimeString(model.getSongById(openedSongIndex).currentTime),
+                        max: getSecondsFromTimeString(model.getSongById(listToUpdate, song.id).maxTime),
+                        divisions: getSecondsFromTimeString(model.getSongById(listToUpdate, song.id).maxTime).toInt(),
+                        value: getSecondsFromTimeString(model.getSongById(listToUpdate, song.id).currentTime),
                         onChanged: (double newValue) {
-                          model.updateCurrentSongTime(openedSongIndex, getTimeStringFromDouble(newValue));
+                          model.updateCurrentSongTime(listToUpdate, song.id, getTimeStringFromDouble(newValue));
                         },
                       ),
                   ),
@@ -151,13 +153,13 @@ class PlayerPage extends StatelessWidget {
                 const Gap(5.0),
 
                 TimeRow(
-                  openedSongIndex: openedSongIndex,
+                  openedSongIndex: song.id,
                 ),
 
                 const Gap(10.0),
 
                 PlayerControlsRow(
-                  openedSongIndex: openedSongIndex,
+                  openedSongIndex: song.id,
                 ),
 
                 const Gap(25.0),
