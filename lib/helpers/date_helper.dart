@@ -29,7 +29,7 @@ double getSecondsFromTimeString(String time) {
 
 String getTimeStringFromDouble(double timeInSeconds) {
 
-  debugPrint('double -> time: init value: $timeInSeconds');
+  //debugPrint('double -> time: init value: $timeInSeconds');
 
   //convert to int
   int secondsInt = timeInSeconds.toInt();
@@ -51,7 +51,7 @@ String getTimeStringFromDouble(double timeInSeconds) {
 
   result += '$minutes:${seconds.toString().padLeft(2, '0')}';
 
-  debugPrint('double -> time: result: $result');
+  //debugPrint('double -> time: result: $result');
 
   return result;
 

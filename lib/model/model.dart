@@ -169,12 +169,21 @@ class DataModel with ChangeNotifier {
   }
 
   void playSong(List<Song> songs, int id, {String source = ''}) {
+
+    final a = Uri.parse(source);
+    debugPrint(a.path);
+
     //update UI
     getSongById(songs, id).isPlaying = !getSongById(songs, id).isPlaying;
-    notifyListeners();
 
-    //TODO: start playing the song here:
-    player.play(DeviceFileSource(source));
+    if (getSongById(songs, id).isPlaying) {
+
+      player.setSource(DeviceFileSource(a.path));
+      player.resume();
+
+    }
+
+    notifyListeners();
 
   }
 
