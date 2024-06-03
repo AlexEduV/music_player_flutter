@@ -1,14 +1,21 @@
 //static values (ideally to be loaded via async)
+import 'dart:io';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:lecle_flutter_absolute_path/lecle_flutter_absolute_path.dart';
 import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/model/song.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:uri_to_file/uri_to_file.dart';
 
 class DataModel with ChangeNotifier {
 
   static const String _assetPath = 'assets/images';
+
+  static const platform = MethodChannel('ua.kiev.utec.music_player');
 
   final player = AudioPlayer();
 
@@ -168,17 +175,29 @@ class DataModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void playSong(List<Song> songs, int id, {String source = ''}) {
+  void playSong(List<Song> songs, int id, {String source = ''}) async {
 
-    final a = Uri.parse(source);
-    debugPrint(a.path);
+    String path = '';
+
+    //get path (absolute) from content uri
+    if(Platform.isAndroid) {
+      path = await platform.invokeListMethod("getPathFromContentURI", <String, String> {
+        "contentURI": source,
+      }) as String;
+
+    }
+    else {
+      //TODO: if iOS
+    }
+
+    debugPrint('path: $path');
 
     //update UI
     getSongById(songs, id).isPlaying = !getSongById(songs, id).isPlaying;
 
     if (getSongById(songs, id).isPlaying) {
 
-      player.setSource(DeviceFileSource(a.path));
+      player.setSource(DeviceFileSource(path));
       player.resume();
 
     }
