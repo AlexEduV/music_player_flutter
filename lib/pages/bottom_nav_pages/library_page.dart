@@ -121,7 +121,7 @@ class _LibraryPageState extends State<LibraryPage> {
               artist: audio.artist ?? '',
               album: audio.album ?? '',
               maxTime: getTimeStringFromDouble((audio.duration ?? 0.0) / 1000),
-              source:'${audio.uri}.${audio.fileExtension}',
+              source:'${audio.uri}',
               isStatic: false,
             )
         );
