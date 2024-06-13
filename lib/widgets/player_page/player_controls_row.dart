@@ -42,7 +42,7 @@ class PlayerControlsRow extends StatelessWidget {
             onTap: () {
               debugPrint('audio source: ${openedSong.source}');
 
-              model.playSong(listToUpdate, openedSongIndex, source: openedSong.source);
+              model.playAndPauseSong(listToUpdate, openedSongIndex, source: openedSong.source);
             },
           ),
 

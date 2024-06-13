@@ -176,29 +176,14 @@ class DataModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void playSong(List<Song> songs, int id, {String source = ''}) async {
-
-    String path = '';
-
-    //get path (absolute) from content uri
-    if(Platform.isAndroid) {
-      path = await platform.invokeMethod("getPathFromContentURI", <String, String> {
-        "contentURI": source,
-      });
-
-      debugPrint('result: $path');
-
-    }
-    else {
-      //TODO: if iOS
-    }
-
-    debugPrint('path: $path');
+  void playAndPauseSong(List<Song> songs, int id, {String source = ''}) async {
 
     //update UI
     getSongById(songs, id).isPlaying = !getSongById(songs, id).isPlaying;
 
     if (getSongById(songs, id).isPlaying) {
+
+      String path = await getSongPathFromUri(source);
 
       player.setSource(DeviceFileSource(path));
       player.stop();
@@ -225,6 +210,28 @@ class DataModel with ChangeNotifier {
 
     notifyListeners();
 
+  }
+
+  Future<String> getSongPathFromUri(String uri) async {
+
+    String path = '';
+
+    //get path (absolute) from content uri
+    if(Platform.isAndroid) {
+      path = await platform.invokeMethod("getPathFromContentURI", <String, String> {
+        "contentURI": uri,
+      });
+
+      debugPrint('result: $path');
+
+    }
+    else {
+      //TODO: if iOS
+    }
+
+    debugPrint('path: $path');
+
+    return path;
   }
 
   void stopPlayer() {
