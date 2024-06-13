@@ -1,9 +1,7 @@
 
-import 'package:flutter/widgets.dart';
-
 double getSecondsFromTimeString(String time) {
 
-  debugPrint('time -> double: init value: $time');
+  //debugPrint('time -> double: init value: $time');
 
   //convert string to list
   List<String> timeSplit = time.split(':');
@@ -22,7 +20,7 @@ double getSecondsFromTimeString(String time) {
     throw Exception('Invalid Time: $time');
   }
 
-  debugPrint('time -> double: result: $result');
+  //debugPrint('time -> double: result: $result');
 
   return result;
 }
