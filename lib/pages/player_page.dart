@@ -26,6 +26,11 @@ class PlayerPage extends StatelessWidget {
 
     //functions
     void onBackPressed(BuildContext context) {
+
+      //stop player
+      DataModel().stopPlayer();
+
+      //navigate back
       context.go('/');
     }
 

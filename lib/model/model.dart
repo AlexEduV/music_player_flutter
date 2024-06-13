@@ -223,5 +223,12 @@ class DataModel with ChangeNotifier {
 
   }
 
+  void stopPlayer() {
+
+    player.stop();
+
+    positionSubscription?.cancel();
+  }
+
 
 }
