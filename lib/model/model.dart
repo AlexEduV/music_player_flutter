@@ -91,6 +91,10 @@ class DataModel with ChangeNotifier {
     for (final audio in all) {
       if (audio.isMusic ?? false) {
 
+        debugPrint('library data:');
+        debugPrint(audio.data);
+        debugPrint(audio.uri);
+
         songs.add(
           Song(
             id: id,
@@ -222,7 +226,7 @@ class DataModel with ChangeNotifier {
       path = await platform.invokeMethod("getPathFromContentURI", <String, String> {
         "contentURI": uri,
       });
-      
+
     }
     else {
       //TODO: if iOS
@@ -233,9 +237,12 @@ class DataModel with ChangeNotifier {
     return path;
   }
 
-  void stopPlayer() {
+  void stopPlayer(List<Song> songs, int id) {
 
     player.stop();
+
+    getSongById(songs, id).isPlaying = false;
+    getSongById(songs, id).currentTime = '0:00';
 
     positionSubscription?.cancel();
   }

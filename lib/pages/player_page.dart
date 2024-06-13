@@ -24,16 +24,6 @@ class PlayerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    //functions
-    void onBackPressed(BuildContext context) {
-
-      //stop player
-      DataModel().stopPlayer();
-
-      //navigate back
-      context.go('/');
-    }
-
     List<Song> listToUpdate = song.isStatic ? DataModel.staticSongs : DataModel.songs;
 
     return Scaffold(
@@ -42,12 +32,21 @@ class PlayerPage extends StatelessWidget {
         foregroundColor: Colors.white,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () => onBackPressed(context),
-          icon: const IconRoundedTinted(
-            icon: Icons.arrow_back_ios_rounded,
-            size: 25,
-          ),
+        leading: Consumer<DataModel>(
+          builder: (context, model, child) =>
+            IconButton(
+              onPressed: () {
+                //stop the player
+                model.stopPlayer(listToUpdate, song.id);
+
+                //navigate back
+                context.go('/');
+              },
+              icon: const IconRoundedTinted(
+                icon: Icons.arrow_back_ios_rounded,
+                size: 25,
+              ),
+            ),
         ),
       ),
       body: Stack(
