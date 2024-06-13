@@ -18,6 +18,7 @@ class DataModel with ChangeNotifier {
 
   final player = AudioPlayer();
   StreamSubscription? positionSubscription;
+  static bool isSearching = false;
 
   static List<Song> songs = [];
   static List<Song> staticSongs = [
@@ -207,10 +208,14 @@ class DataModel with ChangeNotifier {
       player.resume();
 
       positionSubscription = player.onPositionChanged.listen((duration) {
-        getSongById(songs, id).currentTime = getTimeStringFromDouble(duration.inSeconds.toDouble());
-        debugPrint('currentTime: ${getSongById(songs, id).currentTime}');
 
-        notifyListeners();
+        if (!isSearching) {
+          getSongById(songs, id).currentTime = getTimeStringFromDouble(duration.inSeconds.toDouble());
+          debugPrint('currentTime: ${getSongById(songs, id).currentTime}');
+
+          notifyListeners();
+        }
+        
       });
 
     }

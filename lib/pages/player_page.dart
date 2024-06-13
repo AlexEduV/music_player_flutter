@@ -150,7 +150,12 @@ class PlayerPage extends StatelessWidget {
                         onChanged: (double newValue) {
                           model.updateCurrentSongTime(listToUpdate, song.id, getTimeStringFromDouble(newValue));
                         },
+                        onChangeStart: (_) {
+                          DataModel.isSearching = true;
+                        },
                         onChangeEnd: (double value) {
+                          DataModel.isSearching = false;
+
                           model.seekPosition(value);
                         },
                       ),
