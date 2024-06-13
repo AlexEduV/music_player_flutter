@@ -17,11 +17,13 @@ class MainActivity: FlutterActivity() {
 
             //functions here
             fun getRealPathFromURI(context: Context, contentUri: Uri): String {
+                val column = MediaStore.Audio.Media.DATA
+
                 var cursor: Cursor? = null
                 try {
-                    val proj: Array<String> = arrayOf( MediaStore.Images.Media.DATA )
+                    val proj: Array<String> = Array(1){ column }
                     cursor = context.contentResolver.query(contentUri,  proj, null, null, null)
-                    val columnIndex: Int = cursor?.getColumnIndex(MediaStore.Images.Media.DATA) ?: 0
+                    val columnIndex: Int = cursor?.getColumnIndex(column) ?: 0
                     cursor?.moveToFirst()
                     return cursor?.getString(columnIndex) ?: ""
                 } catch (e: Exception) {

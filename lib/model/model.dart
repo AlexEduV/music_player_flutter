@@ -181,9 +181,13 @@ class DataModel with ChangeNotifier {
 
     //get path (absolute) from content uri
     if(Platform.isAndroid) {
-      path = await platform.invokeListMethod("getPathFromContentURI", <String, String> {
+      var pathUrl = await platform.invokeMethod("getPathFromContentURI", <String, String> {
         "contentURI": source,
-      }) as String;
+      });
+
+      debugPrint('result: $pathUrl');
+
+      path = pathUrl;
 
     }
     else {
