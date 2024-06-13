@@ -23,7 +23,6 @@ class PlayerControlsRow extends StatelessWidget {
   Widget build(BuildContext context) {
 
     DataModel model = context.watch<DataModel>();
-
     Song openedSong = model.getSongById(listToUpdate, openedSongIndex);
 
     return Container(

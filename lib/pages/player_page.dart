@@ -78,7 +78,6 @@ class PlayerPage extends StatelessWidget {
                   child: QueryArtworkWidget(
                     id: song.id,
                     type: ArtworkType.AUDIO,
-                    //controller: audioQuery,
                   ),
                 ),
 

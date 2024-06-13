@@ -1,4 +1,5 @@
 //static values (ideally to be loaded via async)
+import 'dart:async';
 import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -16,6 +17,7 @@ class DataModel with ChangeNotifier {
   static const platform = MethodChannel('ua.kiev.utec.music_player');
 
   final player = AudioPlayer();
+  StreamSubscription? durationSubscription;
 
   static List<Song> songs = [];
   static List<Song> staticSongs = [
@@ -203,6 +205,11 @@ class DataModel with ChangeNotifier {
       player.stop();
 
       player.resume();
+
+      durationSubscription = player.onDurationChanged.listen((duration) {
+        getSongById(songs, id).currentTime = getTimeStringFromDouble(duration.inSeconds as double);
+        notifyListeners();
+      });
 
     }
     else {
