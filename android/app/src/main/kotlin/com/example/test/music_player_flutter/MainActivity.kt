@@ -19,7 +19,7 @@ class MainActivity: FlutterActivity() {
             fun getRealPathFromURI(context: Context, contentUri: Uri): String {
                 var cursor: Cursor? = null
                 try {
-                    val proj: Array<String> = { MediaStore.Images.Media.DATA } as Array<String>
+                    val proj: Array<String> = arrayOf( MediaStore.Images.Media.DATA )
                     cursor = context.contentResolver.query(contentUri,  proj, null, null, null)
                     val columnIndex: Int = cursor?.getColumnIndex(MediaStore.Images.Media.DATA) ?: 0
                     cursor?.moveToFirst()
