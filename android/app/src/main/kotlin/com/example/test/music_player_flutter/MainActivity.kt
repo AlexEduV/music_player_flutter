@@ -1,21 +1,15 @@
 package com.example.test.music_player_flutter
 
+import android.content.ContentValues.TAG
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.Network
-import android.net.NetworkCapabilities
-import android.net.NetworkRequest
-import android.net.wifi.SupplicantState
-import android.net.wifi.WifiInfo
-import android.net.wifi.WifiManager
-import android.net.wifi.WifiNetworkSpecifier
-import android.os.Build
+import android.database.Cursor
+import android.net.Uri
+import android.provider.MediaStore
 import android.util.Log
-import androidx.annotation.NonNull
-import androidx.annotation.RequiresApi
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
+import kotlin.math.abs
 
 class MainActivity: FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -23,13 +17,33 @@ class MainActivity: FlutterActivity() {
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "ua.kiev.utec.music_player").setMethodCallHandler { call, result ->
 
             //functions here
-            fun getPathFromContentURI(contentUri: String?) {
+            fun getRealPathFromURI(context: Context, contentUri: Uri): String {
+                var cursor: Cursor? = null
+                try {
+                    val proj: Array<String> = { MediaStore.Images.Media.DATA } as Array<String>
+                    cursor = context.contentResolver.query(contentUri,  proj, null, null, null)
+                    val columnIndex: Int = cursor?.getColumnIndex(MediaStore.Images.Media.DATA) ?: 0
+                    cursor?.moveToFirst()
+                    return cursor?.getString(columnIndex) ?: ""
+                } catch (e: Exception) {
+                    Log.e(TAG, "getRealPathFromURI Exception : $e")
+                    return ""
+                } finally {
+                    cursor?.close()
+                }
+            }
 
-                val path = ""
 
+            fun getPathFromContentURI(contentUri: String) {
 
+                var absolutePath = ""
 
-                result.success(path)
+                val context: Context = this.applicationContext
+                val uri: Uri = Uri.parse(contentUri)
+
+                absolutePath = getRealPathFromURI(context, uri)
+
+                result.success(absolutePath)
 
             }
 
