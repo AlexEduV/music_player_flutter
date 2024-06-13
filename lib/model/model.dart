@@ -17,7 +17,7 @@ class DataModel with ChangeNotifier {
   static const platform = MethodChannel('ua.kiev.utec.music_player');
 
   final player = AudioPlayer();
-  StreamSubscription? durationSubscription;
+  StreamSubscription? positionSubscription;
 
   static List<Song> songs = [];
   static List<Song> staticSongs = [
@@ -206,14 +206,17 @@ class DataModel with ChangeNotifier {
 
       player.resume();
 
-      durationSubscription = player.onDurationChanged.listen((duration) {
-        getSongById(songs, id).currentTime = getTimeStringFromDouble(duration.inSeconds as double);
+      positionSubscription = player.onPositionChanged.listen((duration) {
+        getSongById(songs, id).currentTime = getTimeStringFromDouble(duration.inSeconds.toDouble());
+        debugPrint('currentTime: ${getSongById(songs, id).currentTime}');
+
         notifyListeners();
       });
 
     }
     else {
       player.pause();
+      positionSubscription?.cancel();
     }
 
     notifyListeners();
