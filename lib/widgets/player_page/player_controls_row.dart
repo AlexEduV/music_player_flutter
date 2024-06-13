@@ -24,7 +24,6 @@ class PlayerControlsRow extends StatelessWidget {
 
     DataModel model = context.watch<DataModel>();
 
-
     Song openedSong = model.getSongById(listToUpdate, openedSongIndex);
 
     return Container(

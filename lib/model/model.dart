@@ -4,12 +4,10 @@ import 'dart:io';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:lecle_flutter_absolute_path/lecle_flutter_absolute_path.dart';
 import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/model/song.dart';
 import 'package:on_audio_query/on_audio_query.dart';
-import 'package:uri_to_file/uri_to_file.dart';
 
 class DataModel with ChangeNotifier {
 
@@ -202,8 +200,13 @@ class DataModel with ChangeNotifier {
     if (getSongById(songs, id).isPlaying) {
 
       player.setSource(DeviceFileSource(path));
+      player.stop();
+
       player.resume();
 
+    }
+    else {
+      player.pause();
     }
 
     notifyListeners();
