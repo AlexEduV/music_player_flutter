@@ -114,7 +114,7 @@ class DataModel with ChangeNotifier {
     return songs.firstWhere((element) => element.id == id);
   }
 
-  Song getSongById( List<Song> songs, int id) {
+  Song getSongById(List<Song> songs, int id) {
     return _getSongById(songs, id);
   }
 
