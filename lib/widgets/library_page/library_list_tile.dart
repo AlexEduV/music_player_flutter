@@ -5,19 +5,11 @@ import 'package:go_router/go_router.dart';
 import '../../model/song.dart';
 
 class LibraryListTile extends StatelessWidget {
-  final Song openedSong;
-  final String songTitle;
-  final String album;
-  final String artist;
-  final String maxTime;
+  final Song song;
   final Widget cover;
 
   const LibraryListTile({
-    required this.openedSong,
-    required this.songTitle,
-    required this.album,
-    required this.artist,
-    required this.maxTime,
+    required this.song,
     required this.cover,
     super.key,
   });
@@ -32,7 +24,7 @@ class LibraryListTile extends StatelessWidget {
 
         },
         onTap: () {
-          context.goNamed('player', extra: openedSong);
+          context.goNamed('player', extra: song);
         },
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
@@ -53,7 +45,7 @@ class LibraryListTile extends StatelessWidget {
 
                     //name text
                     Text(
-                      songTitle,
+                      song.title,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -65,7 +57,7 @@ class LibraryListTile extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          artist,
+                          song.artist,
                           style: const TextStyle(
                             fontSize: 12,
                             color: Colors.white,
@@ -82,7 +74,7 @@ class LibraryListTile extends StatelessWidget {
 
               //more button
               Text(
-                maxTime,
+                song.maxTime,
                 style: const TextStyle(
                   fontSize: 12,
                   color: Colors.white,

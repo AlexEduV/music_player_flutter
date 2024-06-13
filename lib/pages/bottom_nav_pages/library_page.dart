@@ -73,12 +73,9 @@ class _LibraryPageState extends State<LibraryPage> {
             child: ListView.builder(
               itemCount: songs.length,
               itemBuilder: (BuildContext context, int index) {
+
                 return LibraryListTile(
-                  openedSong: songs[index],
-                  songTitle: songs[index].title,
-                  album: songs[index].album,
-                  artist: songs[index].artist,
-                  maxTime: songs[index].maxTime,
+                  song: songs[index],
                   cover: QueryArtworkWidget(
                     id: songs[index].id,
                     type: ArtworkType.AUDIO,
