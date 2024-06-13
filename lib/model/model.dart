@@ -230,5 +230,9 @@ class DataModel with ChangeNotifier {
     positionSubscription?.cancel();
   }
 
+  void seekPosition(double value) {
+    player.seek(Duration(seconds: value.toInt()));
+  }
+
 
 }
