@@ -186,8 +186,8 @@ class DataModel with ChangeNotifier {
       String path = await getSongPathFromUri(source);
 
       player.setSource(DeviceFileSource(path));
-      player.stop();
 
+      player.stop();
       player.resume();
 
       positionSubscription = player.onPositionChanged.listen((duration) {
@@ -218,12 +218,11 @@ class DataModel with ChangeNotifier {
 
     //get path (absolute) from content uri
     if(Platform.isAndroid) {
+
       path = await platform.invokeMethod("getPathFromContentURI", <String, String> {
         "contentURI": uri,
       });
-
-      debugPrint('result: $path');
-
+      
     }
     else {
       //TODO: if iOS
