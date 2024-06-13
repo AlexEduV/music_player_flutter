@@ -182,13 +182,11 @@ class DataModel with ChangeNotifier {
 
     //get path (absolute) from content uri
     if(Platform.isAndroid) {
-      var pathUrl = await platform.invokeMethod("getPathFromContentURI", <String, String> {
+      path = await platform.invokeMethod("getPathFromContentURI", <String, String> {
         "contentURI": source,
       });
 
-      debugPrint('result: $pathUrl');
-
-      path = pathUrl;
+      debugPrint('result: $path');
 
     }
     else {
@@ -215,12 +213,13 @@ class DataModel with ChangeNotifier {
 
           notifyListeners();
         }
-        
+
       });
 
     }
     else {
       player.pause();
+
       positionSubscription?.cancel();
     }
 
