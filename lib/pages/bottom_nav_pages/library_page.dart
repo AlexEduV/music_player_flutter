@@ -7,7 +7,7 @@ import 'package:music_player_flutter/widgets/library_page/library_list_tile.dart
 
 import 'package:on_audio_query/on_audio_query.dart';
 
-import '../../model/song.dart';
+import 'package:music_player_flutter/model/song.dart';
 
 class LibraryPage extends StatefulWidget {
   const LibraryPage({super.key});
@@ -112,15 +112,15 @@ class _LibraryPageState extends State<LibraryPage> {
     for (final audio in all) {
       if (audio.isMusic ?? false) {
         DataModel.songs.add(
-            Song(
-              id: id,
-              title: audio.title,
-              artist: audio.artist ?? '',
-              album: audio.album ?? '',
-              maxTime: getTimeStringFromDouble((audio.duration ?? 0.0) / 1000),
-              source:'${audio.uri}',
-              isStatic: false,
-            )
+          Song(
+            id: id,
+            title: audio.title,
+            artist: audio.artist ?? '',
+            album: audio.album ?? '',
+            maxTime: getTimeStringFromDouble((audio.duration ?? 0.0) / 1000),
+            source:'${audio.uri}',
+            isStatic: false,
+          )
         );
 
         id++;
