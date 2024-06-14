@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:music_player_flutter/helpers/color_helper.dart';
 import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/pages/home_page.dart';
 import 'package:music_player_flutter/pages/player_page.dart';
@@ -73,7 +74,7 @@ class MyApp extends StatelessWidget {
       routerConfig: _router,
       title: 'Flutter Music Player',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: ColorHelper.mainColor),
         useMaterial3: true,
         sliderTheme: SliderThemeData(
           overlayShape: SliderComponentShape.noOverlay,

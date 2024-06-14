@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:music_player_flutter/helpers/color_helper.dart';
 import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/widgets/library_page/library_list_tile.dart';
@@ -46,8 +47,8 @@ class _LibraryPageState extends State<LibraryPage> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color(0xff462276),
-            Color(0xff7A558C),
+            ColorHelper.mainColor,
+            ColorHelper.mainLighterColor,
           ],
         ),
       ),

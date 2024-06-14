@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:music_player_flutter/helpers/color_helper.dart';
 import 'package:music_player_flutter/helpers/text_helper.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
@@ -18,7 +19,7 @@ class PlaylistListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: BorderRadius.circular(12.0),
-      color: const Color(0xff462276).withOpacity(0.5),
+      color: ColorHelper.mainColor.withOpacity(0.5),
       child: InkWell(
         borderRadius: BorderRadius.circular(12.0),
         onTap: onItemTap,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_flutter/helpers/color_helper.dart';
 
 class BottomSheetTile extends StatelessWidget {
   final String label;
@@ -27,7 +28,7 @@ class BottomSheetTile extends StatelessWidget {
               Text(
                 label,
                 style: const TextStyle(
-                  color: Color(0xff462276),
+                  color: ColorHelper.mainColor,
                   fontSize: 18,
                 ),
               ),
@@ -35,7 +36,7 @@ class BottomSheetTile extends StatelessWidget {
               Icon(
                 icon,
                 size: 25,
-                color: const Color(0xff462276),
+                color: ColorHelper.mainColor,
               )
             ],
           ),

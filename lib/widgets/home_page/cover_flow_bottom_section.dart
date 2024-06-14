@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_flutter/helpers/color_helper.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
 
@@ -55,7 +56,7 @@ class CoverFlowBottomSection extends StatelessWidget {
 
                 //play/pause button
                 const PlayButton(
-                  color: Color(0xff462276),
+                  color: ColorHelper.mainColor,
                   size: 20,
                 ),
 

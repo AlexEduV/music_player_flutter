@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_flutter/helpers/color_helper.dart';
 
 class SongInfoColumn extends StatelessWidget {
 
@@ -11,7 +12,7 @@ class SongInfoColumn extends StatelessWidget {
     super.key,
     required this.songTitle,
     required this.artistName,
-    this.color = const Color(0xff462276),
+    this.color = ColorHelper.mainColor,
     this.scale = 1,
   });
 

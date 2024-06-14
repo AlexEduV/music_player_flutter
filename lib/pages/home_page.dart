@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_flutter/helpers/color_helper.dart';
 import 'package:music_player_flutter/pages/bottom_nav_pages/library_page.dart';
 
 import 'package:music_player_flutter/widgets/home_page/bottom_nav_bar_icon.dart';
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             _selectedBottomNavigationIndex = index;
           });
         },
-        backgroundColor: const Color(0xff462276),
+        backgroundColor: ColorHelper.mainColor,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white54,
         type: BottomNavigationBarType.fixed,
