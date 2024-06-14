@@ -107,6 +107,7 @@ class _LibraryPageState extends State<LibraryPage> {
     // Query Audios
     List<SongModel> all = await audioQuery.querySongs();
 
+    DataModel.songs = [];
     int id = 0;
 
     //filter just music
