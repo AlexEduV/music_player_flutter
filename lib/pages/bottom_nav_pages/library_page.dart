@@ -75,8 +75,18 @@ class _LibraryPageState extends State<LibraryPage> {
                   song: songs[index],
                   cover: QueryArtworkWidget(
                     id: songs[index].id,
-                    type: ArtworkType.AUDIO,
+                    type: ArtworkType.ALBUM,
                     controller: audioQuery,
+                    nullArtworkWidget: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        image: const DecorationImage(
+                          image: AssetImage('assets/images/album_cover_placeholder.png'),
+                        )
+                      ),
+                    ),
                   ),
                 );
               },
