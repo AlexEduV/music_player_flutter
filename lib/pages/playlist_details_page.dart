@@ -40,7 +40,7 @@ class PlaylistDetailsPage extends StatelessWidget {
             return Container(
               margin: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 12.0,),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.0)
+                borderRadius: BorderRadius.circular(16.0),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -158,7 +158,7 @@ class PlaylistDetailsPage extends StatelessWidget {
                                   width: 20,
                                   height: 20,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xff7A558C),
+                                    color: ColorHelper.mainLighterColor,
                                     borderRadius: BorderRadius.circular(64.0),
                                   ),
                                   child: const Icon(
@@ -187,7 +187,7 @@ class PlaylistDetailsPage extends StatelessWidget {
                           Expanded(
                             child: Material(
                               borderRadius: BorderRadius.circular(32.0),
-                              color: const Color(0xff6D4A98),
+                              color: ColorHelper.mainLighterColor,
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(32.0),
                                 onTap: () {
@@ -251,11 +251,7 @@ class PlaylistDetailsPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return SongListTile(
                         index: index,
-                        songTitle: playList.songs[index].title,
-                        album: playList.songs[index].album,
-                        artist: playList.songs[index].artist,
-                        maxTime: playList.songs[index].maxTime,
-                        coverSource: playList.songs[index].coverSource,
+                        song: playList.songs[index],
                       );
                     },
                   ),

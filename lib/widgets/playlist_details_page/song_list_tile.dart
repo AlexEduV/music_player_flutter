@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import 'package:music_player_flutter/model/song.dart';
+
 class SongListTile extends StatelessWidget {
   final int index;
-  final String songTitle;
-  final String album;
-  final String artist;
-  final String maxTime;
-  final String coverSource;
+  final Song song;
 
   const SongListTile({
     required this.index,
-    required this.songTitle,
-    required this.album,
-    required this.artist,
-    required this.maxTime,
-    required this.coverSource,
+    required this.song,
     super.key,
   });
 
@@ -42,7 +36,7 @@ class SongListTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12.0),
                   image: DecorationImage(
                     image: AssetImage(
-                      coverSource,
+                      song.coverSource,
                     ),
                   ),
                 ),
@@ -58,7 +52,7 @@ class SongListTile extends StatelessWidget {
 
                     //name text
                     Text(
-                      songTitle,
+                      song.title,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -70,7 +64,7 @@ class SongListTile extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          artist,
+                          song.artist,
                           style: const TextStyle(
                             fontSize: 12,
                             color: Colors.white,
@@ -87,7 +81,7 @@ class SongListTile extends StatelessWidget {
 
               //more button
               Text(
-                maxTime,
+                song.maxTime,
                 style: const TextStyle(
                   fontSize: 12,
                   color: Colors.white,
