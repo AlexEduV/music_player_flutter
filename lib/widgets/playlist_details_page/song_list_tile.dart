@@ -4,11 +4,9 @@ import 'package:gap/gap.dart';
 import 'package:music_player_flutter/model/song.dart';
 
 class SongListTile extends StatelessWidget {
-  final int index;
   final Song song;
 
   const SongListTile({
-    required this.index,
     required this.song,
     super.key,
   });

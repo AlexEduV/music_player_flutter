@@ -250,7 +250,6 @@ class PlaylistDetailsPage extends StatelessWidget {
                     itemCount: playList.length,
                     itemBuilder: (context, index) {
                       return SongListTile(
-                        index: index,
                         song: playList.songs[index],
                       );
                     },
