@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:music_player_flutter/helpers/color_helper.dart';
+import 'package:music_player_flutter/style/color_helper.dart';
 import 'package:music_player_flutter/helpers/text_helper.dart';
 import 'package:music_player_flutter/model/play_list.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';

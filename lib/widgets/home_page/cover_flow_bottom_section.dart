@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_flutter/helpers/color_helper.dart';
+import 'package:music_player_flutter/style/color_helper.dart';
 import 'package:music_player_flutter/widgets/play_button.dart';
 import 'package:music_player_flutter/widgets/song_info_column.dart';
 
