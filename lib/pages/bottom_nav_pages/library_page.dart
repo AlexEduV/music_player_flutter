@@ -5,6 +5,7 @@ import 'package:music_player_flutter/style/color_helper.dart';
 import 'package:music_player_flutter/helpers/date_helper.dart';
 import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/widgets/library_page/library_list_tile.dart';
+import 'package:music_player_flutter/widgets/page_title.dart';
 
 import 'package:on_audio_query/on_audio_query.dart';
 
@@ -60,13 +61,8 @@ class _LibraryPageState extends State<LibraryPage> {
 
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
-            child: Text(
-              'Library',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 26,
-              ),
+            child: PageTitle(
+              title: 'Library',
             ),
           ),
 

@@ -7,6 +7,7 @@ import 'package:music_player_flutter/model/model.dart';
 import 'package:music_player_flutter/widgets/home_page/cover_flow_bottom_section.dart';
 import 'package:music_player_flutter/widgets/home_page/page_section.dart';
 import 'package:music_player_flutter/widgets/home_page/playlist_list_tile.dart';
+import 'package:music_player_flutter/widgets/page_title.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -53,13 +54,8 @@ class DashboardPage extends StatelessWidget {
                 children: [
 
                   //welcome text
-                  Text(
-                    'Home',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 26,
-                    ),
+                  PageTitle(
+                    title: 'Home',
                   ),
 
                   //profile button
