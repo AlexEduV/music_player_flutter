@@ -75,11 +75,11 @@ class _LibraryPageState extends State<LibraryPage> {
                   song: songs[index],
                   cover: QueryArtworkWidget(
                     id: songs[index].id,
-                    type: ArtworkType.ALBUM,
+                    type: ArtworkType.AUDIO,
                     controller: audioQuery,
                     nullArtworkWidget: Container(
-                      height: 40,
-                      width: 40,
+                      height: 50,
+                      width: 50,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),
                         image: const DecorationImage(
